@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Natalia's Flying Journey</title>
+<meta name="description" content="A cabin crew log of every flight, route and duty day &mdash; Natalia's Flying Journey with Air New Zealand.">
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink-navy: #101d30;
+    --ink-navy-deep: #0a1422;
+    --paper: #f4efe3;
+    --paper-soft: #faf7ef;
+    --teal: #3f8f8a;
+    --teal-bright: #57ada7;
+    --brass: #c69a3f;
+    --slate: #8a93a6;
+    --slate-dark: #4a5266;
+    --line: rgba(244,239,227,0.18);
+    --max-w: 1080px;
+  }
+
+  *{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--ink-navy);
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  a{ color: inherit; }
+
+  .eyebrow{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  h1, h2{
+    font-family: 'Fraunces', serif;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  /* ================= HERO ================= */
+
+  .hero{
+    position: relative;
+    background:
+      radial-gradient(ellipse 120% 60% at 50% 0%, #1a2c47 0%, var(--ink-navy) 45%, var(--ink-navy-deep) 100%);
+    color: var(--paper-soft);
+    padding: 4.5rem 1.5rem 7rem;
+    overflow: hidden;
+  }
+
+  .hero::before{
+    /* scattered stars */
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(1.5px 1.5px at 12% 22%, rgba(244,239,227,0.55), transparent),
+      radial-gradient(1.5px 1.5px at 28% 8%, rgba(244,239,227,0.4), transparent),
+      radial-gradient(1px 1px at 42% 32%, rgba(244,239,227,0.5), transparent),
+      radial-gradient(1.5px 1.5px at 63% 14%, rgba(244,239,227,0.45), transparent),
+      radial-gradient(1px 1px at 78% 26%, rgba(244,239,227,0.4), transparent),
+      radial-gradient(1.5px 1.5px at 88% 10%, rgba(244,239,227,0.5), transparent),
+      radial-gradient(1px 1px at 95% 40%, rgba(244,239,227,0.35), transparent),
+      radial-gradient(1.5px 1.5px at 8% 45%, rgba(244,239,227,0.3), transparent),
+      radial-gradient(1px 1px at 55% 5%, rgba(244,239,227,0.4), transparent);
+    pointer-events: none;
+  }
+
+  .hero-inner{
+    position: relative;
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  .hero .eyebrow{
+    color: var(--teal-bright);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .hero .eyebrow::before{
+    content: "";
+    width: 26px;
+    height: 1px;
+    background: var(--teal-bright);
+    display: inline-block;
+  }
+
+  .hero h1{
+    font-size: clamp(2.6rem, 7vw, 4.6rem);
+    font-weight: 500;
+    margin-top: 1.1rem;
+    max-width: 14ch;
+  }
+
+  .hero h1 em{
+    font-style: italic;
+    font-weight: 400;
+    color: var(--teal-bright);
+  }
+
+  .hero p.lede{
+    margin-top: 1.4rem;
+    max-width: 46ch;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: rgba(244,239,227,0.72);
+  }
+
+  /* Flight path arc across hero */
+  .flight-arc{
+    position: absolute;
+    top: 8%;
+    right: -6%;
+    width: 62%;
+    max-width: 560px;
+    opacity: 0.9;
+  }
+
+  @keyframes fly-along{
+    from{ offset-distance: 0%; }
+    to{ offset-distance: 100%; }
+  }
+
+  .plane-marker{
+    offset-path: path("M10,140 C120,10 260,10 400,80 S560,190 610,60");
+    animation: fly-along 9s linear infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .plane-marker{ animation: none; offset-distance: 62%; }
+  }
+
+  /* ================= BOARDING PASS (signature element) ================= */
+
+  .pass-wrap{
+    position: relative;
+    max-width: 640px;
+    margin: 3.2rem auto 0;
+  }
+
+  .pass{
+    display: grid;
+    grid-template-columns: 1fr 150px;
+    background: var(--paper-soft);
+    color: var(--ink-navy);
+    border-radius: 14px;
+    box-shadow: 0 30px 60px -20px rgba(4,10,20,0.55);
+    overflow: hidden;
+  }
+
+  .pass-main{
+    padding: 1.9rem 1.8rem;
+    position: relative;
+  }
+
+  .pass-main::after{
+    content:"";
+    position:absolute;
+    top:10px; bottom:10px; right:0;
+    border-right: 2px dashed rgba(16,29,48,0.18);
+  }
+
+  .pass-row{
+    display:flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .pass-field .k{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--slate);
+    display:block;
+    margin-bottom: 0.25rem;
+  }
+
+  .pass-field .v{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink-navy);
+  }
+
+  .pass-route{
+    display:flex;
+    align-items:center;
+    gap: 0.7rem;
+    margin: 1.3rem 0 0.4rem;
+  }
+
+  .pass-route .code{
+    font-family: 'Fraunces', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+
+  .pass-route svg{ flex-shrink:0; }
+
+  .pass-route .route-line{
+    flex:1;
+    height:1px;
+    background: repeating-linear-gradient(to right, var(--slate) 0 6px, transparent 6px 12px);
+    position: relative;
+  }
+
+  .pass-stub{
+    background: var(--ink-navy);
+    color: var(--paper-soft);
+    padding: 1.9rem 1.2rem;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+  }
+
+  .pass-stub .k{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal-bright);
+  }
+
+  .pass-stub .stub-big{
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin: 0.35rem 0 1rem;
+  }
+
+  .barcode{
+    width: 100%;
+    height: 34px;
+    background: repeating-linear-gradient(
+      to right,
+      var(--paper-soft) 0 2px, transparent 2px 3px,
+      var(--paper-soft) 3px 4px, transparent 4px 7px,
+      var(--paper-soft) 7px 9px, transparent 9px 10px
+    );
+    opacity: 0.85;
+  }
+
+  .pass-notch{
+    position:absolute;
+    width:22px; height:22px;
+    background: var(--paper);
+    border-radius: 50%;
+  }
+  .pass-notch.left{ left: calc(100% - 150px - 11px); top:-11px; }
+  .pass-notch.right{ left: calc(100% - 150px - 11px); bottom:-11px; }
+
+  @media (max-width: 560px){
+    .pass{ grid-template-columns: 1fr; }
+    .pass-main::after{ display:none; border-bottom: 2px dashed rgba(16,29,48,0.18); border-right:none; top:auto; left:10px; right:10px; bottom:0; }
+    .pass-notch{ display:none; }
+    .pass-stub{ flex-direction: row; justify-content: space-between; align-items:center; }
+    .barcode{ display:none; }
+  }
+
+  /* ================= SECTIONS ================= */
+
+  section{
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 4.5rem 1.5rem;
+  }
+
+  .intro{
+    display:grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  .intro .eyebrow{ color: var(--teal); }
+
+  .intro h2{
+    font-size: clamp(1.7rem, 3.5vw, 2.2rem);
+    font-weight: 500;
+    margin-top: 0.8rem;
+    line-height: 1.15;
+  }
+
+  .intro p{
+    font-size: 1.02rem;
+    line-height: 1.75;
+    color: var(--slate-dark);
+    margin: 0 0 1rem;
+  }
+
+  .intro p:last-child{ margin-bottom: 0; }
+
+  @media (max-width: 760px){
+    .intro{ grid-template-columns: 1fr; }
+  }
+
+  /* divider */
+  .divider{
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  .divider svg{ width:100%; height:auto; display:block; }
+
+  /* dashboard frame */
+  .dashboard-section .head{
+    text-align:center;
+    margin-bottom: 2.2rem;
+  }
+  .dashboard-section .eyebrow{ color: var(--teal); justify-content:center; }
+  .dashboard-section .eyebrow::before{ display:none; }
+  .dashboard-section h2{
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 500;
+    margin-top: 0.6rem;
+  }
+  .dashboard-section p.sub{
+    color: var(--slate-dark);
+    max-width: 50ch;
+    margin: 0.8rem auto 0;
+    line-height: 1.6;
+  }
+
+  .dashboard-frame{
+    margin-top: 2.5rem;
+    background: var(--ink-navy);
+    border-radius: 18px;
+    padding: 0.6rem;
+    box-shadow: 0 40px 80px -30px rgba(16,29,48,0.35);
+  }
+
+  .dashboard-frame .bar{
+    display:flex;
+    align-items:center;
+    gap: 0.4rem;
+    padding: 0.6rem 0.7rem 0.9rem;
+  }
+
+  .dashboard-frame .dot{
+    width:9px; height:9px; border-radius:50%;
+    background: rgba(244,239,227,0.25);
+  }
+
+  .dashboard-frame iframe{
+    width: 100%;
+    aspect-ratio: 600 / 373.5;
+    height: auto;
+    border: none;
+    border-radius: 10px;
+    display: block;
+    background: var(--paper-soft);
+  }
+
+  .dashboard-note{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--slate);
+    text-align:center;
+    margin-top: 0.9rem;
+  }
+
+  /* ================= FOOTER ================= */
+
+  footer{
+    background: var(--ink-navy-deep);
+    color: rgba(244,239,227,0.65);
+    padding: 3.5rem 1.5rem 2.5rem;
+    text-align:center;
+  }
+
+  footer .quote{
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: clamp(1.2rem, 2.6vw, 1.6rem);
+    color: var(--paper-soft);
+    max-width: 32ch;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+  footer .quote-mark{
+    color: var(--teal-bright);
+    font-family: 'Fraunces', serif;
+    font-size: 2rem;
+    display:block;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+
+  footer .credit{
+    margin-top: 2.2rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    color: var(--slate);
+  }
+
+  footer .credit a{ color: var(--teal-bright); text-decoration: none; }
+  footer .credit a:hover{ text-decoration: underline; }
+
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">CABIN CREW LOG &middot; AIR NEW ZEALAND</p>
+    <h1>Natalia's<br><em>Flying</em> Journey</h1>
+    <p class="lede">Every duty day, every runway, every route across Aotearoa and out into the Pacific. This is the record of where the job has taken her so far.</p>
+
+    <div class="pass-wrap">
+      <div class="pass">
+        <div class="pass-notch left"></div>
+        <div class="pass-notch right"></div>
+        <div class="pass-main">
+          <div class="pass-row">
+            <div class="pass-field">
+              <span class="k">Passenger</span>
+              <span class="v">NATALIA</span>
+            </div>
+            <div class="pass-field">
+              <span class="k">Class</span>
+              <span class="v">CABIN CREW</span>
+            </div>
+          </div>
+          <div class="pass-row" style="margin-bottom:0;">
+            <div class="pass-field">
+              <span class="k">Carrier</span>
+              <span class="v">AIR NEW ZEALAND</span>
+            </div>
+            <div class="pass-field">
+              <span class="k">Status</span>
+              <span class="v">STILL FLYING</span>
+            </div>
+          </div>
+          <div class="pass-route">
+            <span class="code">AKL</span>
+            <span class="route-line"></span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M2 16l7-2 4.5 4.5L16 18l-3-6 6-5.5c1-1 1-2.5 0-3.5-1-1-2.5-1-3.5 0L9.5 8.5 4 6l-1.5 1.5L7 11l-3 2z" fill="#3f8f8a"/></svg>
+            <span class="route-line"></span>
+            <span class="code">EVERYWHERE</span>
+          </div>
+        </div>
+        <div class="pass-stub">
+          <div>
+            <span class="k">Boarding</span>
+            <div class="stub-big">GATE: SKY</div>
+          </div>
+          <div class="barcode"></div>
+        </div>
+      </div>
+    </div>
+
+    <svg class="flight-arc" viewBox="0 0 640 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M10,140 C120,10 260,10 400,80 S560,190 610,60" stroke="rgba(87,173,167,0.35)" stroke-width="1.5" stroke-dasharray="2 8" fill="none" stroke-linecap="round"/>
+      <g class="plane-marker">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" x="-10" y="-10">
+          <path d="M2 16l7-2 4.5 4.5L16 18l-3-6 6-5.5c1-1 1-2.5 0-3.5-1-1-2.5-1-3.5 0L9.5 8.5 4 6l-1.5 1.5L7 11l-3 2z" fill="#57ada7"/>
+        </svg>
+      </g>
+    </svg>
+  </div>
+</header>
+
+<div class="divider" aria-hidden="true">
+  <svg viewBox="0 0 1080 40" preserveAspectRatio="none">
+    <line x1="0" y1="20" x2="1080" y2="20" stroke="#3f8f8a" stroke-width="1" stroke-dasharray="1 10" opacity="0.4"/>
+  </svg>
+</div>
+
+<section class="intro">
+  <div>
+    <p class="eyebrow">The Log</p>
+    <h2>Why keep count?</h2>
+  </div>
+  <div>
+    <p>Most of this job happens between two points on a map that no one on the ground ever sees: a galley at thirty thousand feet, a layover measured in hours, a duty roster that changes every week.</p>
+    <p>This page pulls all of that together in one place. Airports visited, hours logged, routes flown again and again, the aircraft that carried it all. A running log of the journey, built from real duty data, for Natalia and anyone she wants to share it with.</p>
+  </div>
+</section>
+
+<section class="dashboard-section">
+  <div class="head">
+    <p class="eyebrow">Live report</p>
+    <h2>The numbers so far</h2>
+    <p class="sub">Explore the full dashboard below. Filter by aircraft, route or year to see how the journey has taken shape.</p>
+  </div>
+
+  <div class="dashboard-frame">
+    <div class="bar">
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+    </div>
+    <iframe
+      title="Flight Insights"
+      src="https://app.powerbi.com/view?r=eyJrIjoiNzMwYzAxNmUtMmIwYi00ODljLWEzYjEtYTQ3N2E1NzliMjliIiwidCI6ImFkNWEwYmM3LWM4YjMtNDMzNC04NzNlLWJkODQ1NzMxMGIzZSJ9"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
+
+<footer>
+  <span class="quote-mark">&ldquo;</span>
+  <p class="quote">Every flight is a new chapter, every destination a new story.</p>
+  <p class="credit">Built for Natalia by <a href="https://datawithandrea.com.au">Data with Andrea</a></p>
+</footer>
+
+</body>
+</html>
