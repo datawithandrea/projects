@@ -171,6 +171,7 @@
   .pass-main{
     padding: 1.9rem 1.8rem;
     position: relative;
+    min-width: 0;
   }
 
   .pass-main::after{
@@ -209,12 +210,15 @@
     align-items:center;
     gap: 0.7rem;
     margin: 1.3rem 0 0.4rem;
+    min-width: 0;
   }
 
   .pass-route .code{
     font-family: 'Fraunces', serif;
-    font-size: 1.8rem;
+    font-size: clamp(1.05rem, 6vw, 1.8rem);
     font-weight: 600;
+    min-width: 0;
+    white-space: nowrap;
   }
 
   .pass-route svg{ flex-shrink:0; }
@@ -235,6 +239,7 @@
     justify-content: space-between;
     align-items: center;
     text-align: center;
+    min-width: 0;
   }
 
   .pass-stub .k{
@@ -275,8 +280,10 @@
 
   @media (max-width: 560px){
     .pass{ grid-template-columns: 1fr; }
+    .pass-main{ padding: 1.6rem 1.3rem; }
     .pass-main::after{ display:none; border-bottom: 2px dashed rgba(16,29,48,0.18); border-right:none; top:auto; left:10px; right:10px; bottom:0; }
     .pass-notch{ display:none; }
+    .pass-route{ gap: 0.4rem; }
     .pass-stub{ flex-direction: row; justify-content: space-between; align-items:center; }
     .barcode{ display:none; }
   }
@@ -381,6 +388,11 @@
     color: var(--slate);
     text-align:center;
     margin-top: 0.9rem;
+    display: none;
+  }
+
+  @media (max-width: 760px){
+    .dashboard-note{ display: block; }
   }
 
   /* ================= FOOTER ================= */
@@ -421,6 +433,29 @@
 
   footer .credit a{ color: var(--teal-bright); text-decoration: none; }
   footer .credit a:hover{ text-decoration: underline; }
+
+  .sky-trail{
+    width: 100%;
+    max-width: var(--max-w);
+    margin: 0 auto 2.4rem;
+    display: block;
+    height: auto;
+  }
+
+  @keyframes fly-across{
+    from{ offset-distance: 0%; }
+    to{ offset-distance: 100%; }
+  }
+
+  .plane-marker-2{
+    offset-path: path("M10,25 L1070,25");
+    offset-rotate: 0deg;
+    animation: fly-across 15s linear infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .plane-marker-2{ animation: none; offset-distance: 50%; }
+  }
 
 </style>
 </head>
@@ -521,9 +556,18 @@
       allowfullscreen>
     </iframe>
   </div>
+  <p class="dashboard-note">&#8635; on a phone, turn it sideways for the full dashboard view</p>
 </section>
 
 <footer>
+  <svg class="sky-trail" viewBox="0 0 1080 50" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <line x1="0" y1="25" x2="1080" y2="25" stroke="#57ada7" stroke-width="1" stroke-dasharray="1 10" opacity="0.4"/>
+    <g class="plane-marker-2">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" x="-9" y="-9">
+        <path d="M2 16l7-2 4.5 4.5L16 18l-3-6 6-5.5c1-1 1-2.5 0-3.5-1-1-2.5-1-3.5 0L9.5 8.5 4 6l-1.5 1.5L7 11l-3 2z" fill="#57ada7"/>
+      </svg>
+    </g>
+  </svg>
   <span class="quote-mark">&ldquo;</span>
   <p class="quote">Every flight is a new chapter, every destination a new story.</p>
   <p class="credit">Built for Natalia by <a href="https://datawithandrea.com.au">Data with Andrea</a></p>
