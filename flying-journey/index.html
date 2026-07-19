@@ -352,34 +352,90 @@
     line-height: 1.6;
   }
 
-  .dashboard-frame{
+  .dashboard-shell{
     margin-top: 2.5rem;
     background: var(--ink-navy);
     border-radius: 18px;
-    padding: 0.6rem;
+    overflow: hidden;
     box-shadow: 0 40px 80px -30px rgba(16,29,48,0.35);
   }
 
-  .dashboard-frame .bar{
+  .dashboard-toolbar{
     display:flex;
     align-items:center;
-    gap: 0.4rem;
-    padding: 0.6rem 0.7rem 0.9rem;
+    justify-content: space-between;
+    gap: 0.8rem;
+    padding: 0.75rem 1rem;
   }
 
-  .dashboard-frame .dot{
-    width:9px; height:9px; border-radius:50%;
-    background: rgba(244,239,227,0.25);
+  .dashboard-label{
+    display:flex;
+    align-items:center;
+    gap: 0.6rem;
   }
 
-  .dashboard-frame iframe{
+  .dashboard-status{
+    position: relative;
+    flex-shrink: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--teal-bright);
+  }
+
+  .dashboard-status::after{
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border: 1.5px solid rgba(87,173,167,0.45);
+    border-radius: 50%;
+    animation: dashboard-pulse 2.2s ease-out infinite;
+  }
+
+  @keyframes dashboard-pulse{
+    0%{ transform: scale(0.6); opacity: 1; }
+    100%{ transform: scale(1.8); opacity: 0; }
+  }
+
+  .dashboard-label span{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(244,239,227,0.65);
+  }
+
+  .dashboard-decoration{
+    display:flex;
+    gap: 0.35rem;
+  }
+
+  .dashboard-decoration span{
+    width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(244,239,227,0.18);
+  }
+
+  .dashboard-body{
+    padding: 0.6rem;
+  }
+
+  .embed-frame-inner{
+    position: relative;
     width: 100%;
     aspect-ratio: 600 / 373.5;
-    height: auto;
-    border: none;
+    min-height: 300px;
+    overflow: hidden;
     border-radius: 10px;
-    display: block;
     background: var(--paper-soft);
+  }
+
+  .embed-frame-inner iframe{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
   }
 
   .dashboard-note{
@@ -545,16 +601,25 @@
     <p class="sub">Explore the full dashboard below. Filter by aircraft, route or year to see how the journey has taken shape.</p>
   </div>
 
-  <div class="dashboard-frame">
-    <div class="bar">
-      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+  <div class="dashboard-shell">
+    <div class="dashboard-toolbar">
+      <div class="dashboard-label">
+        <span class="dashboard-status" aria-hidden="true"></span>
+        <span>Live &middot; My Flying Journey</span>
+      </div>
+      <div class="dashboard-decoration" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
     </div>
-    <iframe
-      title="Flight Insights"
-      src="https://app.powerbi.com/view?r=eyJrIjoiNzMwYzAxNmUtMmIwYi00ODljLWEzYjEtYTQ3N2E1NzliMjliIiwidCI6ImFkNWEwYmM3LWM4YjMtNDMzNC04NzNlLWJkODQ1NzMxMGIzZSJ9"
-      frameborder="0"
-      allowfullscreen>
-    </iframe>
+    <div class="dashboard-body">
+      <div class="embed-frame-inner">
+        <iframe
+          title="Flight Insights"
+          src="https://app.powerbi.com/view?r=eyJrIjoiNzMwYzAxNmUtMmIwYi00ODljLWEzYjEtYTQ3N2E1NzliMjliIiwidCI6ImFkNWEwYmM3LWM4YjMtNDMzNC04NzNlLWJkODQ1NzMxMGIzZSJ9"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
   </div>
   <p class="dashboard-note">&#8635; on a phone, turn it sideways for the full dashboard view</p>
 </section>
