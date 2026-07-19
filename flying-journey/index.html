@@ -582,6 +582,23 @@
     .plane-marker-2{ animation: none; offset-distance: 50%; }
   }
 
+  /* ================= SCROLL REVEAL ================= */
+
+  .reveal{
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible{
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity: 1; transform: none; transition: none; }
+  }
+
 </style>
 </head>
 <body>
@@ -592,7 +609,7 @@
     <h1>Natalia's<br><em>Flying</em> Journey</h1>
     <p class="lede">Every duty day, every runway, every route across Aotearoa and out into the Pacific. This is the record of where the job has taken her so far.</p>
 
-    <div class="pass-wrap">
+    <div class="pass-wrap reveal">
       <div class="pass">
         <div class="pass-notch left"></div>
         <div class="pass-notch right"></div>
@@ -653,7 +670,7 @@
 </div>
 
 <section class="intro">
-  <div>
+  <div class="reveal">
     <p class="eyebrow">The Log</p>
     <h2>Why keep count?</h2>
 
@@ -668,20 +685,20 @@
       <div class="log-row data"><span>18 Jul</span><span>AKL &rarr; APW</span><span>789</span></div>
     </div>
   </div>
-  <div>
+  <div class="reveal">
     <p>Most of this job happens between two points on a map that no one on the ground ever sees: a galley at thirty thousand feet, a layover measured in hours, a duty roster that changes every week.</p>
     <p>This page pulls all of that together in one place. Airports visited, hours logged, routes flown again and again, the aircraft that carried it all. A running log of the journey, built from real duty data, for Natalia and anyone she wants to share it with.</p>
   </div>
 </section>
 
 <section class="dashboard-section">
-  <div class="head">
+  <div class="head reveal">
     <p class="eyebrow">Live report</p>
     <h2>The numbers so far</h2>
     <p class="sub">Explore the full dashboard below. Filter by aircraft, route or year to see how the journey has taken shape.</p>
   </div>
 
-  <div class="dashboard-shell">
+  <div class="dashboard-shell reveal">
     <div class="dashboard-toolbar">
       <div class="dashboard-label">
         <span class="dashboard-status" aria-hidden="true"></span>
@@ -713,10 +730,35 @@
       </svg>
     </g>
   </svg>
-  <span class="quote-mark">&ldquo;</span>
-  <p class="quote">Every flight is a new chapter, every destination a new story.</p>
-  <p class="credit">Built for Natalia by <a href="https://datawithandrea.com.au">Data with Andrea</a></p>
+  <div class="reveal">
+    <span class="quote-mark">&ldquo;</span>
+    <p class="quote">Every flight is a new chapter, every destination a new story.</p>
+    <p class="credit">Built for Natalia by <a href="https://datawithandrea.com.au">Data with Andrea</a></p>
+  </div>
 </footer>
+
+<script>
+  var revealElements = document.querySelectorAll('.reveal');
+
+  if ('IntersectionObserver' in window) {
+    var revealObserver = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealElements.forEach(function (element) {
+      revealObserver.observe(element);
+    });
+  } else {
+    revealElements.forEach(function (element) {
+      element.classList.add('visible');
+    });
+  }
+</script>
 
 </body>
 </html>
