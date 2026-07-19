@@ -182,8 +182,8 @@
   }
 
   .pass-row{
-    display:flex;
-    justify-content: space-between;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
     gap: 1rem;
     margin-bottom: 1.1rem;
   }
@@ -303,6 +303,10 @@
     align-items: start;
   }
 
+  .intro > div:last-child{
+    margin-top: 2rem;
+  }
+
   .intro .eyebrow{ color: var(--teal); }
 
   .intro h2{
@@ -323,6 +327,7 @@
 
   @media (max-width: 760px){
     .intro{ grid-template-columns: 1fr; }
+    .intro > div:last-child{ margin-top: 2.3rem; }
   }
 
   .log-card{
@@ -487,7 +492,7 @@
     position: relative;
     width: 100%;
     aspect-ratio: 600 / 373.5;
-    min-height: 260px;
+    min-height: 300px;
     overflow: hidden;
     border-radius: 10px;
     background: var(--paper-soft);
