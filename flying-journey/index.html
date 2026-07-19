@@ -325,6 +325,70 @@
     .intro{ grid-template-columns: 1fr; }
   }
 
+  .log-card{
+    position: relative;
+    margin-top: 2.3rem;
+    max-width: 320px;
+    background: var(--paper-soft);
+    border: 1px solid rgba(16,29,48,0.1);
+    border-radius: 10px;
+    padding: 1.2rem 1.3rem 0.4rem;
+    transform: rotate(-2deg);
+    box-shadow: 0 24px 44px -26px rgba(16,29,48,0.28);
+  }
+
+  .log-stamp{
+    position: absolute;
+    top: -20px;
+    right: -16px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px dashed rgba(87,173,167,0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--paper);
+    transform: rotate(10deg);
+  }
+
+  .log-title{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--slate);
+    display: block;
+    margin-bottom: 0.9rem;
+  }
+
+  .log-row{
+    display: grid;
+    grid-template-columns: 0.9fr 1.3fr 0.7fr;
+    gap: 0.5rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed rgba(16,29,48,0.12);
+  }
+
+  .log-row:last-child{ border-bottom: none; }
+
+  .log-row.head{
+    color: var(--slate);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: 0.6rem;
+  }
+
+  .log-row.data{ color: var(--ink-navy); font-weight: 600; }
+
+  .log-row.data span:nth-child(2){ color: var(--teal); }
+
+  @media (max-width: 760px){
+    .log-card{ margin: 2rem auto 0; }
+  }
+
   /* divider */
   .divider{
     max-width: var(--max-w);
@@ -587,6 +651,17 @@
   <div>
     <p class="eyebrow">The Log</p>
     <h2>Why keep count?</h2>
+
+    <div class="log-card">
+      <div class="log-stamp" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M2 16l7-2 4.5 4.5L16 18l-3-6 6-5.5c1-1 1-2.5 0-3.5-1-1-2.5-1-3.5 0L9.5 8.5 4 6l-1.5 1.5L7 11l-3 2z" fill="#3f8f8a"/></svg>
+      </div>
+      <span class="log-title">Sample log entry</span>
+      <div class="log-row head"><span>Date</span><span>Route</span><span>Acft</span></div>
+      <div class="log-row data"><span>04 Jul</span><span>AKL &rarr; WLG</span><span>A320</span></div>
+      <div class="log-row data"><span>11 Jul</span><span>WLG &rarr; AKL</span><span>A320</span></div>
+      <div class="log-row data"><span>18 Jul</span><span>AKL &rarr; APW</span><span>789</span></div>
+    </div>
   </div>
   <div>
     <p>Most of this job happens between two points on a map that no one on the ground ever sees: a galley at thirty thousand feet, a layover measured in hours, a duty roster that changes every week.</p>
