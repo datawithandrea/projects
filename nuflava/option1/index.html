@@ -9,16 +9,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0b0b10;
-    --bg-alt:#131319;
-    --bg-alt-2:#1a1a22;
-    --amber:#f2a93b;
-    --magenta:#ff4f8b;
-    --violet:#6c4ab6;
-    --cream:#f6f1e4;
-    --ink:#100e14;
-    --line: rgba(246,241,228,0.12);
-    --line-strong: rgba(246,241,228,0.22);
+    --bg:#26221d;
+    --bg-alt:#2e2921;
+    --bg-alt-2:#363026;
+    --amber:#c9793f;
+    --magenta:#4f8a82;
+    --cream:#ece4d3;
+    --ink:#221d16;
+    --paper:#f3ecdd;
+    --line: rgba(236,228,211,0.10);
+    --line-strong: rgba(236,228,211,0.20);
     --max: 1180px;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
@@ -105,11 +105,11 @@
   }
   .navlinks a:hover::after{width:100%;}
   .navcta{
-    background:var(--magenta); color:var(--ink); padding:10px 20px;
+    background:var(--paper); color:var(--ink); padding:10px 20px;
     border-radius:2px; font-weight:700; font-size:13px; letter-spacing:0.04em;
     text-transform:uppercase; white-space:nowrap;
   }
-  .navcta:hover{background:var(--amber);}
+  .navcta:hover{background:var(--amber); color:var(--paper);}
   .navlinks a::after{display:none;}
   @media (max-width:880px){ .navlinks{display:none;} }
 
@@ -125,9 +125,9 @@
     content:'';
     position:absolute; inset:-20%;
     background:
-      radial-gradient(circle at 15% 25%, rgba(255,79,139,0.35), transparent 45%),
-      radial-gradient(circle at 85% 15%, rgba(242,169,59,0.30), transparent 42%),
-      radial-gradient(circle at 50% 90%, rgba(108,74,182,0.35), transparent 50%);
+      radial-gradient(circle at 15% 20%, rgba(79,138,130,0.22), transparent 45%),
+      radial-gradient(circle at 85% 15%, rgba(201,121,63,0.24), transparent 45%),
+      radial-gradient(circle at 50% 95%, rgba(201,121,63,0.10), transparent 55%);
     animation:washMove 16s ease-in-out infinite alternate;
     z-index:0;
   }
@@ -154,7 +154,7 @@
     -webkit-background-clip:text; background-clip:text; color:transparent;
   }
   .hero .sub{
-    max-width:560px; font-size:18px; color:rgba(246,241,228,0.78);
+    max-width:560px; font-size:18px; color:rgba(236,228,211,0.78);
     margin-top:24px;
   }
   .locations{
@@ -163,7 +163,7 @@
   .loc-chip{
     font-family:'Space Mono', monospace; font-size:12.5px;
     border:1px solid var(--line-strong); padding:7px 14px; border-radius:999px;
-    color:rgba(246,241,228,0.85);
+    color:rgba(236,228,211,0.85);
   }
   .hero-cta{
     display:flex; align-items:center; gap:20px; margin-top:40px; flex-wrap:wrap;
@@ -174,8 +174,8 @@
     text-transform:uppercase; border-radius:2px; border:1px solid transparent;
     transition:transform .18s ease, background .2s ease, border-color .2s ease;
   }
-  .btn-primary{ background:var(--magenta); color:var(--ink); }
-  .btn-primary:hover{ background:var(--amber); transform:translateY(-2px);}
+  .btn-primary{ background:var(--paper); color:var(--ink); }
+  .btn-primary:hover{ background:var(--amber); color:var(--paper); transform:translateY(-2px);}
   .btn-ghost{ border-color:var(--line-strong); color:var(--cream); }
   .btn-ghost:hover{ border-color:var(--amber); color:var(--amber); }
 
@@ -194,7 +194,7 @@
   }
   .trust-item .lbl{
     font-family:'Space Mono', monospace; font-size:12px; letter-spacing:0.05em;
-    text-transform:uppercase; color:rgba(246,241,228,0.65); margin-top:8px; display:block;
+    text-transform:uppercase; color:rgba(236,228,211,0.65); margin-top:8px; display:block;
   }
   @media (max-width:760px){ .trust .wrap{grid-template-columns:repeat(2,1fr);} }
 
@@ -213,7 +213,7 @@
     content:''; width:28px; height:1px; background:var(--magenta);
   }
   .sec-head h2{ font-size:clamp(34px,4.4vw,58px); max-width:12ch; }
-  .sec-head p{ max-width:360px; color:rgba(246,241,228,0.7); font-size:15.5px; padding-bottom:6px; }
+  .sec-head p{ max-width:360px; color:rgba(236,228,211,0.7); font-size:15.5px; padding-bottom:6px; }
 
   /* ---------- SERVICES ---------- */
   .services{ background:var(--bg); }
@@ -229,12 +229,12 @@
   }
   .service-card:hover{ background:var(--bg-alt-2); }
   .service-card .idx{
-    font-family:'Space Mono', monospace; font-size:13px; color:rgba(246,241,228,0.4);
+    font-family:'Space Mono', monospace; font-size:13px; color:rgba(236,228,211,0.4);
   }
   .service-card h3{
     font-size:28px; margin-top:70px; margin-bottom:14px;
   }
-  .service-card p{ font-size:14.5px; color:rgba(246,241,228,0.65); margin-bottom:24px; }
+  .service-card p{ font-size:14.5px; color:rgba(236,228,211,0.65); margin-bottom:24px; }
   .service-card .go{
     font-family:'Space Mono', monospace; font-size:12.5px; letter-spacing:0.04em;
     color:var(--amber); display:inline-flex; align-items:center; gap:8px;
@@ -271,15 +271,18 @@
   @media (max-width:820px){ .story .grid{grid-template-columns:1fr;} }
 
   /* ---------- WHY / CONFIDENCE ---------- */
-  .why{ background:var(--bg-alt); }
-  .why-list{ display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:10px;}
-  .why-item{ background:var(--bg-alt); padding:34px 30px; display:flex; gap:20px; }
+  .why{ background:var(--paper); color:var(--ink); }
+  .why .sec-tag{ color:#3f6e67; }
+  .why .sec-tag::before{ background:#3f6e67; }
+  .why .sec-head p{ color:rgba(34,29,22,0.6); }
+  .why-list{ display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:rgba(34,29,22,0.10); border:1px solid rgba(34,29,22,0.10); margin-top:10px;}
+  .why-item{ background:var(--paper); padding:34px 30px; display:flex; gap:20px; }
   .why-item .mark{
     flex:none; width:40px; height:40px; border-radius:50%;
-    border:1px solid var(--line-strong); display:flex; align-items:center; justify-content:center;
+    border:1px solid rgba(34,29,22,0.18); display:flex; align-items:center; justify-content:center;
   }
-  .why-item h4{ font-family:'Anton', sans-serif; text-transform:none; letter-spacing:0; font-size:19px; margin-bottom:8px; }
-  .why-item p{ font-size:14.5px; color:rgba(246,241,228,0.65); }
+  .why-item h4{ font-family:'Anton', sans-serif; text-transform:none; letter-spacing:0; font-size:19px; margin-bottom:8px; color:var(--ink); }
+  .why-item p{ font-size:14.5px; color:rgba(34,29,22,0.62); }
   @media (max-width:760px){ .why-list{grid-template-columns:1fr;} }
 
   /* ---------- GALLERY ---------- */
@@ -306,12 +309,12 @@
   .cta::before{
     content:''; position:absolute; inset:-30%;
     background:
-      radial-gradient(circle at 20% 30%, rgba(255,79,139,0.25), transparent 45%),
-      radial-gradient(circle at 80% 70%, rgba(242,169,59,0.22), transparent 45%);
+      radial-gradient(circle at 20% 30%, rgba(79,138,130,0.20), transparent 45%),
+      radial-gradient(circle at 80% 70%, rgba(201,121,63,0.20), transparent 45%);
   }
   .cta .wrap{ position:relative; z-index:2; }
   .cta h2{ font-size:clamp(38px,6vw,80px); margin-bottom:20px; }
-  .cta p{ color:rgba(246,241,228,0.7); max-width:480px; margin:0 auto 40px; font-size:16px; }
+  .cta p{ color:rgba(236,228,211,0.7); max-width:480px; margin:0 auto 40px; font-size:16px; }
   .cta-btns{ display:flex; gap:18px; justify-content:center; flex-wrap:wrap; }
 
   /* ---------- FOOTER ---------- */
@@ -320,18 +323,18 @@
     display:flex; justify-content:space-between; gap:40px; flex-wrap:wrap; margin-bottom:50px;
   }
   .foot-brand .logo{ margin-bottom:14px; }
-  .foot-brand p{ max-width:320px; font-size:14px; color:rgba(246,241,228,0.6); }
+  .foot-brand p{ max-width:320px; font-size:14px; color:rgba(236,228,211,0.6); }
   .foot-cols{ display:flex; gap:64px; flex-wrap:wrap; }
   .foot-col h5{
     font-family:'Space Mono', monospace; font-size:12px; letter-spacing:0.08em;
     color:var(--amber); text-transform:uppercase; margin-bottom:16px;
   }
-  .foot-col a{ display:block; font-size:14px; color:rgba(246,241,228,0.75); margin-bottom:10px; }
+  .foot-col a{ display:block; font-size:14px; color:rgba(236,228,211,0.75); margin-bottom:10px; }
   .foot-col a:hover{ color:var(--cream); }
   .foot-bottom{
     display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;
     border-top:1px solid var(--line); padding-top:24px;
-    font-size:12.5px; color:rgba(246,241,228,0.5);
+    font-size:12.5px; color:rgba(236,228,211,0.5);
   }
   .foot-bottom .socials{ display:flex; gap:16px; }
 
@@ -448,7 +451,7 @@
         </div>
       </div>
       <div>
-        <div class="sec-tag" style="color:#c7325f;">Because Music Matters</div>
+        <div class="sec-tag" style="color:#3f6e67;">Because Music Matters</div>
         <blockquote>“Music does more than fill a room. It shifts the energy, brings people together, and can take you straight back to a moment, a person or a feeling.”</blockquote>
         <p style="margin-bottom:28px; color:#514a3f; font-size:15px; max-width:46ch;">That's why I care about getting it right — not just playing songs, but reading the room, respecting the moment and creating an atmosphere people remember long after the night is over.</p>
         <div class="attribution">
@@ -474,19 +477,19 @@
       </div>
       <div class="why-list reveal">
         <div class="why-item">
-          <div class="mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3v10.5a3.5 3.5 0 1 1-2-3.16V3h2Z" stroke="#f2a93b" stroke-width="1.6"/></svg></div>
+          <div class="mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3v10.5a3.5 3.5 0 1 1-2-3.16V3h2Z" stroke="#c9793f" stroke-width="1.6"/></svg></div>
           <div><h4>Premium sound systems</h4><p>Clear, room-matched audio and wireless mics so speeches and formalities are heard, not just the music.</p></div>
         </div>
         <div class="why-item">
-          <div class="mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4" stroke="#ff4f8b" stroke-width="1.6"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3" stroke="#ff4f8b" stroke-width="1.6"/></svg></div>
+          <div class="mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4" stroke="#4f8a82" stroke-width="1.6"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3" stroke="#4f8a82" stroke-width="1.6"/></svg></div>
           <div><h4>Dynamic lighting</h4><p>Smart dancefloor lighting and ambient uplighting that enhance the venue instead of overpowering it.</p></div>
         </div>
         <div class="why-item">
-          <div class="mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12h16M4 6h10M4 18h7" stroke="#f2a93b" stroke-width="1.6"/></svg></div>
+          <div class="mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12h16M4 6h10M4 18h7" stroke="#c9793f" stroke-width="1.6"/></svg></div>
           <div><h4>A run sheet, not a guess</h4><p>We map key formalities and moments with you and the venue ahead of time, so the night flows in order.</p></div>
         </div>
         <div class="why-item">
-          <div class="mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#ff4f8b" stroke-width="1.8"/></svg></div>
+          <div class="mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#4f8a82" stroke-width="1.8"/></svg></div>
           <div><h4>One dedicated DJ</h4><p>You know exactly who's showing up — briefed on your event, not a rotating roster.</p></div>
         </div>
       </div>
