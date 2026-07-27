@@ -3,6 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-62H016TDRE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-62H016TDRE');
+</script>
 <title>Naturopathic Health Solutions | Bella Vista, Norwest, Sydney</title>
 <meta name="description" content="Naturopathic Health Solutions, Bella Vista/Norwest, Sydney NSW. Functional medicine, naturopathy, herbal medicine, nutrition, flower essence and tissue salts.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -55,21 +63,21 @@
   }
 
   /* FULL-BLEED HERO */
-  .hero{position:relative; min-height:88vh; display:flex; align-items:center; overflow:hidden;}
+  .hero{position:relative; min-height:62vh; display:flex; align-items:center; overflow:hidden;}
   .hero-bg{position:absolute; inset:0; z-index:0;}
   .hero-bg img{width:100%; height:100%; object-fit:cover;}
   .hero-bg::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(24,38,31,.55), rgba(24,38,31,.72) 60%, rgba(24,38,31,.85));}
-  .hero-content{position:relative; z-index:1; padding:80px 0;}
-  .hero h1{color:#FAF5EC; font-size:clamp(2.2rem,5vw,3.6rem); max-width:18ch; margin-bottom:22px;}
-  .hero p.sub{color:#E4EAE3; font-size:17.5px; max-width:62ch; margin-bottom:32px;}
+  .hero-content{position:relative; z-index:1; padding:64px 0;}
+  .hero h1{color:#FAF5EC; font-size:clamp(2.2rem,5vw,3.6rem); max-width:24ch; margin-bottom:22px;}
+  .hero p.sub{color:#E4EAE3; font-size:17.5px; max-width:70ch; margin-bottom:32px;}
   .hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
-  @media (max-width:700px){ .hero{min-height:78vh;} }
+  @media (max-width:700px){ .hero{min-height:60vh;} }
 
   section{padding:84px 0;}
   .alt{background:var(--paper); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
-  .section-head{max-width:760px; margin-bottom:36px;}
-  .section-head h2{font-size:clamp(1.7rem,3.2vw,2.3rem); margin-top:12px;}
-  .copy{font-size:16px; color:#3A5347; max-width:76ch;}
+  .section-head{max-width:100%; margin-bottom:36px;}
+  .section-head h2{font-size:clamp(1.7rem,3.2vw,2.3rem); margin-top:12px; max-width:26ch;}
+  .copy{font-size:16px; color:#3A5347; max-width:100%;}
   .copy p + p{margin-top:16px;}
 
   /* SERVICES */
@@ -116,19 +124,21 @@
 
   .cta-banner{border-radius:24px; position:relative; overflow:hidden; padding:56px 44px; display:flex; justify-content:space-between; align-items:center; gap:28px; flex-wrap:wrap; background:linear-gradient(120deg, var(--sage-deep), var(--sage));}
   .cta-banner h2{color:#F7F2E9; font-size:clamp(1.5rem,2.8vw,1.9rem); max-width:22ch;}
-  .cta-banner p{color:#D6E1D9; margin-top:8px; max-width:42ch; font-size:15px;}
+  .cta-banner p{color:#D6E1D9; margin-top:8px; max-width:60ch; font-size:15px;}
   .cta-form{display:flex; gap:10px; flex-wrap:wrap;}
   .cta-form input{padding:14px 18px; border-radius:10px; border:1px solid rgba(247,242,233,.35); background:rgba(247,242,233,.1); color:#F7F2E9; font-size:14.5px; min-width:230px;}
   .cta-form input::placeholder{color:#B7C7BE;}
 
   footer{padding:56px 0 32px;}
-  .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:32px; margin-bottom:40px;}
-  .foot-brand p{font-size:14px; color:#455A4E; margin-top:12px; max-width:32ch;}
+  .foot-grid{display:flex; justify-content:space-between; gap:32px; flex-wrap:wrap; margin-bottom:40px;}
+  .foot-brand{flex:1 1 260px; max-width:320px;}
+  .foot-brand p{font-size:14px; color:#455A4E; margin-top:12px;}
+  .foot-col{flex:1 1 140px;}
   .foot-col h4{font-size:13px; text-transform:uppercase; letter-spacing:.08em; color:var(--sage-deep); margin-bottom:14px; font-weight:700;}
   .foot-col a, .foot-col p{display:block; font-size:14.5px; color:#455A4E; margin-bottom:9px;}
   .foot-col a:hover{color:var(--terracotta-deep);}
   .foot-bottom{display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:13px; color:#6E8177; padding-top:24px; border-top:1px solid var(--line);}
-  @media (max-width:760px){ .foot-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:760px){ .foot-brand{flex-basis:100%; max-width:none;} }
 
   .reveal{opacity:0; transform:translateY(16px); transition:opacity .7s ease, transform .7s ease;}
   .reveal.in{opacity:1; transform:none;}
