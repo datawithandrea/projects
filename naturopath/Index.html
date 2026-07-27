@@ -1,1 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naturopathic Health Solutions | Functional Medicine &amp; Naturopathy, Bella Vista</title>
+<meta name="description" content="Naturopathic Health Solutions offers individualised functional medicine and naturopathy in Bella Vista, Norwest Sydney. Root-cause care for hormones, gut health, autoimmune conditions and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1C2B22;
+    --paper:#F3F0E3;
+    --moss:#4B5F42;
+    --moss-deep:#2E3D28;
+    --gold:#A9782F;
+    --gold-light:#C9A15C;
+    --root:#6B4226;
+    --mist:#E7E9DB;
+    --line: rgba(28,43,34,0.14);
+    --max: 1160px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fraunces', Georgia, serif;
+    font-weight:500;
+    line-height:1.12;
+    margin:0;
+    color:var(--moss-deep);
+  }
+  p{margin:0;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 24px;}
+  .eyebrow{
+    font-size:12.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:600;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:18px; height:1px;
+    background:var(--gold);
+    display:inline-block;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:14px 28px;
+    border-radius:999px;
+    font-weight:600;
+    font-size:15px;
+    cursor:pointer;
+    border:1px solid transparent;
+    transition:transform .25s ease, background .25s ease, box-shadow .25s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{background:var(--moss-deep); color:var(--paper);}
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 10px 24px -8px rgba(46,61,40,.55);}
+  .btn-ghost{border-color:var(--line); color:var(--moss-deep); background:transparent;}
+  .btn-ghost:hover{border-color:var(--moss-deep);}
+  .btn-gold{background:var(--gold); color:#FBF7ED;}
+  .btn-gold:hover{transform:translateY(-2px); box-shadow:0 10px 24px -8px rgba(169,120,47,.6);}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(243,240,227,.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s ease;
+  }
+  header.scrolled{border-bottom-color:var(--line);}
+  nav{
+    max-width:var(--max); margin:0 auto; padding:18px 24px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .logo{
+    font-family:'Fraunces', serif;
+    font-size:19px;
+    font-weight:500;
+    color:var(--moss-deep);
+    display:flex; align-items:center; gap:10px;
+    letter-spacing:.01em;
+  }
+  .logo svg{flex-shrink:0;}
+  .nav-links{display:flex; gap:32px; align-items:center; font-size:14.5px; font-weight:500;}
+  .nav-links a{color:var(--ink); opacity:.75; transition:opacity .2s;}
+  .nav-links a:hover{opacity:1;}
+  .nav-cta{display:none;}
+  .menu-btn{display:none; background:none; border:none; cursor:pointer; padding:6px;}
+  .menu-btn span{display:block; width:22px; height:2px; background:var(--ink); margin:5px 0; border-radius:2px;}
+
+  @media (max-width:900px){
+    .nav-links{
+      position:fixed; inset:0 0 0 auto; height:100vh; width:78%; max-width:340px;
+      background:var(--paper); flex-direction:column; justify-content:center; align-items:flex-start;
+      padding:40px; gap:26px; font-size:19px;
+      transform:translateX(100%); transition:transform .35s ease;
+      box-shadow:-20px 0 60px -20px rgba(0,0,0,.2);
+    }
+    .nav-links.open{transform:translateX(0);}
+    .menu-btn{display:block;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative; overflow:hidden;
+    padding:64px 0 40px;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(2.4rem, 5vw, 3.6rem);
+    margin:18px 0 22px;
+    max-width:15ch;
+  }
+  .hero h1 em{
+    font-style:italic; color:var(--gold);
+  }
+  .hero p.sub{
+    font-size:18px; max-width:46ch; color:#3B4A38; margin-bottom:32px;
+  }
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:36px;}
+  .hero-trust{
+    display:flex; gap:28px; flex-wrap:wrap; font-size:13.5px; color:var(--moss-deep); opacity:.8;
+  }
+  .hero-trust div{display:flex; align-items:center; gap:8px;}
+  .hero-art{position:relative; height:480px;}
+  .root-svg{width:100%; height:100%;}
+  .root-svg path{
+    fill:none; stroke:var(--root); stroke-width:1.6; stroke-linecap:round;
+    stroke-dasharray:600; stroke-dashoffset:600;
+    animation:grow 2.4s ease-out forwards;
+  }
+  .root-svg path.leaf{stroke:var(--moss); animation-delay:.6s;}
+  .root-svg circle{fill:var(--gold); opacity:0; animation:fadeIn .8s ease forwards;}
+  @keyframes grow{ to{stroke-dashoffset:0;} }
+  @keyframes fadeIn{ to{opacity:1;} }
+  @media (prefers-reduced-motion: reduce){
+    .root-svg path{animation:none; stroke-dashoffset:0;}
+    .root-svg circle{animation:none; opacity:1;}
+  }
+
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-art{height:280px; order:-1;}
+  }
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+  section{padding:88px 0;}
+  .section-head{max-width:640px; margin-bottom:52px;}
+  .section-head h2{font-size:clamp(1.7rem,3.2vw,2.4rem); margin-top:14px;}
+  .section-head p{margin-top:16px; font-size:16.5px; color:#3B4A38;}
+  .alt{background:var(--mist);}
+
+  /* ---------- PHILOSOPHY / PROCESS ---------- */
+  .process{display:grid; grid-template-columns:repeat(4,1fr); gap:0; position:relative;}
+  .process::before{
+    content:""; position:absolute; top:26px; left:6%; right:6%; height:1px;
+    background:repeating-linear-gradient(to right, var(--root) 0 6px, transparent 6px 12px);
+  }
+  .p-step{position:relative; padding-right:20px;}
+  .p-dot{
+    width:12px; height:12px; border-radius:50%; background:var(--paper); border:2px solid var(--root);
+    margin-bottom:20px; position:relative; z-index:2;
+  }
+  .p-step h3{font-size:19px; margin-bottom:8px;}
+  .p-step p{font-size:14.5px; color:#4A5847;}
+  @media (max-width:900px){
+    .process{grid-template-columns:1fr; gap:28px;}
+    .process::before{display:none;}
+  }
+
+  /* ---------- SERVICES ---------- */
+  .services-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:18px; overflow:hidden;}
+  .service{background:var(--paper); padding:34px 28px; transition:background .25s ease;}
+  .service:hover{background:var(--mist);}
+  .service .icon{width:34px; height:34px; margin-bottom:18px; color:var(--moss);}
+  .service h3{font-size:18px; margin-bottom:10px;}
+  .service p{font-size:14.5px; color:#4A5847;}
+  @media (max-width:900px){ .services-grid{grid-template-columns:1fr;} }
+
+  /* ---------- CONDITIONS ---------- */
+  .cond-tabs{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:32px;}
+  .cond-tab{
+    padding:10px 18px; border-radius:999px; border:1px solid var(--line); font-size:14px; font-weight:600;
+    cursor:pointer; background:transparent; color:var(--moss-deep);
+  }
+  .cond-tab.active{background:var(--moss-deep); color:var(--paper); border-color:var(--moss-deep);}
+  .cond-panel{display:none;}
+  .cond-panel.active{display:block;}
+  .pill-cloud{display:flex; flex-wrap:wrap; gap:10px;}
+  .pill{
+    padding:9px 16px; background:var(--paper); border:1px solid var(--line); border-radius:10px;
+    font-size:14px; color:var(--ink);
+  }
+  .cond-note{margin-top:22px; font-size:14.5px; color:#4A5847; max-width:60ch;}
+
+  /* ---------- TESTING ---------- */
+  .test-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:22px;}
+  .test-card{
+    background:var(--paper); border:1px solid var(--line); border-radius:16px; padding:28px;
+  }
+  .test-card .tag{font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--gold); font-weight:700;}
+  .test-card h3{font-size:19px; margin:10px 0 10px;}
+  .test-card p{font-size:14.5px; color:#4A5847;}
+  @media (max-width:760px){ .test-grid{grid-template-columns:1fr;} }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid; grid-template-columns:.8fr 1.2fr; gap:56px; align-items:center;}
+  .about-portrait{
+    aspect-ratio:4/5; border-radius:20px;
+    background:linear-gradient(155deg, var(--moss-deep), var(--moss) 60%, var(--gold-light));
+    position:relative; overflow:hidden;
+    display:flex; align-items:flex-end; padding:26px;
+  }
+  .about-portrait span{
+    font-family:'Fraunces', serif; color:#F3F0E3; font-size:15px; opacity:.9;
+  }
+  .about-portrait svg{position:absolute; inset:0; opacity:.18;}
+  .about-copy .credentials{
+    display:flex; gap:18px; flex-wrap:wrap; margin:20px 0 24px; font-size:13.5px; color:var(--moss-deep); font-weight:600;
+  }
+  .about-copy .credentials div{display:flex; align-items:center; gap:8px;}
+  .about-copy p{font-size:16px; color:#3B4A38; margin-bottom:14px;}
+  @media (max-width:860px){ .about-grid{grid-template-columns:1fr;} }
+
+  /* ---------- CARE TEAM ---------- */
+  .team-strip{display:flex; flex-wrap:wrap; gap:12px;}
+  .team-pill{
+    padding:10px 18px; border:1px solid var(--line); border-radius:999px; font-size:14px; background:var(--paper);
+  }
+
+  /* ---------- CTA BANNER ---------- */
+  .cta-banner{
+    background:var(--moss-deep); color:var(--paper); border-radius:24px; padding:56px 48px;
+    display:flex; justify-content:space-between; align-items:center; gap:32px; flex-wrap:wrap;
+    position:relative; overflow:hidden;
+  }
+  .cta-banner h2{color:var(--paper); font-size:clamp(1.6rem,3vw,2.1rem); max-width:16ch;}
+  .cta-banner p{color:#CFDACB; margin-top:10px; max-width:40ch;}
+  .cta-form{display:flex; gap:10px; flex-wrap:wrap;}
+  .cta-form input{
+    padding:14px 18px; border-radius:999px; border:1px solid rgba(243,240,227,.3); background:rgba(243,240,227,.08);
+    color:var(--paper); font-size:14.5px; min-width:240px;
+  }
+  .cta-form input::placeholder{color:#B9C6B4;}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:64px 0 36px; border-top:1px solid var(--line);}
+  .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:36px; margin-bottom:48px;}
+  .foot-brand p{font-size:14px; color:#4A5847; margin-top:14px; max-width:32ch;}
+  .foot-col h4{font-family:'Inter'; font-size:13px; text-transform:uppercase; letter-spacing:.08em; color:var(--moss-deep); margin-bottom:16px;}
+  .foot-col a, .foot-col p{display:block; font-size:14.5px; color:#4A5847; margin-bottom:10px;}
+  .foot-col a:hover{color:var(--moss-deep);}
+  .foot-bottom{display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:13px; color:#6B7A67; padding-top:28px; border-top:1px solid var(--line);}
+  @media (max-width:760px){ .foot-grid{grid-template-columns:1fr 1fr;} }
+
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:none;}
+</style>
+</head>
+<body>
+
+<header id="site-header">
+  <nav>
+    <a href="#" class="logo">
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+        <path d="M13 24V13M13 13C13 13 6 13 5 6C11.5 6 13 13 13 13ZM13 13C13 13 20 13 21 6C14.5 6 13 13 13 13Z" stroke="#4B5F42" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Naturopathic Health Solutions
+    </a>
+    <div class="nav-links" id="nav-links">
+      <a href="#approach">Approach</a>
+      <a href="#services">Services</a>
+      <a href="#conditions">Conditions</a>
+      <a href="#testing">Testing</a>
+      <a href="#about">About George</a>
+      <a href="#contact" class="btn btn-primary" style="padding:10px 22px;">Book a consult</a>
+    </div>
+    <button class="menu-btn" id="menu-btn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Bella Vista &middot; Norwest &middot; Sydney</span>
+      <h1>Your symptoms are messengers. <em>We listen</em> to what's underneath.</h1>
+      <p class="sub">Individualised functional medicine and naturopathy for hormones, gut health, autoimmune conditions and long-term wellbeing. No band-aid fixes, a plan built around your case.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-primary">Book your initial consultation</a>
+        <a href="#approach" class="btn btn-ghost">See how it works</a>
+      </div>
+      <div class="hero-trust">
+        <div>&#10003; Individualised treatment plans</div>
+        <div>&#10003; Functional lab testing</div>
+        <div>&#10003; Thousands supported across NSW, VIC, QLD</div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <svg class="root-svg" viewBox="0 0 360 480" preserveAspectRatio="xMidYMid meet">
+        <path d="M180 460 L180 260" />
+        <path d="M180 340 C 130 350, 100 380, 70 440" />
+        <path d="M180 320 C 230 330, 260 360, 290 420" />
+        <path d="M180 300 C 150 310, 120 330, 95 360" />
+        <path d="M180 280 C 210 290, 235 305, 255 330" />
+        <path class="leaf" d="M180 260 C 150 200, 150 140, 180 80" />
+        <path class="leaf" d="M180 240 C 120 210, 90 160, 95 100" />
+        <path class="leaf" d="M180 220 C 240 190, 270 140, 265 85" />
+        <path class="leaf" d="M180 160 C 155 130, 150 95, 170 55" />
+        <path class="leaf" d="M180 160 C 205 130, 212 95, 195 55" />
+        <circle cx="95" cy="100" r="4" style="animation-delay:1.6s"/>
+        <circle cx="265" cy="85" r="4" style="animation-delay:1.8s"/>
+        <circle cx="170" cy="55" r="5" style="animation-delay:2s"/>
+        <circle cx="195" cy="55" r="4" style="animation-delay:2.1s"/>
+        <circle cx="180" cy="80" r="5" style="animation-delay:2.2s"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="approach">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Our approach</span>
+      <h2>Treat the root, not the alarm bell</h2>
+      <p>Symptoms are your body signalling that something deeper needs attention. Chasing the symptom alone tends to work for a while and then stop working. We look at genetics, history, lifestyle and lab results together, then correct what's actually driving the dysfunction.</p>
+    </div>
+    <div class="process reveal">
+      <div class="p-step">
+        <div class="p-dot"></div>
+        <h3>Listen</h3>
+        <p>A comprehensive intake and physical assessment shapes your foundational plan.</p>
+      </div>
+      <div class="p-step">
+        <div class="p-dot"></div>
+        <h3>Investigate</h3>
+        <p>Pathology and functional lab testing uncover the root causes and drivers behind your symptoms.</p>
+      </div>
+      <div class="p-step">
+        <div class="p-dot"></div>
+        <h3>Correct</h3>
+        <p>A staged, multi-faceted protocol: herbal medicine, nutrition, lifestyle and supplementation.</p>
+      </div>
+      <div class="p-step">
+        <div class="p-dot"></div>
+        <h3>Restore</h3>
+        <p>As imbalances resolve, the body finds its own equilibrium and healing takes hold.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Services</span>
+      <h2>A holistic toolkit, applied individually</h2>
+      <p>Every plan draws from the same disciplines, in different measures, because no two cases are the same.</p>
+    </div>
+    <div class="services-grid reveal">
+      <div class="service">
+        <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M12 21V12M12 12C12 12 5 12 4 5C11 5 12 12 12 12ZM12 12C12 12 19 12 20 5C13 5 12 12 12 12Z" stroke="currentColor" stroke-width="1.4"/></svg>
+        <h3>Functional Medicine</h3>
+        <p>Lab-informed, systems-based investigation into what's driving your condition.</p>
+      </div>
+      <div class="service">
+        <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M4 20C4 12 8 4 12 4C16 4 20 12 20 20" stroke="currentColor" stroke-width="1.4"/><path d="M12 4V20" stroke="currentColor" stroke-width="1.4"/></svg>
+        <h3>Naturopathy</h3>
+        <p>Traditional naturopathic principles paired with modern evidence.</p>
+      </div>
+      <div class="service">
+        <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M12 3C12 3 5 8 5 14C5 17.87 8.13 21 12 21C15.87 21 19 17.87 19 14C19 8 12 3 12 3Z" stroke="currentColor" stroke-width="1.4"/></svg>
+        <h3>Herbal Medicine</h3>
+        <p>Targeted botanical formulas suited to your presentation and history.</p>
+      </div>
+      <div class="service">
+        <svg class="icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.4"/><path d="M12 8V16M8 12H16" stroke="currentColor" stroke-width="1.4"/></svg>
+        <h3>Nutrition &amp; Dietary Plans</h3>
+        <p>Practical, sustainable eating plans built around your goals and lab markers.</p>
+      </div>
+      <div class="service">
+        <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M12 2L14 9L21 9L15.5 13L17.5 20L12 16L6.5 20L8.5 13L3 9L10 9L12 2Z" stroke="currentColor" stroke-width="1.2"/></svg>
+        <h3>Flower Essences</h3>
+        <p>Gentle support for the emotional patterns that sit alongside physical health.</p>
+      </div>
+      <div class="service">
+        <svg class="icon" viewBox="0 0 24 24" fill="none"><rect x="6" y="4" width="12" height="16" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M9 9H15M9 13H15M9 17H12" stroke="currentColor" stroke-width="1.4"/></svg>
+        <h3>Tissue Salts</h3>
+        <p>Cell salt therapy to support mineral balance at a cellular level.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="conditions">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Areas of focus</span>
+      <h2>What we help you work through</h2>
+      <p>Explore by category, every plan is still built around your individual case.</p>
+    </div>
+    <div class="reveal">
+      <div class="cond-tabs" id="cond-tabs">
+        <button class="cond-tab active" data-tab="gut">Gut Health</button>
+        <button class="cond-tab" data-tab="hormonal">Hormonal Health</button>
+        <button class="cond-tab" data-tab="autoimmune">Autoimmune</button>
+        <button class="cond-tab" data-tab="broader">Broader Scope</button>
+      </div>
+      <div class="cond-panel active" data-panel="gut">
+        <div class="pill-cloud">
+          <span class="pill">Leaky gut</span><span class="pill">Candida</span><span class="pill">Fungal &amp; parasitic infections</span>
+          <span class="pill">IBS / IBD</span><span class="pill">Crohn's &amp; ulcerative colitis</span><span class="pill">Reflux &amp; GERD</span>
+          <span class="pill">Bloating</span><span class="pill">Constipation &amp; diarrhoea</span>
+        </div>
+        <p class="cond-note">Gastrointestinal cases are a particular focus, from acute discomfort through to long-standing inflammatory conditions.</p>
+      </div>
+      <div class="cond-panel" data-panel="hormonal">
+        <div class="pill-cloud">
+          <span class="pill">Menopause &amp; PMS</span><span class="pill">PCOS &amp; endometriosis</span><span class="pill">Fibroids</span>
+          <span class="pill">Low libido</span><span class="pill">Low testosterone</span><span class="pill">Prostate health</span>
+          <span class="pill">Infertility</span><span class="pill">Recurrent UTIs &amp; thrush</span>
+        </div>
+        <p class="cond-note">Support for both male and female hormonal health, from cycle irregularities to reproductive and prostate concerns.</p>
+      </div>
+      <div class="cond-panel" data-panel="autoimmune">
+        <div class="pill-cloud">
+          <span class="pill">Hashimoto's</span><span class="pill">Graves' disease</span><span class="pill">Rheumatoid arthritis</span>
+          <span class="pill">Coeliac disease</span><span class="pill">Chronic fatigue syndrome</span><span class="pill">Multiple sclerosis</span>
+          <span class="pill">Psoriasis &amp; alopecia</span><span class="pill">Metabolic syndrome</span>
+        </div>
+        <p class="cond-note">Autoimmune conditions benefit especially from a root-cause lens, since flare triggers are rarely limited to one system.</p>
+      </div>
+      <div class="cond-panel" data-panel="broader">
+        <div class="pill-cloud">
+          <span class="pill">Thyroid disease</span><span class="pill">Cardiovascular &amp; cholesterol</span><span class="pill">Weight management</span>
+          <span class="pill">Anxiety &amp; stress</span><span class="pill">Fatigue &amp; insomnia</span><span class="pill">Migraines &amp; pain</span>
+          <span class="pill">Skin: acne, eczema, urticaria</span><span class="pill">Cancer support</span>
+        </div>
+        <p class="cond-note">Alongside these, we support general wellbeing, nutritional deficiencies and lifestyle-driven imbalances.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="testing" class="alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Functional lab testing</span>
+      <h2>Evidence in place of guesswork</h2>
+      <p>Where indicated, specialised testing replaces assumptions with a detailed picture of what's actually happening in your body.</p>
+    </div>
+    <div class="test-grid reveal">
+      <div class="test-card">
+        <span class="tag">Hormones</span>
+        <h3>DUTCH Test</h3>
+        <p>A comprehensive dried-urine hormone profile covering sex hormones, cortisol rhythm and key metabolites. Especially useful for ongoing hormonal dysfunction, PCOS and cycle irregularities.</p>
+      </div>
+      <div class="test-card">
+        <span class="tag">Gut</span>
+        <h3>GI-MAP Stool Analysis</h3>
+        <p>PCR/DNA-based testing for pathogens, dysbiosis, inflammation and gut permeability. A strong starting point for chronic gut complaints and IBS.</p>
+      </div>
+      <div class="test-card">
+        <span class="tag">Environment</span>
+        <h3>Mycotoxin Profile</h3>
+        <p>Screens for mould-related toxins linked to fatigue, sinus issues, skin reactions and cognitive symptoms.</p>
+      </div>
+      <div class="test-card">
+        <span class="tag">Thyroid</span>
+        <h3>Complete Thyroid Panel</h3>
+        <p>A full thyroid work-up, TSH through to antibodies, for unexplained weight change, fatigue or a family history of thyroid disease.</p>
+      </div>
+    </div>
+    <p class="cond-note" style="margin-top:26px;">Additional testing available on indication, including organic acids, food sensitivity, adrenal and genetic panels. Your practitioner will recommend testing only where it changes the treatment plan.</p>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="reveal">
+      <div class="about-portrait">
+        <svg viewBox="0 0 300 300"><path d="M150 280 L150 150M150 190 C 100 200, 70 230, 40 270M150 170 C 200 180, 230 210, 260 260" stroke="#F3F0E3" stroke-width="2" fill="none"/></svg>
+        <span>George &middot; Practitioner &amp; Founder</span>
+      </div>
+    </div>
+    <div class="about-copy reveal">
+      <span class="eyebrow">About your practitioner</span>
+      <h2 style="margin-top:14px; font-size:clamp(1.6rem,3vw,2.2rem);">George has spent his career turning his own recovery into other people's roadmap</h2>
+      <div class="credentials">
+        <div>&#9877; Australian Traditional-Medicine Society member</div>
+        <div>&#9877; Functional medicine &amp; naturopathic continuing education</div>
+      </div>
+      <p>George built his Bella Vista practice from the ground up and has since supported thousands of clients across NSW, VIC and QLD. His approach blends evidence-based functional medicine with traditional naturopathy.</p>
+      <p>A serious health diagnosis early in his career led him to natural and complementary medicine as part of his own recovery. That experience shapes how he practises today: thorough, patient and focused on getting to the actual cause.</p>
+      <a href="#contact" class="btn btn-gold" style="margin-top:10px;">Meet George in person</a>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="section-head reveal" style="margin-bottom:28px;">
+      <span class="eyebrow">Care team</span>
+      <h2 style="font-size:1.5rem;">Referrals when you need them</h2>
+      <p>When your case calls for it, George works alongside a trusted network of allied practitioners.</p>
+    </div>
+    <div class="team-strip reveal">
+      <span class="team-pill">Chiropractors</span>
+      <span class="team-pill">Osteopaths</span>
+      <span class="team-pill">Massage therapists</span>
+      <span class="team-pill">Kinesiologists</span>
+      <span class="team-pill">General practitioners</span>
+      <span class="team-pill">Integrative GPs</span>
+      <span class="team-pill">Counsellors &amp; psychologists</span>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="cta-banner reveal">
+      <div>
+        <h2>Ready to find out what's actually going on?</h2>
+        <p>Book your initial consultation, or join the list for naturopathic tips and updates from the clinic.</p>
+      </div>
+      <form class="cta-form" onsubmit="event.preventDefault(); this.reset(); this.querySelector('button').textContent='Booking request sent';">
+        <input type="email" placeholder="you@email.com" required>
+        <button type="submit" class="btn btn-gold">Book a consultation</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#" class="logo" style="font-size:18px;">
+          <svg width="22" height="22" viewBox="0 0 26 26" fill="none"><path d="M13 24V13M13 13C13 13 6 13 5 6C11.5 6 13 13 13 13ZM13 13C13 13 20 13 21 6C14.5 6 13 13 13 13Z" stroke="#4B5F42" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Naturopathic Health Solutions
+        </a>
+        <p>Individualised functional medicine and naturopathy in Bella Vista, Norwest Sydney. Root-cause care for lasting results.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Explore</h4>
+        <a href="#approach">Our approach</a>
+        <a href="#services">Services</a>
+        <a href="#conditions">Conditions</a>
+        <a href="#testing">Lab testing</a>
+      </div>
+      <div class="foot-col">
+        <h4>Clinic</h4>
+        <a href="#about">About George</a>
+        <a href="#contact">Book a consultation</a>
+        <p>Bella Vista / Norwest, Sydney NSW</p>
+      </div>
+      <div class="foot-col">
+        <h4>Stay in touch</h4>
+        <p>Subscribe for naturopathic news and solutions from the clinic.</p>
+        <a href="#contact">Join the mailing list &rarr;</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Naturopathic Health Solutions. All rights reserved.</span>
+      <span>Bella Vista &middot; Norwest &middot; Sydney, NSW</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // sticky header shadow
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 8);
+  });
+
+  // mobile menu
+  const menuBtn = document.getElementById('menu-btn');
+  const navLinks = document.getElementById('nav-links');
+  menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // condition tabs
+  const tabs = document.querySelectorAll('.cond-tab');
+  const panels = document.querySelectorAll('.cond-panel');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.querySelector(`.cond-panel[data-panel="${tab.dataset.tab}"]`).classList.add('active');
+    });
+  });
+
+  // scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
 
