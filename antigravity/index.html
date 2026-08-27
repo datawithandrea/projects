@@ -44,14 +44,11 @@
             --orange: #ee6f25;
             --orange-dark: #dc5d17;
             --orange-light: #fff0e6;
-            --orange-soft: #f9d6bf;
 
             --charcoal: #252525;
             --charcoal-light: #555650;
 
             --cream: #faf8f5;
-            --cream-dark: #f2eee9;
-
             --white: #ffffff;
 
             --text: #292a28;
@@ -387,7 +384,7 @@
 
         .topbar a:hover {
 
-            color: var(--orange-soft);
+            color: #ffd5bd;
 
         }
 
@@ -655,7 +652,9 @@
         }
 
 
-        /* HERO IMAGE */
+        /* =====================================================
+           HERO IMAGE
+        ===================================================== */
 
         .hero-visual {
 
@@ -719,13 +718,6 @@
         }
 
 
-        .hero-card-top {
-
-            margin-bottom: 10px;
-
-        }
-
-
         .hero-card-label {
 
             color: var(--orange);
@@ -777,11 +769,13 @@
 
             line-height: 1.55;
 
+            margin-top: 10px;
+
         }
 
 
         /* =====================================================
-           TRUST / KPI STRIP
+           KPI / TRUST STRIP
         ===================================================== */
 
         .trust-strip {
@@ -811,17 +805,19 @@
 
         .trust-item {
 
-            min-height: 108px;
+            min-height: 120px;
 
             padding:
-                22px
-                30px;
+                24px
+                25px;
 
             display: flex;
 
             align-items: center;
 
             justify-content: center;
+
+            text-align: center;
 
             border-right:
                 1px solid
@@ -841,8 +837,6 @@
 
             width: 100%;
 
-            text-align: left;
-
         }
 
 
@@ -854,13 +848,13 @@
 
             font-family: "Manrope", sans-serif;
 
-            font-size: 16px;
+            font-size: 18px;
 
             font-weight: 800;
 
             line-height: 1.25;
 
-            margin-bottom: 4px;
+            margin-bottom: 6px;
 
         }
 
@@ -871,19 +865,19 @@
 
             color: var(--muted);
 
-            font-size: 12px;
+            font-size: 13px;
 
         }
 
 
         /* =====================================================
-           INTRO
+           INTRO / MOVING WITH CARE
         ===================================================== */
 
         .intro {
 
             padding:
-                105px
+                110px
                 0;
 
             background: white;
@@ -924,70 +918,130 @@
         }
 
 
-        /* CARE FIRST BADGE */
+        /* =====================================================
+           MOVING WITH CARE FLOATING CARD
+        ===================================================== */
 
-        .intro-accent {
+        .care-card {
 
             position: absolute;
 
-            right: -24px;
+            left: 50%;
 
-            top: 32px;
+            bottom: -42px;
 
-            width: 108px;
+            transform:
+                translateX(-50%);
 
-            height: 108px;
+            width: 285px;
 
-            background: var(--orange);
+            padding:
+                25px
+                28px;
 
-            border-radius: 25px;
+            background: white;
 
-            display: flex;
-
-            flex-direction: column;
-
-            align-items: center;
-
-            justify-content: center;
-
-            color: white;
+            border-radius: 22px;
 
             box-shadow:
-                0 12px 30px
-                rgba(238,111,37,.2);
+                0 20px 50px
+                rgba(38,35,30,.14);
 
-            transform: rotate(4deg);
+            text-align: center;
 
-        }
-
-
-        .intro-accent span {
-
-            font-size: 9px;
-
-            font-weight: 700;
-
-            letter-spacing: 2px;
-
-            opacity: .82;
+            z-index: 5;
 
         }
 
 
-        .intro-accent strong {
+        .care-card::before {
+
+            content: "";
+
+            display: block;
+
+            width: 42px;
+
+            height: 3px;
+
+            background:
+                var(--orange);
+
+            margin:
+                0
+                auto
+                15px;
+
+            border-radius: 10px;
+
+        }
+
+
+        .care-card-label {
+
+            color: var(--orange);
+
+            text-transform: uppercase;
+
+            letter-spacing: 1.7px;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .care-card-title {
 
             font-family: "Manrope", sans-serif;
 
-            font-size: 19px;
+            font-size: 21px;
 
-            letter-spacing: -.5px;
+            line-height: 1.25;
+
+            font-weight: 800;
+
+            color: var(--charcoal);
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .care-card-highlight {
+
+            display: inline-block;
+
+            color: var(--orange);
+
+            font-family: "Manrope", sans-serif;
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+            letter-spacing: .5px;
+
+            margin-bottom: 11px;
+
+        }
+
+
+        .care-card p {
+
+            font-size: 13px;
+
+            line-height: 1.55;
 
         }
 
 
         .intro-copy {
 
-            max-width: 550px;
+            max-width: 560px;
 
         }
 
@@ -1001,9 +1055,11 @@
 
         .intro-description {
 
-            font-size: 16px;
+            font-size: 17px;
 
-            margin-bottom: 28px;
+            line-height: 1.7;
+
+            margin-bottom: 34px;
 
         }
 
@@ -1016,9 +1072,9 @@
 
             display: grid;
 
-            gap: 17px;
+            gap: 25px;
 
-            margin-bottom: 31px;
+            margin-bottom: 34px;
 
         }
 
@@ -1027,7 +1083,7 @@
 
             display: flex;
 
-            gap: 15px;
+            gap: 17px;
 
             align-items: flex-start;
 
@@ -1036,15 +1092,17 @@
 
         .care-line {
 
-            width: 24px;
+            width: 28px;
 
-            height: 2px;
+            height: 3px;
 
             background: var(--orange);
 
             margin-top: 11px;
 
             flex-shrink: 0;
+
+            border-radius: 10px;
 
         }
 
@@ -1055,18 +1113,28 @@
 
             color: var(--charcoal);
 
-            font-size: 14px;
+            font-family: "Manrope", sans-serif;
 
-            margin-bottom: 2px;
+            font-size: 17px;
+
+            font-weight: 800;
+
+            line-height: 1.35;
+
+            margin-bottom: 5px;
 
         }
 
 
         .care-item span {
 
+            display: block;
+
             color: var(--muted);
 
-            font-size: 13px;
+            font-size: 15px;
+
+            line-height: 1.6;
 
         }
 
@@ -1219,8 +1287,6 @@
 
         }
 
-
-        /* SPECIAL CTA CARD */
 
         .service-card-special {
 
@@ -1595,15 +1661,19 @@
         }
 
 
-        .stars {
+        .review-mark {
 
             color: var(--orange);
 
-            letter-spacing: 3px;
+            font-family: "Manrope", sans-serif;
 
-            font-size: 13px;
+            font-size: 36px;
 
-            margin-bottom: 20px;
+            font-weight: 800;
+
+            line-height: 1;
+
+            margin-bottom: 15px;
 
         }
 
@@ -2078,6 +2148,15 @@
 
                 order: -1;
 
+                margin-bottom: 45px;
+
+            }
+
+
+            .intro-copy {
+
+                max-width: 100%;
+
             }
 
 
@@ -2225,7 +2304,7 @@
             }
 
 
-            /* KPI STRIP */
+            /* KPI */
 
             .trust-items {
 
@@ -2237,15 +2316,11 @@
 
             .trust-item {
 
-                min-height: 95px;
+                min-height: 105px;
 
                 padding:
                     18px
-                    15px;
-
-                border-bottom:
-                    1px solid
-                    var(--border);
+                    12px;
 
             }
 
@@ -2267,7 +2342,7 @@
 
             .trust-item strong {
 
-                font-size: 14px;
+                font-size: 15px;
 
             }
 
@@ -2278,6 +2353,8 @@
 
             }
 
+
+            /* INTRO */
 
             .intro,
             .services,
@@ -2300,32 +2377,63 @@
             }
 
 
-            .intro-accent {
+            .care-card {
 
-                right: 8px;
+                width:
+                    calc(100% - 40px);
 
-                width: 78px;
+                bottom: -65px;
 
-                height: 78px;
-
-                border-radius: 19px;
+                padding:
+                    22px
+                    24px;
 
             }
 
 
-            .intro-accent strong {
+            .care-card-title {
+
+                font-size: 19px;
+
+            }
+
+
+            .intro-copy {
+
+                padding-top: 25px;
+
+            }
+
+
+            .intro-description {
+
+                font-size: 15px;
+
+            }
+
+
+            .care-list {
+
+                gap: 22px;
+
+            }
+
+
+            .care-item strong {
 
                 font-size: 16px;
 
             }
 
 
-            .intro-accent span {
+            .care-item span {
 
-                font-size: 7px;
+                font-size: 14px;
 
             }
 
+
+            /* SERVICES */
 
             .services-grid,
             .process-grid {
@@ -2348,6 +2456,8 @@
 
             }
 
+
+            /* PRICING */
 
             .pricing-copy,
             .price-area {
@@ -2373,6 +2483,8 @@
             }
 
 
+            /* REVIEWS */
+
             .review-card {
 
                 padding:
@@ -2381,6 +2493,8 @@
 
             }
 
+
+            /* QUOTE */
 
             .quote-image {
 
@@ -2403,6 +2517,8 @@
 
             }
 
+
+            /* FOOTER */
 
             .footer-grid {
 
@@ -2739,25 +2855,19 @@
                     >
 
 
-                        <div class="hero-card-top">
-
-
-                            <div class="hero-card-label">
-                                Moving with care
-                            </div>
-
-
-                            <strong>
-                                Your belongings are in good hands
-                            </strong>
-
-
-                            <span class="hero-card-subtitle">
-                                Careful from start to finish
-                            </span>
-
-
+                        <div class="hero-card-label">
+                            Moving with care
                         </div>
+
+
+                        <strong>
+                            Your belongings are in good hands
+                        </strong>
+
+
+                        <span class="hero-card-subtitle">
+                            Careful from start to finish
+                        </span>
 
 
                         <p>
@@ -2884,15 +2994,34 @@
                     >
 
 
-                    <div class="intro-accent">
+                    <!-- MOVING WITH CARE CARD -->
 
-                        <span>
-                            CARE
-                        </span>
+                    <div class="care-card">
 
-                        <strong>
-                            FIRST
-                        </strong>
+
+                        <div class="care-card-label">
+                            Moving with care
+                        </div>
+
+
+                        <div class="care-card-title">
+                            Your belongings are in good hands.
+                        </div>
+
+
+                        <div class="care-card-highlight">
+                            CARE FIRST
+                        </div>
+
+
+                        <p>
+
+                            Careful from start to finish.
+                            We take the time to protect the things
+                            that matter to you.
+
+                        </p>
+
 
                     </div>
 
@@ -3056,8 +3185,6 @@
                 <div class="services-grid">
 
 
-                    <!-- SERVICE 1 -->
-
                     <article class="service-card">
 
 
@@ -3095,8 +3222,6 @@
 
 
 
-                    <!-- SERVICE 2 -->
-
                     <article class="service-card">
 
 
@@ -3133,8 +3258,6 @@
                     </article>
 
 
-
-                    <!-- SERVICE 3 -->
 
                     <article class="service-card">
 
@@ -3174,8 +3297,6 @@
 
 
 
-                    <!-- SERVICE 4 -->
-
                     <article class="service-card">
 
 
@@ -3213,8 +3334,6 @@
 
 
 
-                    <!-- SERVICE 5 -->
-
                     <article class="service-card">
 
 
@@ -3251,8 +3370,6 @@
                     </article>
 
 
-
-                    <!-- SERVICE CTA -->
 
                     <article class="service-card service-card-special">
 
@@ -3545,7 +3662,7 @@
 
 
         <!-- =================================================
-             REVIEW
+             REVIEWS
         ================================================== -->
 
         <section
@@ -3577,8 +3694,8 @@
                 <div class="review-card">
 
 
-                    <div class="stars">
-                        ★★★★★
+                    <div class="review-mark">
+                        “
                     </div>
 
 
