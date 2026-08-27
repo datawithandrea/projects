@@ -16,7 +16,7 @@
 
     <meta
         name="description"
-        content="Antigravity Removals are professional Sydney removalists specialising in residential and business relocations, packing, furniture assembly, rubbish removal and strip-outs."
+        content="Professional Sydney removalists for home and business moves. Antigravity Removals offers moving, packing, furniture assembly, rubbish removal and strip-out services."
     >
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,40 +28,52 @@
     >
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
         rel="stylesheet"
     >
 
 
     <style>
 
-        /* ==================================================
+        /* =====================================================
            ROOT
-        ================================================== */
+        ===================================================== */
 
         :root {
 
-            --orange: #f36b21;
-            --orange-dark: #d95413;
+            --orange: #ee6f25;
+            --orange-light: #fff0e6;
+            --orange-soft: #f9d6bf;
 
-            --black: #0b0b0b;
-            --dark: #121212;
-            --dark-2: #1a1a1a;
+            --charcoal: #252525;
+            --charcoal-light: #4d4d4d;
+
+            --cream: #faf8f5;
+            --cream-dark: #f2eee9;
 
             --white: #ffffff;
-            --off-white: #f5f5f3;
 
-            --grey: #a6a6a6;
-            --light-grey: #dededb;
+            --text: #292a28;
+            --muted: #73746f;
 
-            --max-width: 1240px;
+            --border: #e8e4de;
+
+            --shadow:
+                0 15px 45px rgba(38, 35, 30, 0.08);
+
+            --shadow-hover:
+                0 22px 55px rgba(38, 35, 30, 0.13);
+
+            --radius: 22px;
+
+            --max-width: 1180px;
 
         }
 
 
-        /* ==================================================
+        /* =====================================================
            RESET
-        ================================================== */
+        ===================================================== */
 
         * {
             margin: 0;
@@ -77,13 +89,13 @@
 
         body {
 
-            font-family: "Inter", sans-serif;
+            font-family: "DM Sans", sans-serif;
 
-            background: var(--white);
+            background: var(--cream);
 
-            color: var(--black);
+            color: var(--text);
 
-            line-height: 1.6;
+            line-height: 1.65;
 
         }
 
@@ -118,64 +130,78 @@
 
         .container {
 
-            width: min(
-                var(--max-width),
-                calc(100% - 48px)
-            );
+            width:
+                min(
+                    var(--max-width),
+                    calc(100% - 40px)
+                );
 
             margin: 0 auto;
 
         }
 
 
-        /* ==================================================
+        /* =====================================================
            TYPOGRAPHY
-        ================================================== */
+        ===================================================== */
 
         h1,
         h2,
         h3 {
 
-            font-family: "Barlow Condensed", sans-serif;
+            font-family: "Manrope", sans-serif;
 
-            text-transform: uppercase;
+            color: var(--charcoal);
 
-            line-height: .92;
-
-            font-weight: 800;
+            line-height: 1.12;
 
         }
 
 
         h1 {
 
-            font-size: clamp(
-                70px,
-                9vw,
-                132px
-            );
+            font-size:
+                clamp(
+                    42px,
+                    6vw,
+                    68px
+                );
 
-            letter-spacing: -2px;
+            letter-spacing: -2.5px;
+
+            font-weight: 800;
 
         }
 
 
         h2 {
 
-            font-size: clamp(
-                52px,
-                7vw,
-                90px
-            );
+            font-size:
+                clamp(
+                    34px,
+                    4.5vw,
+                    50px
+                );
 
-            letter-spacing: -1px;
+            letter-spacing: -1.6px;
+
+            font-weight: 800;
 
         }
 
 
         h3 {
 
-            font-size: 34px;
+            font-size: 21px;
+
+            font-weight: 700;
+
+        }
+
+
+        p {
+
+            color: var(--muted);
 
         }
 
@@ -187,9 +213,26 @@
         }
 
 
-        /* ==================================================
+        .eyebrow {
+
+            color: var(--orange);
+
+            text-transform: uppercase;
+
+            letter-spacing: 1.8px;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            margin-bottom: 13px;
+
+        }
+
+
+        /* =====================================================
            BUTTONS
-        ================================================== */
+        ===================================================== */
 
         .btn {
 
@@ -199,98 +242,103 @@
 
             justify-content: center;
 
-            gap: 14px;
+            gap: 9px;
 
-            padding: 17px 27px;
+            padding:
+                14px
+                21px;
+
+            border-radius: 999px;
 
             font-size: 14px;
 
-            font-weight: 800;
-
-            text-transform: uppercase;
-
-            letter-spacing: .5px;
+            font-weight: 700;
 
             transition:
                 transform .2s ease,
+                box-shadow .2s ease,
                 background .2s ease;
 
         }
 
 
-        .btn-orange {
+        .btn-primary {
 
             background: var(--orange);
+
+            color: white;
+
+            box-shadow:
+                0 8px 20px
+                rgba(238,111,37,.22);
+
+        }
+
+
+        .btn-primary:hover {
+
+            transform: translateY(-2px);
+
+            background: #df5f18;
+
+            box-shadow:
+                0 12px 25px
+                rgba(238,111,37,.28);
+
+        }
+
+
+        .btn-dark {
+
+            background: var(--charcoal);
 
             color: white;
 
         }
 
 
-        .btn-orange:hover {
-
-            background: var(--orange-dark);
+        .btn-dark:hover {
 
             transform: translateY(-2px);
+
+            background: #111;
 
         }
 
 
-        .btn-white {
+        .btn-light {
 
             background: white;
 
-            color: var(--black);
+            color: var(--charcoal);
+
+            border:
+                1px solid
+                var(--border);
 
         }
 
 
-        .btn-white:hover {
-
-            background: var(--orange);
-
-            color: white;
+        .btn-light:hover {
 
             transform: translateY(-2px);
 
-        }
-
-
-        .btn-outline {
-
-            border: 2px solid var(--black);
-
-            color: var(--black);
+            box-shadow: var(--shadow);
 
         }
 
 
-        .btn-outline:hover {
-
-            background: var(--black);
-
-            color: white;
-
-        }
-
-
-        /* ==================================================
+        /* =====================================================
            TOP BAR
-        ================================================== */
+        ===================================================== */
 
         .topbar {
 
-            background: var(--orange);
+            background: var(--charcoal);
 
             color: white;
 
-            font-size: 12px;
-
-            font-weight: 700;
-
-            text-transform: uppercase;
-
-            letter-spacing: .7px;
+            font-size: 13px;
 
         }
 
@@ -308,53 +356,73 @@
         }
 
 
-        .topbar-contact {
+        .topbar-left {
+
+            color: rgba(
+                255,
+                255,
+                255,
+                .78
+            );
+
+        }
+
+
+        .topbar-right {
 
             display: flex;
 
-            gap: 25px;
+            gap: 22px;
 
         }
 
 
-        .topbar-contact a:hover {
+        .topbar a {
 
-            text-decoration: underline;
+            font-weight: 700;
 
         }
 
 
-        /* ==================================================
+        .topbar a:hover {
+
+            color: var(--orange-soft);
+
+        }
+
+
+        /* =====================================================
            HEADER
-        ================================================== */
+        ===================================================== */
 
         header {
 
-            position: absolute;
+            background:
+                rgba(
+                    250,
+                    248,
+                    245,
+                    .95
+                );
 
-            top: 38px;
+            position: sticky;
 
-            left: 0;
+            top: 0;
 
-            width: 100%;
+            z-index: 1000;
 
-            z-index: 100;
+            border-bottom:
+                1px solid
+                rgba(0,0,0,.05);
 
-            background: rgba(
-                0,
-                0,
-                0,
-                .7
-            );
-
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(12px);
 
         }
 
 
         .nav {
 
-            min-height: 86px;
+            min-height: 78px;
 
             display: flex;
 
@@ -367,14 +435,14 @@
 
         .logo {
 
-            width: 190px;
+            width: 175px;
 
         }
 
 
         .logo img {
 
-            max-height: 62px;
+            max-height: 58px;
 
             object-fit: contain;
 
@@ -389,68 +457,52 @@
 
             align-items: center;
 
-            gap: 32px;
+            gap: 27px;
 
-            color: white;
+            font-size: 14px;
 
-            font-size: 13px;
-
-            font-weight: 700;
-
-            text-transform: uppercase;
+            font-weight: 600;
 
         }
 
 
         .nav-links a {
 
-            position: relative;
+            color: #4a4a47;
+
+            transition: color .2s ease;
 
         }
 
 
-        .nav-links a:not(.nav-cta)::after {
+        .nav-links a:hover {
 
-            content: "";
+            color: var(--orange);
 
-            position: absolute;
+        }
 
-            bottom: -8px;
 
-            left: 0;
-
-            width: 0;
-
-            height: 2px;
+        .nav-quote {
 
             background: var(--orange);
 
-            transition: width .2s ease;
+            color: white !important;
+
+            padding:
+                11px
+                18px;
+
+            border-radius: 999px;
 
         }
 
 
-        .nav-links a:hover::after {
+        .nav-quote:hover {
 
-            width: 100%;
+            background:
+                #df5f18;
 
-        }
-
-
-        .nav-cta {
-
-            background: var(--orange);
-
-            padding: 13px 20px;
-
-        }
-
-
-        .nav-cta:hover {
-
-            background: white;
-
-            color: var(--black);
+            color: white !important;
 
         }
 
@@ -459,96 +511,72 @@
 
             display: none;
 
-            background: none;
-
             border: 0;
 
-            color: white;
+            background: none;
 
-            font-size: 28px;
+            font-size: 27px;
 
             cursor: pointer;
 
+            color: var(--charcoal);
+
         }
 
 
-        /* ==================================================
+        /* =====================================================
            HERO
-        ================================================== */
+        ===================================================== */
 
         .hero {
 
-            min-height: 850px;
+            padding:
+                58px
+                0
+                100px;
 
             background:
-
-                linear-gradient(
-                    90deg,
-                    rgba(0,0,0,.88) 0%,
-                    rgba(0,0,0,.7) 42%,
-                    rgba(0,0,0,.15) 100%
+                radial-gradient(
+                    circle at 90% 15%,
+                    #ffe5d3 0,
+                    transparent 30%
                 ),
+                var(--cream);
 
-                url("images/hero.jpg")
-                center / cover no-repeat;
+            overflow: hidden;
 
-            display: flex;
+        }
+
+
+        .hero-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                .93fr
+                1.07fr;
+
+            gap: 55px;
 
             align-items: center;
 
-            color: white;
-
         }
 
 
-        .hero-content {
+        .hero-copy {
 
-            width: 760px;
-
-            padding-top: 100px;
-
-        }
-
-
-        .hero-kicker {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 12px;
-
-            margin-bottom: 25px;
-
-            font-size: 14px;
-
-            font-weight: 800;
-
-            text-transform: uppercase;
-
-            letter-spacing: 2px;
-
-        }
-
-
-        .hero-kicker::before {
-
-            content: "";
-
-            width: 42px;
-
-            height: 4px;
-
-            background: var(--orange);
+            padding:
+                30px
+                0;
 
         }
 
 
         .hero h1 {
 
-            color: white;
+            max-width: 620px;
 
-            margin-bottom: 28px;
+            margin-bottom: 23px;
 
         }
 
@@ -562,18 +590,11 @@
 
         .hero-description {
 
-            max-width: 600px;
+            max-width: 550px;
 
-            color: rgba(
-                255,
-                255,
-                255,
-                .82
-            );
+            font-size: 17px;
 
-            font-size: 18px;
-
-            margin-bottom: 34px;
+            margin-bottom: 28px;
 
         }
 
@@ -584,81 +605,284 @@
 
             flex-wrap: wrap;
 
-            gap: 12px;
+            gap: 11px;
 
         }
 
 
-        .hero-stat-row {
+        .hero-trust {
 
             display: flex;
 
-            gap: 50px;
+            flex-wrap: wrap;
 
-            margin-top: 65px;
+            gap: 17px;
 
-            padding-top: 25px;
-
-            border-top: 1px solid rgba(
-                255,
-                255,
-                255,
-                .25
-            );
+            margin-top: 28px;
 
         }
 
 
-        .hero-stat strong {
+        .trust-pill {
 
-            display: block;
+            display: flex;
 
-            font-family:
-                "Barlow Condensed",
-                sans-serif;
+            align-items: center;
 
-            font-size: 35px;
+            gap: 7px;
 
-            line-height: 1;
+            font-size: 12px;
+
+            color: #666761;
+
+            font-weight: 600;
 
         }
 
 
-        .hero-stat span {
+        .trust-check {
 
-            display: block;
+            width: 21px;
 
-            margin-top: 5px;
+            height: 21px;
 
-            color: rgba(
-                255,
-                255,
-                255,
-                .6
-            );
+            display: grid;
+
+            place-items: center;
+
+            border-radius: 50%;
+
+            background:
+                var(--orange-light);
+
+            color: var(--orange);
 
             font-size: 11px;
 
-            font-weight: 700;
-
-            text-transform: uppercase;
-
-            letter-spacing: 1px;
+            font-weight: 900;
 
         }
 
 
-        /* ==================================================
-           BLACK INTRO
-        ================================================== */
+        /* HERO IMAGE */
+
+        .hero-visual {
+
+            position: relative;
+
+        }
+
+
+        .hero-image {
+
+            height: 570px;
+
+            object-fit: cover;
+
+            border-radius: 30px;
+
+            box-shadow: var(--shadow);
+
+        }
+
+
+        .hero-card {
+
+            position: absolute;
+
+            left: -32px;
+
+            bottom: 30px;
+
+            width: 245px;
+
+            padding: 20px;
+
+            background: white;
+
+            border-radius: 18px;
+
+            box-shadow: var(--shadow);
+
+        }
+
+
+        .hero-card-top {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin-bottom: 9px;
+
+        }
+
+
+        .hero-card-icon {
+
+            width: 39px;
+
+            height: 39px;
+
+            border-radius: 50%;
+
+            display: grid;
+
+            place-items: center;
+
+            background:
+                var(--orange-light);
+
+            color: var(--orange);
+
+            font-weight: 900;
+
+        }
+
+
+        .hero-card strong {
+
+            display: block;
+
+            font-size: 14px;
+
+        }
+
+
+        .hero-card span {
+
+            color: var(--muted);
+
+            font-size: 11px;
+
+        }
+
+
+        .hero-card p {
+
+            font-size: 12px;
+
+            line-height: 1.5;
+
+        }
+
+
+        /* =====================================================
+           TRUST STRIP
+        ===================================================== */
+
+        .trust-strip {
+
+            background: white;
+
+            border-top:
+                1px solid
+                var(--border);
+
+            border-bottom:
+                1px solid
+                var(--border);
+
+        }
+
+
+        .trust-items {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4,1fr);
+
+        }
+
+
+        .trust-item {
+
+            padding: 23px 18px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 11px;
+
+            border-right:
+                1px solid
+                var(--border);
+
+            text-align: center;
+
+        }
+
+
+        .trust-item:last-child {
+
+            border-right: 0;
+
+        }
+
+
+        .trust-item-icon {
+
+            width: 35px;
+
+            height: 35px;
+
+            border-radius: 50%;
+
+            background:
+                var(--orange-light);
+
+            color: var(--orange);
+
+            display: grid;
+
+            place-items: center;
+
+            font-size: 14px;
+
+            font-weight: 800;
+
+            flex-shrink: 0;
+
+        }
+
+
+        .trust-item strong {
+
+            display: block;
+
+            font-size: 13px;
+
+            color: var(--charcoal);
+
+        }
+
+
+        .trust-item span {
+
+            display: block;
+
+            font-size: 11px;
+
+            color: var(--muted);
+
+        }
+
+
+        /* =====================================================
+           INTRO
+        ===================================================== */
 
         .intro {
 
-            background: var(--black);
+            padding: 105px 0;
 
-            color: white;
-
-            padding: 115px 0;
+            background: white;
 
         }
 
@@ -668,178 +892,201 @@
             display: grid;
 
             grid-template-columns:
-                1.05fr
-                .95fr;
-
-            gap: 100px;
-
-            align-items: center;
-
-        }
-
-
-        .intro h2 {
-
-            color: white;
-
-            margin-bottom: 30px;
-
-        }
-
-
-        .intro-copy {
-
-            color: #a9a9a9;
-
-            font-size: 17px;
-
-            max-width: 590px;
-
-            margin-bottom: 35px;
-
-        }
-
-
-        .intro-list {
-
-            display: grid;
-
-            grid-template-columns:
                 1fr
                 1fr;
 
-            gap: 18px;
-
-        }
-
-
-        .intro-item {
-
-            display: flex;
+            gap: 80px;
 
             align-items: center;
 
-            gap: 12px;
-
-            font-size: 14px;
-
-            font-weight: 700;
-
-            text-transform: uppercase;
-
         }
 
 
-        .intro-item span {
-
-            width: 27px;
-
-            height: 27px;
-
-            display: grid;
-
-            place-items: center;
-
-            background: var(--orange);
-
-            color: white;
-
-            font-size: 12px;
-
-        }
-
-
-        .intro-image {
+        .intro-image-wrap {
 
             position: relative;
 
         }
 
 
-        .intro-image img {
+        .intro-image {
 
-            height: 560px;
+            height: 520px;
 
             object-fit: cover;
 
+            border-radius: 28px;
+
         }
 
 
-        .intro-image::before {
-
-            content: "";
+        .intro-accent {
 
             position: absolute;
 
-            top: -18px;
+            right: -25px;
 
-            left: -18px;
+            top: 35px;
 
-            width: 90px;
+            width: 95px;
 
-            height: 90px;
+            height: 95px;
 
-            border-top: 6px solid var(--orange);
+            background:
+                var(--orange);
 
-            border-left: 6px solid var(--orange);
+            border-radius: 24px;
 
-            z-index: 2;
-
-        }
-
-
-        /* ==================================================
-           SERVICES
-        ================================================== */
-
-        .services {
-
-            padding: 115px 0;
-
-            background: var(--off-white);
+            opacity: .95;
 
         }
 
 
-        .section-header {
+        .intro-accent::after {
 
-            display: flex;
+            content: "✓";
 
-            align-items: flex-end;
+            position: absolute;
 
-            justify-content: space-between;
+            inset: 0;
 
-            gap: 50px;
+            display: grid;
 
-            margin-bottom: 60px;
+            place-items: center;
 
-        }
+            color: white;
 
-
-        .section-header p {
-
-            max-width: 420px;
-
-            color: #686868;
-
-            font-size: 16px;
-
-        }
-
-
-        .section-number {
-
-            color: var(--orange);
-
-            font-family:
-                "Barlow Condensed",
-                sans-serif;
-
-            font-size: 20px;
+            font-size: 30px;
 
             font-weight: 800;
 
-            margin-bottom: 12px;
+        }
+
+
+        .intro-copy {
+
+            max-width: 550px;
+
+        }
+
+
+        .intro h2 {
+
+            margin-bottom: 21px;
+
+        }
+
+
+        .intro-description {
+
+            font-size: 16px;
+
+            margin-bottom: 28px;
+
+        }
+
+
+        .care-list {
+
+            display: grid;
+
+            gap: 15px;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .care-item {
+
+            display: flex;
+
+            gap: 12px;
+
+            align-items: flex-start;
+
+        }
+
+
+        .care-icon {
+
+            flex: 0 0 34px;
+
+            height: 34px;
+
+            border-radius: 10px;
+
+            background:
+                var(--orange-light);
+
+            display: grid;
+
+            place-items: center;
+
+            color: var(--orange);
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+        }
+
+
+        .care-item strong {
+
+            display: block;
+
+            color: var(--charcoal);
+
+            font-size: 14px;
+
+            margin-bottom: 2px;
+
+        }
+
+
+        .care-item span {
+
+            color: var(--muted);
+
+            font-size: 13px;
+
+        }
+
+
+        /* =====================================================
+           SERVICES
+        ===================================================== */
+
+        .services {
+
+            padding: 105px 0;
+
+            background:
+                var(--cream);
+
+        }
+
+
+        .section-heading {
+
+            max-width: 650px;
+
+            margin-bottom: 48px;
+
+        }
+
+
+        .section-heading h2 {
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .section-heading p {
+
+            font-size: 16px;
 
         }
 
@@ -849,421 +1096,259 @@
             display: grid;
 
             grid-template-columns:
-                repeat(12, 1fr);
+                repeat(3, 1fr);
 
-            gap: 18px;
+            gap: 20px;
 
         }
 
 
         .service-card {
 
-            position: relative;
+            background: white;
 
-            min-height: 430px;
+            border-radius: var(--radius);
 
             overflow: hidden;
 
-            background: var(--black);
+            border:
+                1px solid
+                var(--border);
+
+            transition:
+                transform .25s ease,
+                box-shadow .25s ease;
 
         }
 
 
-        .service-card:nth-child(1),
-        .service-card:nth-child(2) {
+        .service-card:hover {
 
-            grid-column: span 6;
+            transform:
+                translateY(-5px);
 
-        }
-
-
-        .service-card:nth-child(3),
-        .service-card:nth-child(4),
-        .service-card:nth-child(5) {
-
-            grid-column: span 4;
+            box-shadow:
+                var(--shadow-hover);
 
         }
 
 
-        .service-card img {
+        .service-image {
 
-            position: absolute;
+            height: 215px;
 
-            inset: 0;
+            overflow: hidden;
+
+        }
+
+
+        .service-image img {
 
             height: 100%;
 
             object-fit: cover;
 
-            opacity: .72;
-
             transition:
-                transform .5s ease;
+                transform .4s ease;
 
         }
 
 
-        .service-card:hover img {
+        .service-card:hover
+        .service-image img {
 
-            transform: scale(1.06);
-
-        }
-
-
-        .service-overlay {
-
-            position: absolute;
-
-            inset: 0;
-
-            background:
-                linear-gradient(
-                    0deg,
-                    rgba(0,0,0,.92),
-                    rgba(0,0,0,.05)
-                );
+            transform:
+                scale(1.04);
 
         }
 
 
         .service-content {
 
-            position: absolute;
-
-            left: 30px;
-
-            right: 30px;
-
-            bottom: 30px;
-
-            color: white;
+            padding: 24px;
 
         }
 
 
-        .service-number {
+        .service-icon {
+
+            width: 43px;
+
+            height: 43px;
+
+            border-radius: 13px;
+
+            background:
+                var(--orange-light);
 
             color: var(--orange);
 
-            font-size: 13px;
+            display: grid;
+
+            place-items: center;
+
+            font-size: 16px;
 
             font-weight: 800;
 
-            margin-bottom: 9px;
+            margin-bottom: 16px;
 
         }
 
 
         .service-content h3 {
 
-            color: white;
-
-            margin-bottom: 10px;
+            margin-bottom: 8px;
 
         }
 
 
         .service-content p {
 
-            color: rgba(
-                255,
-                255,
-                255,
-                .72
-            );
+            font-size: 13px;
 
-            font-size: 14px;
-
-            max-width: 470px;
+            line-height: 1.6;
 
         }
 
 
-        /* ==================================================
+        /* =====================================================
            PRICING
-        ================================================== */
+        ===================================================== */
 
         .pricing {
 
-            background: var(--orange);
+            padding: 105px 0;
 
-            color: white;
-
-            padding: 110px 0;
+            background: white;
 
         }
 
 
-        .pricing-grid {
+        .pricing-box {
 
             display: grid;
 
             grid-template-columns:
-                .8fr
-                1.2fr;
+                .9fr
+                1.1fr;
 
-            gap: 90px;
+            background:
+                var(--charcoal);
 
-            align-items: center;
+            border-radius: 30px;
 
-        }
-
-
-        .pricing h2 {
+            overflow: hidden;
 
             color: white;
 
-            margin-bottom: 25px;
+        }
+
+
+        .pricing-copy {
+
+            padding: 55px;
 
         }
 
 
-        .pricing-intro {
+        .pricing-copy h2 {
 
-            color: rgba(
-                255,
-                255,
-                255,
-                .85
-            );
+            color: white;
 
-            font-size: 17px;
-
-            max-width: 470px;
+            margin-bottom: 18px;
 
         }
 
 
-        .price-box {
+        .pricing-copy p {
 
-            background: var(--black);
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    .68
+                );
 
-            padding: 45px;
+            font-size: 15px;
 
-            position: relative;
+            max-width: 420px;
 
         }
 
 
-        .price-box::before {
+        .pricing-points {
 
-            content: "STARTING FROM";
+            margin-top: 27px;
 
-            position: absolute;
+            display: grid;
 
-            top: -13px;
+            gap: 11px;
 
-            left: 30px;
+        }
 
-            background: white;
 
-            color: var(--black);
+        .pricing-point {
 
-            padding: 6px 12px;
+            display: flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            font-size: 13px;
+
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    .82
+                );
+
+        }
+
+
+        .pricing-point::before {
+
+            content: "✓";
+
+            width: 21px;
+
+            height: 21px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(
+                    238,
+                    111,
+                    37,
+                    .2
+                );
+
+            color: var(--orange);
+
+            display: grid;
+
+            place-items: center;
 
             font-size: 10px;
 
             font-weight: 900;
 
-            letter-spacing: 1px;
-
         }
 
 
-        .price {
-
-            font-family:
-                "Barlow Condensed",
-                sans-serif;
-
-            font-size: 105px;
-
-            font-weight: 900;
-
-            line-height: .8;
-
-            margin-bottom: 15px;
-
-        }
-
-
-        .price small {
-
-            font-family: "Inter", sans-serif;
-
-            font-size: 18px;
-
-            font-weight: 600;
-
-            color: #aaa;
-
-        }
-
-
-        .price-note {
-
-            color: #999;
-
-            font-size: 13px;
-
-            margin-bottom: 30px;
-
-        }
-
-
-        .pricing-features {
-
-            border-top: 1px solid #333;
-
-            padding-top: 25px;
-
-            display: grid;
-
-            gap: 14px;
-
-            margin-bottom: 30px;
-
-        }
-
-
-        .pricing-feature {
-
-            display: flex;
-
-            align-items: flex-start;
-
-            gap: 12px;
-
-            font-size: 14px;
-
-        }
-
-
-        .pricing-feature::before {
-
-            content: "✓";
-
-            color: var(--orange);
-
-            font-weight: 900;
-
-        }
-
-
-        /* ==================================================
-           PROCESS
-        ================================================== */
-
-        .process {
-
-            padding: 115px 0;
-
-            background: white;
-
-        }
-
-
-        .process-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 1px;
-
-            background: #d8d8d5;
-
-            margin-top: 60px;
-
-        }
-
-
-        .process-card {
-
-            background: white;
-
-            padding: 45px;
-
-            min-height: 300px;
-
-        }
-
-
-        .process-number {
-
-            font-family:
-                "Barlow Condensed",
-                sans-serif;
-
-            font-size: 65px;
-
-            line-height: 1;
-
-            color: var(--orange);
-
-            margin-bottom: 30px;
-
-        }
-
-
-        .process-card h3 {
-
-            margin-bottom: 15px;
-
-        }
-
-
-        .process-card p {
-
-            color: #707070;
-
-            font-size: 15px;
-
-        }
-
-
-        /* ==================================================
-           FEATURE IMAGE / QUOTE
-        ================================================== */
-
-        .quote-section {
-
-            background: var(--dark);
-
-            color: white;
-
-            padding: 0;
-
-        }
-
-
-        .quote-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                1fr
-                1fr;
-
-        }
-
-
-        .quote-image {
-
-            min-height: 650px;
+        .price-area {
 
             background:
-                url("images/truck.jpg")
-                center / cover no-repeat;
+                var(--orange-light);
 
-        }
+            color: var(--charcoal);
 
-
-        .quote-content {
-
-            padding: 90px;
+            padding: 55px;
 
             display: flex;
 
@@ -1274,64 +1359,325 @@
         }
 
 
-        .quote-content h2 {
+        .price-label {
 
-            color: white;
+            text-transform: uppercase;
 
-            margin-bottom: 20px;
+            letter-spacing: 1.5px;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            color: var(--orange);
+
+            margin-bottom: 8px;
 
         }
 
 
-        .quote-content p {
+        .price {
 
-            color: #999;
+            font-family: "Manrope", sans-serif;
 
-            margin-bottom: 35px;
+            font-size: 72px;
+
+            font-weight: 800;
+
+            line-height: 1;
+
+            letter-spacing: -3px;
+
+        }
+
+
+        .price small {
+
+            font-size: 17px;
+
+            letter-spacing: 0;
+
+            color: var(--muted);
+
+            font-weight: 600;
+
+        }
+
+
+        .price-description {
+
+            margin-top: 12px;
+
+            font-size: 13px;
+
+            color: var(--muted);
+
+            max-width: 390px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .price-area .btn {
+
+            align-self: flex-start;
+
+        }
+
+
+        /* =====================================================
+           PROCESS
+        ===================================================== */
+
+        .process {
+
+            padding: 105px 0;
+
+            background:
+                var(--cream);
+
+        }
+
+
+        .process-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 22px;
+
+            margin-top: 45px;
+
+        }
+
+
+        .process-card {
+
+            background: white;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 22px;
+
+            padding: 30px;
+
+        }
+
+
+        .process-number {
+
+            width: 47px;
+
+            height: 47px;
+
+            border-radius: 50%;
+
+            background:
+                var(--orange-light);
+
+            color: var(--orange);
+
+            display: grid;
+
+            place-items: center;
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+            margin-bottom: 22px;
+
+        }
+
+
+        .process-card h3 {
+
+            margin-bottom: 9px;
+
+        }
+
+
+        .process-card p {
+
+            font-size: 13px;
+
+        }
+
+
+        /* =====================================================
+           REVIEWS
+        ===================================================== */
+
+        .reviews {
+
+            padding: 105px 0;
+
+            background: white;
+
+        }
+
+
+        .reviews-heading {
+
+            text-align: center;
+
+            max-width: 650px;
+
+            margin:
+                0 auto 45px;
+
+        }
+
+
+        .reviews-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 20px;
+
+        }
+
+
+        .review-card {
+
+            background:
+                var(--cream);
+
+            border-radius: 22px;
+
+            padding: 30px;
+
+            border:
+                1px solid
+                var(--border);
+
+        }
+
+
+        .stars {
+
+            color: var(--orange);
+
+            letter-spacing: 2px;
+
+            font-size: 14px;
+
+            margin-bottom: 17px;
+
+        }
+
+
+        .review-card blockquote {
+
+            font-size: 14px;
+
+            color: #555651;
+
+            margin-bottom: 22px;
+
+            line-height: 1.7;
+
+        }
+
+
+        .review-name {
+
+            font-weight: 700;
+
+            font-size: 13px;
+
+            color: var(--charcoal);
+
+        }
+
+
+        .review-location {
+
+            font-size: 11px;
+
+            color: var(--muted);
+
+        }
+
+
+        /* =====================================================
+           QUOTE SECTION
+        ===================================================== */
+
+        .quote-section {
+
+            padding: 105px 0;
+
+            background:
+                var(--cream);
+
+        }
+
+
+        .quote-wrapper {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                1fr;
+
+            gap: 55px;
+
+            align-items: center;
+
+        }
+
+
+        .quote-image {
+
+            height: 560px;
+
+            object-fit: cover;
+
+            border-radius: 30px;
+
+        }
+
+
+        .quote-copy h2 {
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .quote-copy > p {
+
+            margin-bottom: 27px;
+
+            max-width: 480px;
 
         }
 
 
         .quote-form {
 
+            background: white;
+
+            border-radius: 24px;
+
+            padding: 30px;
+
+            box-shadow:
+                var(--shadow);
+
             display: grid;
 
             gap: 12px;
-
-        }
-
-
-        .quote-form input,
-        .quote-form textarea {
-
-            width: 100%;
-
-            padding: 15px;
-
-            background: #222;
-
-            border: 1px solid #3a3a3a;
-
-            color: white;
-
-            outline: none;
-
-        }
-
-
-        .quote-form input:focus,
-        .quote-form textarea:focus {
-
-            border-color: var(--orange);
-
-        }
-
-
-        .quote-form textarea {
-
-            min-height: 110px;
-
-            resize: vertical;
 
         }
 
@@ -1349,90 +1695,74 @@
         }
 
 
-        /* ==================================================
-           TESTIMONIAL
-        ================================================== */
+        .quote-form input,
+        .quote-form textarea {
 
-        .testimonial {
+            width: 100%;
 
-            padding: 115px 0;
+            padding:
+                13px
+                15px;
 
-            background: var(--off-white);
+            border:
+                1px solid
+                var(--border);
 
-        }
+            border-radius: 11px;
 
+            background:
+                #fcfbf9;
 
-        .testimonial-inner {
+            color: var(--text);
 
-            max-width: 900px;
-
-        }
-
-
-        .quote-mark {
-
-            font-family:
-                "Barlow Condensed",
-                sans-serif;
-
-            font-size: 110px;
-
-            line-height: .5;
-
-            color: var(--orange);
-
-            margin-bottom: 35px;
-
-        }
-
-
-        .testimonial blockquote {
-
-            font-family:
-                "Barlow Condensed",
-                sans-serif;
-
-            font-size: clamp(
-                38px,
-                5vw,
-                65px
-            );
-
-            line-height: 1;
-
-            text-transform: uppercase;
-
-            font-weight: 700;
-
-            margin-bottom: 35px;
-
-        }
-
-
-        .testimonial-name {
+            outline: none;
 
             font-size: 13px;
 
-            font-weight: 800;
+        }
 
-            text-transform: uppercase;
 
-            letter-spacing: 1px;
+        .quote-form textarea {
+
+            min-height: 105px;
+
+            resize: vertical;
 
         }
 
 
-        /* ==================================================
+        .quote-form input:focus,
+        .quote-form textarea:focus {
+
+            border-color:
+                var(--orange);
+
+            background: white;
+
+        }
+
+
+        .quote-form .btn {
+
+            border: 0;
+
+            cursor: pointer;
+
+            margin-top: 3px;
+
+        }
+
+
+        /* =====================================================
            FINAL CTA
-        ================================================== */
+        ===================================================== */
 
         .final-cta {
 
-            background: var(--black);
+            padding: 90px 0;
 
-            padding: 110px 0;
-
-            color: white;
+            background:
+                var(--orange-light);
 
             text-align: center;
 
@@ -1441,42 +1771,44 @@
 
         .final-cta h2 {
 
-            color: white;
+            max-width: 700px;
 
-            max-width: 900px;
-
-            margin: 0 auto 30px;
+            margin:
+                0 auto 15px;
 
         }
 
 
         .final-cta p {
 
-            color: #999;
+            max-width: 550px;
 
-            max-width: 580px;
-
-            margin: 0 auto 35px;
+            margin:
+                0 auto 25px;
 
         }
 
 
-        /* ==================================================
+        /* =====================================================
            FOOTER
-        ================================================== */
+        ===================================================== */
 
         footer {
 
-            background: #050505;
+            background:
+                var(--charcoal);
 
             color: white;
 
-            padding: 60px 0 25px;
+            padding:
+                60px
+                0
+                25px;
 
         }
 
 
-        .footer-top {
+        .footer-grid {
 
             display: grid;
 
@@ -1485,46 +1817,53 @@
                 1fr
                 1fr;
 
-            gap: 70px;
+            gap: 60px;
 
-            padding-bottom: 55px;
+            padding-bottom: 45px;
 
         }
 
 
         .footer-logo {
 
-            width: 190px;
+            width: 175px;
 
-            margin-bottom: 20px;
+            margin-bottom: 17px;
 
         }
 
 
         .footer-description {
 
-            max-width: 370px;
+            max-width: 350px;
 
-            color: #777;
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    .58
+                );
 
-            font-size: 14px;
+            font-size: 13px;
 
         }
 
 
         .footer-heading {
 
-            font-size: 12px;
+            color:
+                var(--orange);
 
-            font-weight: 800;
+            font-size: 11px;
 
             text-transform: uppercase;
 
-            letter-spacing: 1px;
+            letter-spacing: 1.3px;
 
-            color: var(--orange);
+            font-weight: 800;
 
-            margin-bottom: 18px;
+            margin-bottom: 15px;
 
         }
 
@@ -1533,16 +1872,22 @@
 
             display: grid;
 
-            gap: 10px;
+            gap: 9px;
 
         }
 
 
         .footer-links a {
 
-            color: #aaa;
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    .68
+                );
 
-            font-size: 14px;
+            font-size: 13px;
 
         }
 
@@ -1556,24 +1901,37 @@
 
         .footer-bottom {
 
-            border-top: 1px solid #222;
+            border-top:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    .1
+                );
 
-            padding-top: 22px;
+            padding-top: 20px;
 
             display: flex;
 
             justify-content: space-between;
 
-            color: #555;
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    .38
+                );
 
-            font-size: 12px;
+            font-size: 11px;
 
         }
 
 
-        /* ==================================================
-           MOBILE BAR
-        ================================================== */
+        /* =====================================================
+           MOBILE CTA
+        ===================================================== */
 
         .mobile-bar {
 
@@ -1582,11 +1940,11 @@
         }
 
 
-        /* ==================================================
+        /* =====================================================
            RESPONSIVE
-        ================================================== */
+        ===================================================== */
 
-        @media (max-width: 900px) {
+        @media (max-width: 950px) {
 
 
             .nav-links {
@@ -1595,15 +1953,24 @@
 
                 position: absolute;
 
-                top: 86px;
+                top: 78px;
 
                 left: 0;
 
                 width: 100%;
 
-                background: var(--black);
-
                 padding: 25px;
+
+                background:
+                    var(--cream);
+
+                border-bottom:
+                    1px solid
+                    var(--border);
+
+                box-shadow:
+                    0 15px 30px
+                    rgba(0,0,0,.08);
 
                 flex-direction: column;
 
@@ -1626,89 +1993,69 @@
             }
 
 
-            .hero {
-
-                min-height: 760px;
-
-            }
-
-
+            .hero-grid,
             .intro-grid,
-            .pricing-grid,
-            .quote-grid {
+            .pricing-box,
+            .quote-wrapper {
 
                 grid-template-columns: 1fr;
 
             }
 
 
-            .intro-image {
+            .hero-copy {
+
+                padding-bottom: 0;
+
+            }
+
+
+            .hero-visual {
+
+                max-width: 750px;
+
+            }
+
+
+            .hero-card {
+
+                left: 20px;
+
+            }
+
+
+            .intro-image-wrap {
 
                 order: -1;
 
             }
 
 
-            .intro-image img {
-
-                height: 450px;
-
-            }
-
-
             .services-grid {
 
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns:
+                    repeat(2,1fr);
 
             }
 
 
-            .service-card:nth-child(n) {
-
-                grid-column: span 1;
-
-            }
-
-
-            .process-grid {
-
-                grid-template-columns: 1fr;
-
-            }
-
-
-            .quote-image {
-
-                min-height: 450px;
-
-            }
-
-
-            .quote-content {
-
-                padding: 65px 30px;
-
-            }
-
-
-            .footer-top {
+            .footer-grid {
 
                 grid-template-columns:
-                    1fr
-                    1fr;
+                    1fr 1fr;
 
             }
 
         }
 
 
-        @media (max-width: 600px) {
+        @media (max-width: 650px) {
 
 
             .container {
 
                 width:
-                    calc(100% - 30px);
+                    calc(100% - 28px);
 
             }
 
@@ -1720,16 +2067,16 @@
             }
 
 
-            header {
+            .nav {
 
-                top: 0;
+                min-height: 70px;
 
             }
 
 
-            .nav {
+            .nav-links {
 
-                min-height: 72px;
+                top: 70px;
 
             }
 
@@ -1741,30 +2088,19 @@
             }
 
 
-            .logo img {
-
-                max-height: 50px;
-
-            }
-
-
-            .nav-links {
-
-                top: 72px;
-
-            }
-
-
             .hero {
 
-                min-height: 720px;
+                padding:
+                    35px
+                    0
+                    70px;
 
             }
 
 
-            .hero-content {
+            .hero-copy {
 
-                padding-top: 90px;
+                padding-top: 20px;
 
             }
 
@@ -1773,17 +2109,20 @@
 
                 font-size:
                     clamp(
-                        62px,
-                        18vw,
-                        90px
+                        40px,
+                        12vw,
+                        55px
                     );
+
+                letter-spacing:
+                    -1.7px;
 
             }
 
 
             .hero-description {
 
-                font-size: 16px;
+                font-size: 15px;
 
             }
 
@@ -1802,18 +2141,65 @@
             }
 
 
-            .hero-stat-row {
+            .hero-image {
 
-                gap: 25px;
+                height: 390px;
 
-                flex-wrap: wrap;
+                border-radius: 22px;
 
             }
 
 
-            .hero-stat strong {
+            .hero-card {
 
-                font-size: 30px;
+                position: relative;
+
+                left: 0;
+
+                bottom: auto;
+
+                width: calc(100% - 30px);
+
+                margin:
+                    -35px
+                    auto
+                    0;
+
+                z-index: 3;
+
+            }
+
+
+            .trust-items {
+
+                grid-template-columns:
+                    1fr 1fr;
+
+            }
+
+
+            .trust-item {
+
+                padding: 18px 10px;
+
+                border-bottom:
+                    1px solid
+                    var(--border);
+
+            }
+
+
+            .trust-item:nth-child(2) {
+
+                border-right: 0;
+
+            }
+
+
+            .trust-item:nth-child(3),
+            .trust-item:nth-child(4) {
+
+                border-bottom: 0;
 
             }
 
@@ -1822,73 +2208,72 @@
             .services,
             .pricing,
             .process,
-            .testimonial,
-            .final-cta {
+            .reviews,
+            .quote-section {
 
-                padding: 75px 0;
+                padding:
+                    75px
+                    0;
 
             }
 
 
-            .intro-list {
+            .intro-image {
+
+                height: 370px;
+
+            }
+
+
+            .intro-accent {
+
+                right: 10px;
+
+                width: 70px;
+
+                height: 70px;
+
+                border-radius: 18px;
+
+            }
+
+
+            .services-grid,
+            .process-grid,
+            .reviews-grid {
 
                 grid-template-columns: 1fr;
 
             }
 
 
-            .intro-image img {
+            .service-image {
 
-                height: 360px;
-
-            }
-
-
-            .section-header {
-
-                display: block;
+                height: 220px;
 
             }
 
 
-            .section-header p {
+            .pricing-copy,
+            .price-area {
 
-                margin-top: 20px;
-
-            }
-
-
-            .services-grid {
-
-                grid-template-columns: 1fr;
-
-            }
-
-
-            .service-card:nth-child(n) {
-
-                grid-column: span 1;
-
-            }
-
-
-            .service-card {
-
-                min-height: 370px;
-
-            }
-
-
-            .price-box {
-
-                padding: 35px 25px;
+                padding:
+                    35px
+                    25px;
 
             }
 
 
             .price {
 
-                font-size: 80px;
+                font-size: 58px;
+
+            }
+
+
+            .quote-image {
+
+                height: 350px;
 
             }
 
@@ -1900,14 +2285,14 @@
             }
 
 
-            .quote-image {
+            .quote-form {
 
-                min-height: 320px;
+                padding: 22px;
 
             }
 
 
-            .footer-top {
+            .footer-grid {
 
                 grid-template-columns: 1fr;
 
@@ -1925,7 +2310,7 @@
 
             .footer-bottom div + div {
 
-                margin-top: 8px;
+                margin-top: 7px;
 
             }
 
@@ -1940,32 +2325,30 @@
 
                 position: fixed;
 
-                bottom: 0;
-
                 left: 0;
 
                 right: 0;
 
-                z-index: 999;
+                bottom: 0;
+
+                z-index: 2000;
 
                 box-shadow:
                     0 -5px 20px
-                    rgba(0,0,0,.25);
+                    rgba(0,0,0,.12);
 
             }
 
 
             .mobile-bar a {
 
-                padding: 16px;
+                padding: 15px;
 
                 text-align: center;
 
-                font-size: 13px;
+                font-size: 12px;
 
                 font-weight: 800;
-
-                text-transform: uppercase;
 
             }
 
@@ -1974,14 +2357,15 @@
 
                 background: white;
 
-                color: var(--black);
+                color: var(--charcoal);
 
             }
 
 
             .mobile-quote {
 
-                background: var(--orange);
+                background:
+                    var(--orange);
 
                 color: white;
 
@@ -1990,7 +2374,7 @@
 
             body {
 
-                padding-bottom: 52px;
+                padding-bottom: 50px;
 
             }
 
@@ -2004,26 +2388,29 @@
 <body>
 
 
-    <!-- ==================================================
+    <!-- =====================================================
          TOP BAR
-    ================================================== -->
+    ===================================================== -->
 
     <div class="topbar">
 
         <div class="container topbar-inner">
 
-            <div>
-                Sydney Removalists
+            <div class="topbar-left">
+
+                Professional Sydney Removalists
+
             </div>
 
-            <div class="topbar-contact">
+
+            <div class="topbar-right">
 
                 <a href="tel:0422553675">
                     0422 553 675
                 </a>
 
                 <a href="#quote">
-                    Get a Quote →
+                    Get a free quote
                 </a>
 
             </div>
@@ -2033,9 +2420,10 @@
     </div>
 
 
-    <!-- ==================================================
+
+    <!-- =====================================================
          HEADER
-    ================================================== -->
+    ===================================================== -->
 
     <header>
 
@@ -2055,7 +2443,10 @@
             </a>
 
 
-            <nav class="nav-links" id="navLinks">
+            <nav
+                class="nav-links"
+                id="navLinks"
+            >
 
                 <a href="#services">
                     Services
@@ -2075,9 +2466,9 @@
 
                 <a
                     href="#quote"
-                    class="nav-cta"
+                    class="nav-quote"
                 >
-                    Get A Quote
+                    Get a Quote
                 </a>
 
             </nav>
@@ -2088,115 +2479,882 @@
                 id="mobileToggle"
                 aria-label="Open navigation"
             >
+
                 ☰
+
             </button>
+
 
         </div>
 
     </header>
 
 
-    <!-- ==================================================
+
+    <!-- =====================================================
          HERO
-    ================================================== -->
+    ===================================================== -->
 
-    <section class="hero">
-
-        <div class="container">
-
-            <div class="hero-content">
+    <main>
 
 
-                <div class="hero-kicker">
-                    Sydney Removalists
+        <section class="hero">
+
+
+            <div class="container hero-grid">
+
+
+                <div class="hero-copy">
+
+
+                    <div class="eyebrow">
+                        Sydney Removalists
+                    </div>
+
+
+                    <h1>
+
+                        Moving doesn't
+                        have to be
+                        <span>
+                            stressful.
+                        </span>
+
+                    </h1>
+
+
+                    <p class="hero-description">
+
+                        From carefully wrapping your furniture
+                        to getting everything safely into your
+                        new home, Antigravity Removals takes care
+                        of the heavy lifting.
+
+                    </p>
+
+
+                    <div class="hero-buttons">
+
+
+                        <a
+                            href="#quote"
+                            class="btn btn-primary"
+                        >
+
+                            Get a Free Quote
+
+                            →
+
+                        </a>
+
+
+                        <a
+                            href="tel:0422553675"
+                            class="btn btn-light"
+                        >
+
+                            Call 0422 553 675
+
+                        </a>
+
+
+                    </div>
+
+
+                    <div class="hero-trust">
+
+
+                        <div class="trust-pill">
+
+                            <div class="trust-check">
+                                ✓
+                            </div>
+
+                            Careful handling
+
+                        </div>
+
+
+                        <div class="trust-pill">
+
+                            <div class="trust-check">
+                                ✓
+                            </div>
+
+                            Wrap & tape included
+
+                        </div>
+
+
+                        <div class="trust-pill">
+
+                            <div class="trust-check">
+                                ✓
+                            </div>
+
+                            Professional team
+
+                        </div>
+
+
+                    </div>
+
+
                 </div>
 
 
-                <h1>
 
-                    WE MOVE
-
-                    <br>
-
-                    THE
-
-                    <span>
-                        HEAVY
-                    </span>
-
-                    STUFF.
-
-                </h1>
+                <div class="hero-visual">
 
 
-                <p class="hero-description">
-
-                    Professional removalists specialising in
-                    heavy items, efficient moves and taking the
-                    stress out of moving home or business.
-
-                </p>
+                    <img
+                        src="images/moving-sofa.jpg"
+                        alt="Professional removalists carefully moving a sofa"
+                        class="hero-image"
+                    >
 
 
-                <div class="hero-buttons">
+                    <div class="hero-card">
+
+
+                        <div class="hero-card-top">
+
+
+                            <div class="hero-card-icon">
+                                ✓
+                            </div>
+
+
+                            <div>
+
+                                <strong>
+                                    Your belongings are in good hands
+                                </strong>
+
+                                <span>
+                                    Careful from start to finish
+                                </span>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <p>
+
+                            We don't just move your furniture.
+                            We take care of it.
+
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             TRUST STRIP
+        ================================================== -->
+
+        <section class="trust-strip">
+
+
+            <div class="container trust-items">
+
+
+                <div class="trust-item">
+
+
+                    <div class="trust-item-icon">
+                        ✓
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            Experienced team
+                        </strong>
+
+                        <span>
+                            Professional service
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="trust-item">
+
+
+                    <div class="trust-item-icon">
+                        ♡
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            Careful handling
+                        </strong>
+
+                        <span>
+                            Your things matter
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="trust-item">
+
+
+                    <div class="trust-item-icon">
+                        $
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            From $75 / half hour
+                        </strong>
+
+                        <span>
+                            Straightforward pricing
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="trust-item">
+
+
+                    <div class="trust-item-icon">
+                        ★
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            Sydney based
+                        </strong>
+
+                        <span>
+                            Local removalists
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             INTRO
+        ================================================== -->
+
+        <section class="intro">
+
+
+            <div class="container intro-grid">
+
+
+                <div class="intro-image-wrap">
+
+
+                    <img
+                        src="images/wrapping.jpg"
+                        alt="Removalist carefully wrapping furniture"
+                        class="intro-image"
+                    >
+
+
+                    <div class="intro-accent"></div>
+
+
+                </div>
+
+
+
+                <div class="intro-copy">
+
+
+                    <div class="eyebrow">
+                        Moving with care
+                    </div>
+
+
+                    <h2>
+
+                        The heavy lifting
+                        is the easy part.
+
+                    </h2>
+
+
+                    <p class="intro-description">
+
+                        The real challenge is trusting someone
+                        with the things that matter to you.
+
+                        That's why we focus on doing the little
+                        things properly — protecting furniture,
+                        wrapping items carefully and taking the
+                        time to move things safely.
+
+                    </p>
+
+
+                    <div class="care-list">
+
+
+                        <div class="care-item">
+
+
+                            <div class="care-icon">
+                                ✓
+                            </div>
+
+
+                            <div>
+
+                                <strong>
+                                    Furniture protection
+                                </strong>
+
+                                <span>
+                                    Wrap and tape included to help protect your belongings.
+                                </span>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="care-item">
+
+
+                            <div class="care-icon">
+                                ✓
+                            </div>
+
+
+                            <div>
+
+                                <strong>
+                                    Experienced handling
+                                </strong>
+
+                                <span>
+                                    From stairs to awkward spaces, we'll work out the safest way through.
+                                </span>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="care-item">
+
+
+                            <div class="care-icon">
+                                ✓
+                            </div>
+
+
+                            <div>
+
+                                <strong>
+                                    One less thing to worry about
+                                </strong>
+
+                                <span>
+                                    We take care of the physical work so you can focus on your move.
+                                </span>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
 
                     <a
                         href="#quote"
-                        class="btn btn-orange"
+                        class="btn btn-dark"
                     >
-                        Get A Free Quote
+
+                        Tell us about your move
                         →
+
                     </a>
 
 
-                    <a
-                        href="tel:0422553675"
-                        class="btn btn-white"
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             SERVICES
+        ================================================== -->
+
+        <section
+            class="services"
+            id="services"
+        >
+
+
+            <div class="container">
+
+
+                <div class="section-heading">
+
+
+                    <div class="eyebrow">
+                        How we can help
+                    </div>
+
+
+                    <h2>
+                        More than just moving.
+                    </h2>
+
+
+                    <p>
+
+                        Whether you're moving house, relocating
+                        a business or simply need help with
+                        something too big to handle yourself,
+                        we've got you covered.
+
+                    </p>
+
+
+                </div>
+
+
+
+                <div class="services-grid">
+
+
+                    <article class="service-card">
+
+
+                        <div class="service-image">
+
+                            <img
+                                src="images/moving-sofa.jpg"
+                                alt="Residential removal service"
+                            >
+
+                        </div>
+
+
+                        <div class="service-content">
+
+
+                            <div class="service-icon">
+                                01
+                            </div>
+
+
+                            <h3>
+                                Home & Business Moves
+                            </h3>
+
+
+                            <p>
+
+                                Professional relocation services
+                                for homes, offices and businesses.
+
+                            </p>
+
+
+                        </div>
+
+
+                    </article>
+
+
+
+                    <article class="service-card">
+
+
+                        <div class="service-image">
+
+                            <img
+                                src="images/packing.jpg"
+                                alt="Packing service"
+                            >
+
+                        </div>
+
+
+                        <div class="service-content">
+
+
+                            <div class="service-icon">
+                                02
+                            </div>
+
+
+                            <h3>
+                                Packing & Unpacking
+                            </h3>
+
+
+                            <p>
+
+                                Let us take care of the packing,
+                                wrapping and unpacking.
+
+                            </p>
+
+
+                        </div>
+
+
+                    </article>
+
+
+
+                    <article class="service-card">
+
+
+                        <div class="service-image">
+
+                            <img
+                                src="images/wrapping.jpg"
+                                alt="Furniture wrapping service"
+                            >
+
+                        </div>
+
+
+                        <div class="service-content">
+
+
+                            <div class="service-icon">
+                                03
+                            </div>
+
+
+                            <h3>
+                                Dismantling & Assembly
+                            </h3>
+
+
+                            <p>
+
+                                Furniture can be dismantled before
+                                the move and assembled again at the
+                                other end.
+
+                            </p>
+
+
+                        </div>
+
+
+                    </article>
+
+
+
+                    <article class="service-card">
+
+
+                        <div class="service-image">
+
+                            <img
+                                src="images/truck.jpg"
+                                alt="Rubbish removal service"
+                            >
+
+                        </div>
+
+
+                        <div class="service-content">
+
+
+                            <div class="service-icon">
+                                04
+                            </div>
+
+
+                            <h3>
+                                Rubbish Removal
+                            </h3>
+
+
+                            <p>
+
+                                Clear unwanted furniture,
+                                household items and rubbish.
+
+                            </p>
+
+
+                        </div>
+
+
+                    </article>
+
+
+
+                    <article class="service-card">
+
+
+                        <div class="service-image">
+
+                            <img
+                                src="images/team.jpg"
+                                alt="Strip out service"
+                            >
+
+                        </div>
+
+
+                        <div class="service-content">
+
+
+                            <div class="service-icon">
+                                05
+                            </div>
+
+
+                            <h3>
+                                Strip Outs
+                            </h3>
+
+
+                            <p>
+
+                                Help clear spaces ready for
+                                renovation, handover or a fresh start.
+
+                            </p>
+
+
+                        </div>
+
+
+                    </article>
+
+
+
+                    <article
+                        class="service-card"
+                        style="
+                            display:flex;
+                            align-items:center;
+                            justify-content:center;
+                            background:var(--orange-light);
+                            min-height:435px;
+                        "
                     >
-                        Call 0422 553 675
-                    </a>
+
+
+                        <div
+                            class="service-content"
+                            style="
+                                text-align:center;
+                                padding:35px;
+                            "
+                        >
+
+
+                            <div
+                                class="service-icon"
+                                style="
+                                    margin-left:auto;
+                                    margin-right:auto;
+                                "
+                            >
+                                +
+                            </div>
+
+
+                            <h3>
+                                Not sure what you need?
+                            </h3>
+
+
+                            <p
+                                style="
+                                    margin-top:10px;
+                                    margin-bottom:20px;
+                                "
+                            >
+
+                                Tell us what you're trying to move
+                                and we'll help work out the best option.
+
+                            </p>
+
+
+                            <a
+                                href="#quote"
+                                class="btn btn-primary"
+                            >
+
+                                Ask Us →
+
+                            </a>
+
+
+                        </div>
+
+
+                    </article>
+
 
                 </div>
 
+            </div>
 
-                <div class="hero-stat-row">
+        </section>
 
 
-                    <div class="hero-stat">
 
-                        <strong>
+        <!-- =================================================
+             PRICING
+        ================================================== -->
+
+        <section
+            class="pricing"
+            id="pricing"
+        >
+
+
+            <div class="container">
+
+
+                <div class="pricing-box">
+
+
+                    <div class="pricing-copy">
+
+
+                        <div class="eyebrow">
+                            Simple pricing
+                        </div>
+
+
+                        <h2>
+                            Know where you stand.
+                        </h2>
+
+
+                        <p>
+
+                            Our removalist services start from
+                            $75 per half hour, with a 3.5-hour
+                            minimum charge.
+
+                        </p>
+
+
+                        <div class="pricing-points">
+
+
+                            <div class="pricing-point">
+                                Wrap and tape included
+                            </div>
+
+
+                            <div class="pricing-point">
+                                Professional removalists
+                            </div>
+
+
+                            <div class="pricing-point">
+                                Furniture dismantling & assembly
+                            </div>
+
+
+                            <div class="pricing-point">
+                                Loading & unloading
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="price-area">
+
+
+                        <div class="price-label">
+                            Starting from
+                        </div>
+
+
+                        <div class="price">
+
                             $75
-                        </strong>
 
-                        <span>
-                            From / Half Hour
-                        </span>
+                            <small>
+                                / half hour
+                            </small>
 
-                    </div>
-
-
-                    <div class="hero-stat">
-
-                        <strong>
-                            3.5 HRS
-                        </strong>
-
-                        <span>
-                            Minimum Charge
-                        </span>
-
-                    </div>
+                        </div>
 
 
-                    <div class="hero-stat">
+                        <p class="price-description">
 
-                        <strong>
-                            5
-                        </strong>
+                            Final pricing depends on the size,
+                            access and requirements of your move.
+                            Get in touch for a quote tailored to you.
 
-                        <span>
-                            Core Services
-                        </span>
+                        </p>
+
+
+                        <a
+                            href="#quote"
+                            class="btn btn-primary"
+                        >
+
+                            Get My Quote →
+
+                        </a>
+
 
                     </div>
 
@@ -2205,120 +3363,123 @@
 
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
 
-    <!-- ==================================================
-         INTRO
-    ================================================== -->
 
-    <section class="intro">
+        <!-- =================================================
+             PROCESS
+        ================================================== -->
 
-        <div class="container intro-grid">
+        <section
+            class="process"
+            id="how-it-works"
+        >
 
 
-            <div>
+            <div class="container">
 
 
-                <div class="section-number">
-                    01 / WHO WE ARE
+                <div class="section-heading">
+
+
+                    <div class="eyebrow">
+                        How it works
+                    </div>
+
+
+                    <h2>
+                        We've got the heavy stuff.
+                    </h2>
+
+
+                    <p>
+
+                        Getting started is easy. Tell us what
+                        you need, and we'll take it from there.
+
+                    </p>
+
+
                 </div>
 
 
-                <h2>
 
-                    BUILT TO
-
-                    <span class="orange">
-                        MOVE
-                    </span>
-
-                    THINGS.
-
-                </h2>
+                <div class="process-grid">
 
 
-                <p class="intro-copy">
-
-                    Antigravity Removals is a professional Sydney
-                    removalist company specialising in heavy items
-                    and efficiency.
-
-                    Whether you're moving your home, office or
-                    simply need help getting bulky items from A to B,
-                    our experienced team is ready to help make the
-                    process smoother.
-
-                </p>
+                    <div class="process-card">
 
 
-                <div class="intro-list">
+                        <div class="process-number">
+                            01
+                        </div>
 
 
-                    <div class="intro-item">
+                        <h3>
+                            Tell us about your move
+                        </h3>
 
-                        <span>
-                            ✓
-                        </span>
 
-                        Experienced team
+                        <p>
+
+                            Give us the details of your move,
+                            including where you're going and
+                            what needs to be moved.
+
+                        </p>
+
 
                     </div>
 
 
-                    <div class="intro-item">
 
-                        <span>
-                            ✓
-                        </span>
+                    <div class="process-card">
 
-                        Heavy item specialists
+
+                        <div class="process-number">
+                            02
+                        </div>
+
+
+                        <h3>
+                            Get your quote
+                        </h3>
+
+
+                        <p>
+
+                            We'll look at what you need and
+                            help work out the right service
+                            for your move.
+
+                        </p>
+
 
                     </div>
 
 
-                    <div class="intro-item">
 
-                        <span>
-                            ✓
-                        </span>
-
-                        Careful handling
-
-                    </div>
+                    <div class="process-card">
 
 
-                    <div class="intro-item">
-
-                        <span>
-                            ✓
-                        </span>
-
-                        Efficient service
-
-                    </div>
+                        <div class="process-number">
+                            03
+                        </div>
 
 
-                    <div class="intro-item">
-
-                        <span>
-                            ✓
-                        </span>
-
-                        Wrap & tape included
-
-                    </div>
+                        <h3>
+                            Relax. We've got it.
+                        </h3>
 
 
-                    <div class="intro-item">
+                        <p>
 
-                        <span>
-                            ✓
-                        </span>
+                            Our team arrives ready to carefully
+                            load, transport and unload your things.
 
-                        Loading & unloading
+                        </p>
+
 
                     </div>
 
@@ -2327,642 +3488,341 @@
 
             </div>
 
+        </section>
 
-            <div class="intro-image">
 
-                <img
-                    src="images/moving-sofa.jpg"
-                    alt="Antigravity Removals team moving furniture"
-                >
+
+        <!-- =================================================
+             REVIEWS
+        ================================================== -->
+
+        <section
+            class="reviews"
+            id="reviews"
+        >
+
+
+            <div class="container">
+
+
+                <div class="reviews-heading">
+
+
+                    <div class="eyebrow">
+                        Customer feedback
+                    </div>
+
+
+                    <h2>
+                        Moving is easier when you know you're in good hands.
+                    </h2>
+
+
+                </div>
+
+
+
+                <div class="reviews-grid">
+
+
+                    <article class="review-card">
+
+
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+
+
+                        <blockquote>
+
+                            "Efficient, professional and friendly
+                            team. Highly recommend!"
+
+                        </blockquote>
+
+
+                        <div class="review-name">
+                            Antigravity Removals Customer
+                        </div>
+
+
+                        <div class="review-location">
+                            Sydney
+                        </div>
+
+
+                    </article>
+
+
+
+                    <article class="review-card">
+
+
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+
+
+                        <blockquote>
+
+                            "Professional service and careful
+                            handling from start to finish."
+
+                        </blockquote>
+
+
+                        <div class="review-name">
+                            Customer Review
+                        </div>
+
+
+                        <div class="review-location">
+                            Sydney
+                        </div>
+
+
+                    </article>
+
+
+
+                    <article class="review-card">
+
+
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+
+
+                        <blockquote>
+
+                            "Friendly, helpful and made the move
+                            much less stressful."
+
+                        </blockquote>
+
+
+                        <div class="review-name">
+                            Customer Review
+                        </div>
+
+
+                        <div class="review-location">
+                            Sydney
+                        </div>
+
+
+                    </article>
+
+
+                </div>
 
             </div>
 
-
-        </div>
-
-    </section>
+        </section>
 
 
-    <!-- ==================================================
-         SERVICES
-    ================================================== -->
 
-    <section
-        class="services"
-        id="services"
-    >
+        <!-- =================================================
+             QUOTE
+        ================================================== -->
 
-        <div class="container">
+        <section
+            class="quote-section"
+            id="quote"
+        >
 
 
-            <div class="section-header">
+            <div class="container quote-wrapper">
 
 
                 <div>
 
-                    <div class="section-number">
-                        02 / WHAT WE DO
-                    </div>
 
-                    <h2>
-                        OUR SERVICES
-                    </h2>
+                    <img
+                        src="images/team.jpg"
+                        alt="Antigravity Removals team"
+                        class="quote-image"
+                    >
+
 
                 </div>
 
 
-                <p>
 
-                    From packing and transporting your belongings
-                    to dismantling furniture and clearing unwanted
-                    items, we can help with the heavy lifting.
-
-                </p>
-
-            </div>
+                <div class="quote-copy">
 
 
-            <div class="services-grid">
-
-
-                <!-- SERVICE 1 -->
-
-                <article class="service-card">
-
-                    <img
-                        src="images/moving-sofa.jpg"
-                        alt="Residential removal service"
-                    >
-
-                    <div class="service-overlay"></div>
-
-
-                    <div class="service-content">
-
-                        <div class="service-number">
-                            01
-                        </div>
-
-                        <h3>
-                            Residential & Business Relocation
-                        </h3>
-
-                        <p>
-                            Professional relocation services for
-                            homes, offices and businesses.
-                        </p>
-
+                    <div class="eyebrow">
+                        Let's get moving
                     </div>
 
-                </article>
+
+                    <h2>
+                        Tell us what you need.
+                    </h2>
 
 
-                <!-- SERVICE 2 -->
+                    <p>
 
-                <article class="service-card">
+                        Give us a few details about your move
+                        and we'll get back to you.
 
-                    <img
-                        src="images/packing.jpg"
-                        alt="Packing and unpacking service"
+                    </p>
+
+
+
+                    <form
+                        class="quote-form"
+                        action="#"
+                        method="POST"
                     >
 
-                    <div class="service-overlay"></div>
+
+                        <div class="form-row">
 
 
-                    <div class="service-content">
+                            <input
+                                type="text"
+                                name="name"
+                                placeholder="Your name"
+                                required
+                            >
 
-                        <div class="service-number">
-                            02
+
+                            <input
+                                type="tel"
+                                name="phone"
+                                placeholder="Phone number"
+                                required
+                            >
+
+
                         </div>
 
-                        <h3>
-                            Packing & Unpacking
-                        </h3>
-
-                        <p>
-                            Let our team handle the time-consuming
-                            packing, wrapping and unpacking.
-                        </p>
-
-                    </div>
-
-                </article>
 
 
-                <!-- SERVICE 3 -->
-
-                <article class="service-card">
-
-                    <img
-                        src="images/wrapping.jpg"
-                        alt="Furniture dismantling and assembly"
-                    >
-
-                    <div class="service-overlay"></div>
+                        <div class="form-row">
 
 
-                    <div class="service-content">
+                            <input
+                                type="email"
+                                name="email"
+                                placeholder="Email address"
+                                required
+                            >
 
-                        <div class="service-number">
-                            03
+
+                            <input
+                                type="text"
+                                name="pickup"
+                                placeholder="Pickup suburb"
+                            >
+
+
                         </div>
 
-                        <h3>
-                            Dismantling & Assembly
-                        </h3>
-
-                        <p>
-                            Furniture can be dismantled before the
-                            move and reassembled at your destination.
-                        </p>
-
-                    </div>
-
-                </article>
 
 
-                <!-- SERVICE 4 -->
-
-                <article class="service-card">
-
-                    <img
-                        src="images/truck.jpg"
-                        alt="Rubbish removal"
-                    >
-
-                    <div class="service-overlay"></div>
+                        <input
+                            type="text"
+                            name="destination"
+                            placeholder="Drop-off suburb"
+                        >
 
 
-                    <div class="service-content">
 
-                        <div class="service-number">
-                            04
-                        </div>
-
-                        <h3>
-                            Rubbish Removal
-                        </h3>
-
-                        <p>
-                            Clear unwanted furniture, garage items
-                            and end-of-lease rubbish.
-                        </p>
-
-                    </div>
-
-                </article>
+                        <textarea
+                            name="message"
+                            placeholder="Tell us a little about your move..."
+                        ></textarea>
 
 
-                <!-- SERVICE 5 -->
 
-                <article class="service-card">
+                        <button
+                            type="submit"
+                            class="btn btn-primary"
+                        >
 
-                    <img
-                        src="images/team.jpg"
-                        alt="Commercial strip out service"
-                    >
+                            Request a Free Quote
+                            →
 
-                    <div class="service-overlay"></div>
+                        </button>
 
 
-                    <div class="service-content">
+                    </form>
 
-                        <div class="service-number">
-                            05
-                        </div>
 
-                        <h3>
-                            Strip Outs
-                        </h3>
-
-                        <p>
-                            Remove non-structural elements and
-                            prepare spaces for renovation or new tenants.
-                        </p>
-
-                    </div>
-
-                </article>
+                </div>
 
 
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
 
-    <!-- ==================================================
-         PRICING
-    ================================================== -->
 
-    <section
-        class="pricing"
-        id="pricing"
-    >
+        <!-- =================================================
+             FINAL CTA
+        ================================================== -->
 
-        <div class="container pricing-grid">
+        <section class="final-cta">
 
 
-            <div>
+            <div class="container">
 
 
-                <div class="section-number">
-                    03 / PRICING
+                <div class="eyebrow">
+                    Ready when you are
                 </div>
 
 
                 <h2>
-                    STRAIGHTFORWARD
-                    PRICING.
+
+                    Your next move
+                    starts here.
+
                 </h2>
 
 
-                <p class="pricing-intro">
+                <p>
 
-                    Get your move underway from $75 per half hour.
-                    The minimum charge is 3.5 hours, with wrapping
-                    materials and tape included.
-
-                </p>
-
-
-            </div>
-
-
-            <div class="price-box">
-
-
-                <div class="price">
-
-                    $75
-
-                    <small>
-                        / HALF HOUR
-                    </small>
-
-                </div>
-
-
-                <p class="price-note">
-
-                    Starting price. Final pricing depends on the
-                    requirements of your individual move.
+                    Let Antigravity take care of the heavy lifting
+                    so you can focus on getting settled.
 
                 </p>
-
-
-                <div class="pricing-features">
-
-
-                    <div class="pricing-feature">
-                        Fully trained staff
-                    </div>
-
-
-                    <div class="pricing-feature">
-                        Loading and unloading equipment
-                    </div>
-
-
-                    <div class="pricing-feature">
-                        Heavy-duty dollies and trolleys
-                    </div>
-
-
-                    <div class="pricing-feature">
-                        Protective blankets
-                    </div>
-
-
-                    <div class="pricing-feature">
-                        Plastic wrap and tape
-                    </div>
-
-
-                    <div class="pricing-feature">
-                        Careful handling of your belongings
-                    </div>
-
-
-                </div>
 
 
                 <a
                     href="#quote"
-                    class="btn btn-orange"
+                    class="btn btn-primary"
                 >
-                    Get My Quote →
+
+                    Get a Free Quote
+                    →
+
                 </a>
 
 
             </div>
 
-        </div>
+        </section>
 
-    </section>
 
+    </main>
 
-    <!-- ==================================================
-         HOW IT WORKS
-    ================================================== -->
 
-    <section
-        class="process"
-        id="how-it-works"
-    >
 
-        <div class="container">
-
-
-            <div class="section-number">
-                04 / HOW IT WORKS
-            </div>
-
-
-            <h2>
-                MOVE WITHOUT
-                THE HEADACHE.
-            </h2>
-
-
-            <div class="process-grid">
-
-
-                <div class="process-card">
-
-                    <div class="process-number">
-                        01
-                    </div>
-
-                    <h3>
-                        Tell Us What You Need
-                    </h3>
-
-                    <p>
-                        Send through your move details,
-                        pickup and drop-off addresses and
-                        anything else we should know.
-                    </p>
-
-                </div>
-
-
-                <div class="process-card">
-
-                    <div class="process-number">
-                        02
-                    </div>
-
-                    <h3>
-                        Get Your Quote
-                    </h3>
-
-                    <p>
-                        We'll review your requirements and
-                        work out the right service for your move.
-                    </p>
-
-                </div>
-
-
-                <div class="process-card">
-
-                    <div class="process-number">
-                        03
-                    </div>
-
-                    <h3>
-                        We Do The Heavy Lifting
-                    </h3>
-
-                    <p>
-                        Our team arrives ready to load, transport,
-                        unload and get everything where it needs to go.
-                    </p>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ==================================================
-         QUOTE
-    ================================================== -->
-
-    <section
-        class="quote-section"
-        id="quote"
-    >
-
-
-        <div class="quote-grid">
-
-
-            <div class="quote-image"></div>
-
-
-            <div class="quote-content">
-
-
-                <div class="section-number">
-                    05 / GET IN TOUCH
-                </div>
-
-
-                <h2>
-                    LET'S GET
-                    YOU MOVING.
-                </h2>
-
-
-                <p>
-
-                    Tell us a little about your move and
-                    we'll be in touch.
-
-                </p>
-
-
-                <form
-                    class="quote-form"
-                    action="#"
-                    method="POST"
-                >
-
-
-                    <div class="form-row">
-
-                        <input
-                            type="text"
-                            name="name"
-                            placeholder="Your Name"
-                            required
-                        >
-
-
-                        <input
-                            type="tel"
-                            name="phone"
-                            placeholder="Phone"
-                            required
-                        >
-
-                    </div>
-
-
-                    <div class="form-row">
-
-                        <input
-                            type="email"
-                            name="email"
-                            placeholder="Email Address"
-                            required
-                        >
-
-
-                        <input
-                            type="text"
-                            name="suburb"
-                            placeholder="Pickup Suburb"
-                        >
-
-                    </div>
-
-
-                    <input
-                        type="text"
-                        name="destination"
-                        placeholder="Drop-off Suburb"
-                    >
-
-
-                    <textarea
-                        name="message"
-                        placeholder="Tell us about your move..."
-                    ></textarea>
-
-
-                    <button
-                        type="submit"
-                        class="btn btn-orange"
-                    >
-                        Request A Quote →
-                    </button>
-
-
-                </form>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-    <!-- ==================================================
-         TESTIMONIAL
-    ================================================== -->
-
-    <section
-        class="testimonial"
-        id="reviews"
-    >
-
-        <div class="container">
-
-
-            <div class="testimonial-inner">
-
-
-                <div class="section-number">
-                    06 / CUSTOMER FEEDBACK
-                </div>
-
-
-                <div class="quote-mark">
-                    "
-                </div>
-
-
-                <blockquote>
-
-                    Efficient, professional
-                    and friendly team.
-                    Highly recommend!
-
-                </blockquote>
-
-
-                <div class="testimonial-name">
-
-                    Antigravity Removals Customer
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ==================================================
-         FINAL CTA
-    ================================================== -->
-
-    <section class="final-cta">
-
-        <div class="container">
-
-
-            <h2>
-
-                READY TO
-                <span class="orange">
-                    MOVE?
-                </span>
-
-            </h2>
-
-
-            <p>
-
-                Whether it's a home, office or heavy item,
-                Antigravity Removals can help get it moving.
-
-            </p>
-
-
-            <a
-                href="#quote"
-                class="btn btn-orange"
-            >
-                Get A Free Quote →
-            </a>
-
-
-        </div>
-
-    </section>
-
-
-    <!-- ==================================================
+    <!-- =====================================================
          FOOTER
-    ================================================== -->
+    ===================================================== -->
 
     <footer>
 
+
         <div class="container">
 
 
-            <div class="footer-top">
+            <div class="footer-grid">
 
 
                 <div>
@@ -2977,14 +3837,14 @@
 
                     <p class="footer-description">
 
-                        Professional Sydney removalists
-                        specialising in heavy items,
-                        efficiency and stress-free moves.
+                        Professional Sydney removalists helping
+                        make moving easier, safer and less stressful.
 
                     </p>
 
 
                 </div>
+
 
 
                 <div>
@@ -2998,11 +3858,7 @@
                     <div class="footer-links">
 
                         <a href="#services">
-                            Residential Relocation
-                        </a>
-
-                        <a href="#services">
-                            Business Relocation
+                            Home & Business Moves
                         </a>
 
                         <a href="#services">
@@ -3010,7 +3866,7 @@
                         </a>
 
                         <a href="#services">
-                            Furniture Assembly
+                            Dismantling & Assembly
                         </a>
 
                         <a href="#services">
@@ -3025,6 +3881,7 @@
 
 
                 </div>
+
 
 
                 <div>
@@ -3048,7 +3905,7 @@
 
 
                         <a href="#quote">
-                            Request A Quote
+                            Request a Quote
                         </a>
 
                     </div>
@@ -3058,6 +3915,7 @@
 
 
             </div>
+
 
 
             <div class="footer-bottom">
@@ -3075,14 +3933,16 @@
 
             </div>
 
+
         </div>
 
     </footer>
 
 
-    <!-- ==================================================
+
+    <!-- =====================================================
          MOBILE CTA
-    ================================================== -->
+    ===================================================== -->
 
     <div class="mobile-bar">
 
@@ -3091,7 +3951,9 @@
             href="tel:0422553675"
             class="mobile-call"
         >
+
             📞 Call Us
+
         </a>
 
 
@@ -3099,52 +3961,67 @@
             href="#quote"
             class="mobile-quote"
         >
-            Get A Quote
+
+            Get a Quote
+
         </a>
 
 
     </div>
 
 
-    <!-- ==================================================
+
+    <!-- =====================================================
          JAVASCRIPT
-    ================================================== -->
+    ===================================================== -->
 
     <script>
 
+
         const mobileToggle =
-            document.getElementById("mobileToggle");
+            document.getElementById(
+                "mobileToggle"
+            );
+
 
         const navLinks =
-            document.getElementById("navLinks");
+            document.getElementById(
+                "navLinks"
+            );
 
 
         mobileToggle.addEventListener(
             "click",
             function () {
 
-                navLinks.classList.toggle("active");
+                navLinks.classList.toggle(
+                    "active"
+                );
 
             }
         );
 
 
         document
-            .querySelectorAll(".nav-links a")
-            .forEach(function(link) {
+            .querySelectorAll(
+                ".nav-links a"
+            )
+            .forEach(
+                function(link) {
 
-                link.addEventListener(
-                    "click",
-                    function() {
+                    link.addEventListener(
+                        "click",
+                        function() {
 
-                        navLinks.classList.remove(
-                            "active"
-                        );
+                            navLinks.classList.remove(
+                                "active"
+                            );
 
-                    }
-                );
+                        }
+                    );
 
-            });
+                }
+            );
 
 
     </script>
