@@ -3,13 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Antigravity Removals | Sydney Removalists</title>
+<title>Antigravity Logistics | Sydney Removalists</title>
 <meta name="description" content="Sydney removalists who make moving feel almost weightless. Home, office and interstate removals with transparent pricing. Get a free quote today.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
 
 <!-- Placeholder analytics — replace UA/GA4 ID with the site owner's own measurement ID before launch -->
 <!--
@@ -21,6 +20,384 @@
   gtag('config', 'G-XXXXXXXXXX');
 </script>
 -->
+
+<style>
+/* =========================================================
+   Antigravity Logistics — homepage (self-contained)
+   Palette:  navy #13213E  navy-deep #0A1424  cloud #F8F6F1
+             red #D93A2B   gold #E3A93E   slate #5C6478
+   Type:     Space Grotesk (display) / Manrope (body) / JetBrains Mono (data)
+   NOTE: this page is intentionally self-contained (styles + script inline)
+   so it renders correctly even if opened on its own. Once the direction
+   is confirmed, the same system should move back into a shared styles.css
+   / script.js so Services / Prices / Contact match.
+   ========================================================= */
+
+:root{
+  --navy: #13213E;
+  --navy-mid: #1C2F52;
+  --navy-deep: #0A1424;
+  --cloud: #F8F6F1;
+  --cloud-dim: #F1EEE6;
+  --red: #D93A2B;
+  --red-deep: #B92E21;
+  --gold: #E3A93E;
+  --gold-deep: #C68F2E;
+  --slate: #5C6478;
+  --line: rgba(19,33,62,0.12);
+  --line-strong: rgba(19,33,62,0.22);
+  --max-w: 1160px;
+  --radius: 14px;
+  --shadow-soft: 0 20px 44px -26px rgba(19,33,62,0.28);
+  --shadow-lift: 0 30px 60px -24px rgba(19,33,62,0.32);
+}
+
+*, *::before, *::after{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+
+body{
+  margin: 0;
+  background: var(--cloud);
+  color: var(--navy);
+  font-family: 'Manrope', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+
+img{ max-width: 100%; display: block; }
+a{ color: inherit; text-decoration: none; }
+ul{ margin: 0; padding: 0; list-style: none; }
+
+h1, h2, h3, h4{
+  font-family: 'Space Grotesk', sans-serif;
+  margin: 0;
+  letter-spacing: -0.01em;
+  color: var(--navy);
+}
+
+p{ margin: 0 0 1rem; }
+p:last-child{ margin-bottom: 0; }
+
+.eyebrow{
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--red);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-weight: 500;
+}
+.eyebrow::before{
+  content: "";
+  width: 22px;
+  height: 1.5px;
+  background: var(--red);
+  display: inline-block;
+}
+.eyebrow.on-dark{ color: var(--gold); }
+.eyebrow.on-dark::before{ background: var(--gold); }
+
+.skip-link{
+  position: absolute;
+  left: -999px;
+  top: auto;
+  background: var(--navy);
+  color: var(--cloud);
+  padding: 0.8rem 1.2rem;
+  border-radius: 0 0 8px 0;
+  z-index: 200;
+}
+.skip-link:focus{ left: 0; top: 0; }
+
+:focus-visible{
+  outline: 2.5px solid var(--red);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.wrap{ max-width: var(--max-w); margin: 0 auto; padding: 0 1.6rem; }
+section{ padding: 5rem 0; }
+@media (max-width: 760px){ section{ padding: 3.4rem 0; } }
+
+.section-head{ max-width: 640px; margin: 0 auto 2.8rem; text-align: center; }
+.section-head h2{ font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 600; margin-top: 0.7rem; line-height: 1.2; }
+.section-head p{ color: var(--slate); margin-top: 0.9rem; font-size: 1.02rem; line-height: 1.65; }
+
+.tint{ background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+
+/* ============= BUTTONS ============= */
+
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+  white-space: nowrap;
+}
+.btn:hover{ transform: translateY(-2px); }
+
+.btn-primary{
+  background: var(--red);
+  color: #fff;
+  box-shadow: 0 14px 28px -14px rgba(217,58,43,0.55);
+}
+.btn-primary:hover{ background: var(--red-deep); }
+
+.btn-ghost{
+  background: transparent;
+  border-color: var(--line-strong);
+  color: var(--navy);
+}
+.btn-ghost:hover{ border-color: var(--navy); }
+
+.btn-ghost-light{
+  background: transparent;
+  border-color: rgba(248,246,241,0.4);
+  color: #fff;
+}
+.btn-ghost-light:hover{ border-color: #fff; }
+
+.btn-block{ width: 100%; }
+
+/* ============= HEADER / NAV ============= */
+
+header.site{
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(248,246,241,0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-inner{ display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.05rem 0; }
+
+.logo{
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+  color: var(--navy);
+}
+
+.logo .mark{ flex-shrink: 0; }
+
+nav.main-nav{ display: flex; align-items: center; gap: 2rem; }
+nav.main-nav ul{ display: flex; gap: 1.7rem; }
+nav.main-nav a{
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--navy);
+  opacity: 0.75;
+  padding: 0.3rem 0.1rem;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.15s ease, opacity 0.15s ease;
+}
+nav.main-nav a:hover, nav.main-nav a[aria-current="page"]{ opacity: 1; border-color: var(--red); }
+
+.nav-actions{ display: flex; align-items: center; gap: 0.9rem; }
+
+.gravity-toggle{
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--line-strong);
+  background: #fff;
+  cursor: pointer;
+  color: var(--navy);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.gravity-toggle .dot{ width: 7px; height: 7px; border-radius: 50%; background: var(--gold-deep); transition: background 0.2s ease; }
+body.gravity-off .gravity-toggle{ border-color: var(--red); color: var(--red-deep); }
+body.gravity-off .gravity-toggle .dot{ background: var(--red); box-shadow: 0 0 0 4px rgba(217,58,43,0.16); }
+
+.nav-toggle{ display: none; background: none; border: none; cursor: pointer; padding: 0.4rem; }
+.nav-toggle span{ display: block; width: 22px; height: 2px; background: var(--navy); margin: 5px 0; transition: transform 0.2s ease, opacity 0.2s ease; }
+
+@media (max-width: 860px){
+  nav.main-nav{
+    position: fixed; inset: 64px 0 0 0; background: var(--cloud);
+    flex-direction: column; align-items: flex-start; padding: 2rem 1.6rem; gap: 1.6rem;
+    transform: translateX(100%); transition: transform 0.25s ease; overflow-y: auto;
+  }
+  nav.main-nav.open{ transform: translateX(0); }
+  nav.main-nav ul{ flex-direction: column; gap: 1.3rem; width: 100%; }
+  nav.main-nav a{ font-size: 1.15rem; }
+  .nav-actions{ flex-direction: column; align-items: flex-start; width: 100%; margin-top: 0.5rem; }
+  .nav-toggle{ display: block; }
+}
+
+/* ============= HERO ============= */
+
+.hero{
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--navy) 0%, var(--navy-mid) 55%, var(--navy-deep) 100%);
+  color: #fff;
+  padding: 4.5rem 0 5rem;
+}
+
+.hero::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1.6px 1.6px at 10% 18%, rgba(248,246,241,0.5), transparent),
+    radial-gradient(1.4px 1.4px at 26% 8%, rgba(248,246,241,0.35), transparent),
+    radial-gradient(1px 1px at 40% 30%, rgba(248,246,241,0.4), transparent),
+    radial-gradient(1.6px 1.6px at 62% 12%, rgba(227,169,62,0.4), transparent),
+    radial-gradient(1px 1px at 80% 24%, rgba(248,246,241,0.35), transparent),
+    radial-gradient(1.4px 1.4px at 90% 8%, rgba(248,246,241,0.4), transparent);
+  pointer-events: none;
+}
+
+.hero-grid{ position: relative; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 2.5rem; align-items: center; }
+
+.hero h1{
+  font-size: clamp(2.4rem, 5.2vw, 3.6rem);
+  font-weight: 600;
+  line-height: 1.08;
+  margin-top: 1rem;
+  max-width: 15ch;
+  color: #fff;
+}
+.hero h1 .accent{ color: var(--gold); }
+
+.hero p.lede{ margin-top: 1.3rem; max-width: 42ch; font-size: 1.08rem; line-height: 1.65; color: rgba(248,246,241,0.75); }
+
+.hero-ctas{ display: flex; gap: 0.9rem; flex-wrap: wrap; margin-top: 1.8rem; }
+
+.hero-note{ margin-top: 1.4rem; font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; color: rgba(248,246,241,0.55); letter-spacing: 0.02em; }
+
+@media (max-width: 900px){
+  .hero-grid{ grid-template-columns: 1fr; }
+  .hero-art{ order: -1; max-width: 380px; margin: 0 auto; }
+}
+
+.hero-art{ position: relative; aspect-ratio: 1 / 1; max-width: 480px; margin-left: auto; }
+
+.orbit-ring{
+  fill: none; stroke: rgba(248,246,241,0.18); stroke-width: 1; stroke-dasharray: 2 6;
+  transform-origin: center; animation: ring-spin 60s linear infinite;
+}
+.orbit-ring.ring-2{ animation-duration: 90s; animation-direction: reverse; }
+@keyframes ring-spin{ from{ transform: rotate(0deg); } to{ transform: rotate(360deg); } }
+
+.floater{ animation: bob 6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.floater.f2{ animation-duration: 7.5s; animation-delay: -1.5s; }
+.floater.f3{ animation-duration: 5.2s; animation-delay: -3s; }
+@keyframes bob{ 0%, 100%{ transform: translateY(0) rotate(0deg); } 50%{ transform: translateY(-14px) rotate(-2deg); } }
+
+body.gravity-off .floater{ animation-name: bob-weightless; animation-duration: 11s; }
+body.gravity-off .floater.f2{ animation-duration: 13s; }
+body.gravity-off .floater.f3{ animation-duration: 9.5s; }
+@keyframes bob-weightless{ 0%, 100%{ transform: translateY(0) rotate(0deg); } 50%{ transform: translateY(-34px) rotate(4deg); } }
+body.gravity-off .orbit-ring{ animation-duration: 140s; }
+body.gravity-off .orbit-ring.ring-2{ animation-duration: 200s; }
+
+@media (prefers-reduced-motion: reduce){
+  .floater, .orbit-ring{ animation: none !important; }
+}
+
+/* ============= STATS STRIP ============= */
+
+.stats{ background: #fff; border-bottom: 1px solid var(--line); }
+.stats-grid{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; padding: 2.2rem 0; }
+.stat b{ display: block; font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.5rem, 3vw, 2rem); color: var(--navy); }
+.stat span{ font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--slate); }
+@media (max-width: 700px){ .stats-grid{ grid-template-columns: repeat(2, 1fr); } }
+
+/* ============= STEPS ============= */
+
+.steps{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.8rem; }
+.step{ position: relative; padding: 2rem 1.6rem 1.8rem; background: #fff; border-radius: var(--radius); border: 1px solid var(--line); }
+.step .num{ font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--red); letter-spacing: 0.05em; }
+.step h3{ font-size: 1.15rem; font-weight: 600; margin-top: 0.7rem; }
+.step p{ margin-top: 0.6rem; color: var(--slate); font-size: 0.96rem; line-height: 1.6; }
+@media (max-width: 760px){ .steps{ grid-template-columns: 1fr; } }
+
+/* ============= SERVICE CARDS ============= */
+
+.card-grid{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; }
+.card{
+  background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 1.9rem 1.7rem;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+a.card:hover{ box-shadow: var(--shadow-soft); transform: translateY(-3px); border-color: var(--line-strong); }
+.card .icon{ width: 42px; height: 42px; border-radius: 10px; background: #FBF1DD; display: flex; align-items: center; justify-content: center; margin-bottom: 1.1rem; }
+.card h3{ font-size: 1.15rem; font-weight: 600; }
+.card p{ margin-top: 0.6rem; color: var(--slate); font-size: 0.95rem; line-height: 1.6; }
+.card .card-link{ display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1.1rem; font-weight: 700; font-size: 0.88rem; color: var(--red-deep); }
+
+@media (max-width: 900px){ .card-grid{ grid-template-columns: 1fr 1fr; } }
+@media (max-width: 620px){ .card-grid{ grid-template-columns: 1fr; } }
+
+/* ============= TESTIMONIAL ============= */
+
+.testimonial{ text-align: center; max-width: 720px; margin: 0 auto; }
+.testimonial .quote-mark{ font-family: 'Space Grotesk', sans-serif; font-size: 2.6rem; color: var(--gold-deep); line-height: 1; display: block; margin-bottom: 0.6rem; }
+.testimonial blockquote{ margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.25rem, 2.6vw, 1.7rem); font-weight: 500; line-height: 1.45; color: var(--navy); }
+.testimonial cite{ display: block; margin-top: 1.3rem; font-style: normal; font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--slate); letter-spacing: 0.02em; }
+
+/* ============= CTA BANNER ============= */
+
+.cta-banner{
+  background: var(--navy); color: var(--cloud); border-radius: 22px; padding: 3.2rem 2.5rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+  position: relative; overflow: hidden;
+}
+.cta-banner::before{
+  content: ""; position: absolute; inset: 0;
+  background-image:
+    radial-gradient(1.5px 1.5px at 10% 20%, rgba(227,169,62,0.5), transparent),
+    radial-gradient(1.5px 1.5px at 85% 60%, rgba(248,246,241,0.3), transparent),
+    radial-gradient(1px 1px at 45% 80%, rgba(248,246,241,0.35), transparent),
+    radial-gradient(1.5px 1.5px at 70% 15%, rgba(227,169,62,0.35), transparent);
+  pointer-events: none;
+}
+.cta-banner .cta-text{ position: relative; max-width: 34ch; }
+.cta-banner h2{ color: #fff; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 600; }
+.cta-banner p{ color: rgba(248,246,241,0.72); margin-top: 0.6rem; }
+.cta-banner .cta-actions{ position: relative; flex-shrink: 0; }
+
+/* ============= FOOTER ============= */
+
+footer.site{ background: var(--navy-deep); color: rgba(248,246,241,0.75); padding: 3.5rem 0 1.8rem; margin-top: 5rem; }
+.footer-grid{ display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 2.4rem; padding-bottom: 2.6rem; border-bottom: 1px solid rgba(248,246,241,0.14); }
+footer.site .logo{ color: #fff; }
+footer.site p.tagline{ margin-top: 1rem; font-size: 0.92rem; max-width: 30ch; line-height: 1.6; }
+.footer-col h4{ font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(248,246,241,0.5); margin-bottom: 1rem; }
+.footer-col ul{ display: flex; flex-direction: column; gap: 0.7rem; }
+.footer-col a{ font-size: 0.92rem; color: rgba(248,246,241,0.8); transition: color 0.15s ease; }
+.footer-col a:hover{ color: #fff; }
+.footer-bottom{ display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.8rem; padding-top: 1.6rem; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: rgba(248,246,241,0.45); }
+
+@media (max-width: 800px){ .footer-grid{ grid-template-columns: 1fr 1fr; } }
+@media (max-width: 500px){ .footer-grid{ grid-template-columns: 1fr; } }
+
+/* ============= REVEAL ============= */
+
+.reveal{ opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible{ opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce){ .reveal{ opacity: 1; transform: none; transition: none; } }
+</style>
 </head>
 <body>
 
@@ -29,13 +406,11 @@
 <header class="site">
   <div class="wrap nav-inner">
     <a href="index.html" class="logo">
-      <span class="orbit-dot" aria-hidden="true">
-        <svg width="22" height="22" viewBox="0 0 22 22">
-          <circle class="orbit-path" cx="11" cy="11" r="9"/>
-          <circle class="satellite" cx="11" cy="2" r="2.2"/>
-        </svg>
-      </span>
-      Antigravity Removals
+      <svg class="mark" width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+        <path d="M13 3 L23 13 H18 V23 H8 V13 H3 Z" fill="none" stroke="#13213E" stroke-width="2" stroke-linejoin="round"/>
+        <circle cx="13" cy="9.5" r="2.1" fill="#D93A2B"/>
+      </svg>
+      Antigravity Logistics
     </a>
 
     <nav class="main-nav" aria-label="Primary">
@@ -66,14 +441,14 @@
   <section class="hero">
     <div class="wrap hero-grid">
       <div class="reveal">
-        <p class="eyebrow">Sydney removalists</p>
+        <p class="eyebrow on-dark">Sydney removalists</p>
         <h1>Moving, without <span class="accent">the heaviness.</span></h1>
         <p class="lede">[Placeholder copy] Home, office and interstate removals across Sydney — careful hands, clear pricing, and a crew that treats your move like it's the only one on the calendar.</p>
         <div class="hero-ctas">
           <a href="contact.html#quote-form" class="btn btn-primary">Get a free quote</a>
-          <a href="services.html" class="btn btn-ghost">See our services</a>
+          <a href="services.html" class="btn btn-ghost-light">See our services</a>
         </div>
-        <p class="hero-note mono">[Placeholder] Licensed &amp; insured · Servicing Greater Sydney</p>
+        <p class="hero-note">[Placeholder] Licensed &amp; insured · Servicing Greater Sydney</p>
       </div>
 
       <div class="hero-art reveal" aria-hidden="true">
@@ -83,32 +458,32 @@
 
           <!-- floating box -->
           <g class="floater f1" transform="translate(110,150)">
-            <rect x="0" y="0" width="72" height="60" rx="6" fill="none" stroke="#1C2340" stroke-width="2.5"/>
-            <line x1="0" y1="22" x2="72" y2="22" stroke="#1C2340" stroke-width="2.5"/>
-            <line x1="36" y1="0" x2="36" y2="22" stroke="#1C2340" stroke-width="2.5"/>
-            <path d="M20 0 L36 -14 L52 0" fill="none" stroke="#E8734A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="0" y="0" width="72" height="60" rx="6" fill="none" stroke="#F8F6F1" stroke-width="2.5"/>
+            <line x1="0" y1="22" x2="72" y2="22" stroke="#F8F6F1" stroke-width="2.5"/>
+            <line x1="36" y1="0" x2="36" y2="22" stroke="#F8F6F1" stroke-width="2.5"/>
+            <path d="M20 0 L36 -14 L52 0" fill="none" stroke="#E3A93E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
           </g>
 
-          <!-- floating chair -->
-          <g class="floater f2" transform="translate(230,90)">
-            <path d="M0 40 L0 0 L46 0 L46 40" fill="none" stroke="#2F9C8F" stroke-width="2.5" stroke-linecap="round"/>
-            <line x1="0" y1="40" x2="0" y2="62" stroke="#2F9C8F" stroke-width="2.5" stroke-linecap="round"/>
-            <line x1="46" y1="40" x2="46" y2="62" stroke="#2F9C8F" stroke-width="2.5" stroke-linecap="round"/>
-            <line x1="0" y1="24" x2="46" y2="24" stroke="#2F9C8F" stroke-width="2.5"/>
+          <!-- floating truck -->
+          <g class="floater f2" transform="translate(215,95)">
+            <rect x="0" y="10" width="46" height="26" rx="2" fill="none" stroke="#D93A2B" stroke-width="2.5"/>
+            <path d="M46 18 H62 L70 28 V36 H46 Z" fill="none" stroke="#D93A2B" stroke-width="2.5" stroke-linejoin="round"/>
+            <circle cx="14" cy="40" r="5" fill="none" stroke="#D93A2B" stroke-width="2.5"/>
+            <circle cx="58" cy="40" r="5" fill="none" stroke="#D93A2B" stroke-width="2.5"/>
           </g>
 
           <!-- floating lamp -->
           <g class="floater f3" transform="translate(190,250)">
-            <path d="M0 0 L34 0 L26 26 L8 26 Z" fill="none" stroke="#1C2340" stroke-width="2.5" stroke-linejoin="round"/>
-            <line x1="17" y1="26" x2="17" y2="60" stroke="#1C2340" stroke-width="2.5"/>
-            <line x1="2" y1="60" x2="32" y2="60" stroke="#1C2340" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M0 0 L34 0 L26 26 L8 26 Z" fill="none" stroke="#F8F6F1" stroke-width="2.5" stroke-linejoin="round"/>
+            <line x1="17" y1="26" x2="17" y2="60" stroke="#F8F6F1" stroke-width="2.5"/>
+            <line x1="2" y1="60" x2="32" y2="60" stroke="#F8F6F1" stroke-width="2.5" stroke-linecap="round"/>
           </g>
 
           <!-- scattered dots -->
-          <circle cx="70" cy="90" r="2.4" fill="#E8734A"/>
-          <circle cx="330" cy="150" r="2" fill="#2F9C8F"/>
-          <circle cx="300" cy="320" r="2.4" fill="#1C2340" opacity="0.5"/>
-          <circle cx="90" cy="310" r="2" fill="#2F9C8F"/>
+          <circle cx="70" cy="90" r="2.4" fill="#E3A93E"/>
+          <circle cx="330" cy="150" r="2" fill="#D93A2B"/>
+          <circle cx="300" cy="320" r="2.4" fill="#F8F6F1" opacity="0.5"/>
+          <circle cx="90" cy="310" r="2" fill="#E3A93E"/>
         </svg>
       </div>
     </div>
@@ -117,22 +492,10 @@
   <!-- ================= STATS ================= -->
   <section class="stats" style="padding: 0;">
     <div class="wrap stats-grid">
-      <div class="stat">
-        <b>[XX+]</b>
-        <span>Years moving Sydney</span>
-      </div>
-      <div class="stat">
-        <b>[X,XXX+]</b>
-        <span>Moves completed</span>
-      </div>
-      <div class="stat">
-        <b>[XX]</b>
-        <span>Suburbs covered</span>
-      </div>
-      <div class="stat">
-        <b>[X.X★]</b>
-        <span>Average rating</span>
-      </div>
+      <div class="stat"><b>[XX+]</b><span>Years moving Sydney</span></div>
+      <div class="stat"><b>[X,XXX+]</b><span>Moves completed</span></div>
+      <div class="stat"><b>[XX]</b><span>Suburbs covered</span></div>
+      <div class="stat"><b>[X.X★]</b><span>Average rating</span></div>
     </div>
   </section>
 
@@ -147,17 +510,17 @@
 
       <div class="steps reveal">
         <div class="step">
-          <span class="num mono">01</span>
+          <span class="num">01</span>
           <h3>Get your quote</h3>
           <p>Tell us where you're moving from and to. We'll give you a clear, obligation-free quote — no vague "it depends."</p>
         </div>
         <div class="step">
-          <span class="num mono">02</span>
+          <span class="num">02</span>
           <h3>We pack &amp; move</h3>
           <p>Our crew turns up on time, wraps and loads everything with care, and gets it to your new place in one trip.</p>
         </div>
         <div class="step">
-          <span class="num mono">03</span>
+          <span class="num">03</span>
           <h3>You settle in</h3>
           <p>We place furniture where you want it and clear the boxes from the doorway. You put the kettle on.</p>
         </div>
@@ -177,7 +540,7 @@
       <div class="card-grid reveal">
         <a href="services.html#home-removals" class="card">
           <div class="icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 11L12 4l9 7" stroke="#2F9C8F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9" stroke="#2F9C8F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 11L12 4l9 7" stroke="#D93A2B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9" stroke="#D93A2B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
           <h3>Home removals</h3>
           <p>Apartments, townhouses and family homes, moved carefully from door to door.</p>
@@ -186,7 +549,7 @@
 
         <a href="services.html#office-removals" class="card">
           <div class="icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="16" height="18" rx="1.5" stroke="#2F9C8F" stroke-width="2"/><line x1="8" y1="8" x2="16" y2="8" stroke="#2F9C8F" stroke-width="2" stroke-linecap="round"/><line x1="8" y1="13" x2="16" y2="13" stroke="#2F9C8F" stroke-width="2" stroke-linecap="round"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="16" height="18" rx="1.5" stroke="#D93A2B" stroke-width="2"/><line x1="8" y1="8" x2="16" y2="8" stroke="#D93A2B" stroke-width="2" stroke-linecap="round"/><line x1="8" y1="13" x2="16" y2="13" stroke="#D93A2B" stroke-width="2" stroke-linecap="round"/></svg>
           </div>
           <h3>Office removals</h3>
           <p>Minimal downtime relocations for small businesses, planned around your hours.</p>
@@ -195,7 +558,7 @@
 
         <a href="services.html#packing-storage" class="card">
           <div class="icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="7" width="18" height="13" rx="1.5" stroke="#2F9C8F" stroke-width="2"/><path d="M3 11h18" stroke="#2F9C8F" stroke-width="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke="#2F9C8F" stroke-width="2"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="7" width="18" height="13" rx="1.5" stroke="#D93A2B" stroke-width="2"/><path d="M3 11h18" stroke="#D93A2B" stroke-width="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke="#D93A2B" stroke-width="2"/></svg>
           </div>
           <h3>Packing &amp; storage</h3>
           <p>Full or partial packing services, plus short and long-term storage options.</p>
@@ -238,13 +601,11 @@
     <div class="footer-grid">
       <div>
         <a href="index.html" class="logo">
-          <span class="orbit-dot" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 22 22">
-              <circle class="orbit-path" cx="11" cy="11" r="9"/>
-              <circle class="satellite" cx="11" cy="2" r="2.2"/>
-            </svg>
-          </span>
-          Antigravity Removals
+          <svg class="mark" width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+            <path d="M13 3 L23 13 H18 V23 H8 V13 H3 Z" fill="none" stroke="#F8F6F1" stroke-width="2" stroke-linejoin="round"/>
+            <circle cx="13" cy="9.5" r="2.1" fill="#D93A2B"/>
+          </svg>
+          Antigravity Logistics
         </a>
         <p class="tagline">Sydney removalists who make moving feel almost weightless. [Placeholder tagline.]</p>
       </div>
@@ -273,19 +634,79 @@
         <h4>Contact</h4>
         <ul>
           <li><a href="tel:+61000000000">[Phone number]</a></li>
-          <li><a href="mailto:hello@antigravityremovals.com.au">hello@antigravityremovals.com.au</a></li>
+          <li><a href="mailto:hello@antigravitylogistics.com.au">hello@antigravitylogistics.com.au</a></li>
           <li>[Suburb], Sydney NSW</li>
         </ul>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <span>© <span data-year>2026</span> Antigravity Removals. [Placeholder ABN: XX XXX XXX XXX]</span>
+      <span>© <span data-year>2026</span> Antigravity Logistics. [Placeholder ABN: XX XXX XXX XXX]</span>
       <span>Site by <a href="https://datawithandrea.com.au" style="color:inherit; text-decoration: underline;">Data with Andrea</a></span>
     </div>
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  var navToggle = document.querySelector('.nav-toggle');
+  var mainNav = document.querySelector('.main-nav');
+  if (navToggle && mainNav) {
+    navToggle.addEventListener('click', function () {
+      var isOpen = mainNav.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    mainNav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        mainNav.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  var gravityToggle = document.querySelector('.gravity-toggle');
+  var GRAVITY_KEY = 'antigravity-logistics-gravity-state';
+
+  function applyGravityState(isOff) {
+    document.body.classList.toggle('gravity-off', isOff);
+    if (gravityToggle) {
+      gravityToggle.querySelector('.state-label').textContent = isOff ? 'Gravity: OFF' : 'Gravity: ON';
+      gravityToggle.setAttribute('aria-pressed', isOff ? 'true' : 'false');
+    }
+  }
+
+  var savedState = null;
+  try { savedState = window.localStorage.getItem(GRAVITY_KEY); } catch (e) { /* storage unavailable */ }
+  applyGravityState(savedState === 'off');
+
+  if (gravityToggle) {
+    gravityToggle.addEventListener('click', function () {
+      var nowOff = !document.body.classList.contains('gravity-off');
+      applyGravityState(nowOff);
+      try { window.localStorage.setItem(GRAVITY_KEY, nowOff ? 'off' : 'on'); } catch (e) { /* ignore */ }
+    });
+  }
+
+  var revealElements = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && revealElements.length) {
+    var revealObserver = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealElements.forEach(function (el) { revealObserver.observe(el); });
+  } else {
+    revealElements.forEach(function (el) { el.classList.add('visible'); });
+  }
+
+  var yearEl = document.querySelector('[data-year]');
+  if (yearEl) { yearEl.textContent = new Date().getFullYear(); }
+
+});
+</script>
 </body>
 </html>
