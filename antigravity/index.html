@@ -203,13 +203,6 @@
         }
 
 
-        .orange {
-
-            color: var(--orange);
-
-        }
-
-
         .eyebrow {
 
             color: var(--orange);
@@ -871,7 +864,7 @@
 
 
         /* =====================================================
-           INTRO / MOVING WITH CARE
+           MOVING WITH CARE SECTION
         ===================================================== */
 
         .intro {
@@ -904,6 +897,8 @@
 
             position: relative;
 
+            padding-bottom: 30px;
+
         }
 
 
@@ -919,7 +914,7 @@
 
 
         /* =====================================================
-           MOVING WITH CARE FLOATING CARD
+           WIDE HORIZONTAL CARE CARD
         ===================================================== */
 
         .care-card {
@@ -928,51 +923,42 @@
 
             left: 50%;
 
-            bottom: -42px;
+            bottom: -5px;
 
             transform:
                 translateX(-50%);
 
-            width: 285px;
+            width: 78%;
+
+            min-height: 118px;
 
             padding:
-                25px
+                21px
                 28px;
 
             background: white;
 
-            border-radius: 22px;
+            border-radius: 20px;
 
             box-shadow:
-                0 20px 50px
-                rgba(38,35,30,.14);
-
-            text-align: center;
+                0 18px 45px
+                rgba(38,35,30,.13);
 
             z-index: 5;
 
-        }
+            display: grid;
 
+            grid-template-columns:
+                1fr
+                auto;
 
-        .care-card::before {
-
-            content: "";
-
-            display: block;
-
-            width: 42px;
-
-            height: 3px;
-
-            background:
-                var(--orange);
-
-            margin:
-                0
+            grid-template-rows:
                 auto
-                15px;
+                auto;
 
-            border-radius: 10px;
+            column-gap: 28px;
+
+            align-items: center;
 
         }
 
@@ -989,7 +975,11 @@
 
             font-weight: 800;
 
-            margin-bottom: 8px;
+            margin-bottom: 3px;
+
+            grid-column: 1;
+
+            grid-row: 1;
 
         }
 
@@ -998,7 +988,7 @@
 
             font-family: "Manrope", sans-serif;
 
-            font-size: 21px;
+            font-size: 19px;
 
             line-height: 1.25;
 
@@ -1006,14 +996,14 @@
 
             color: var(--charcoal);
 
-            margin-bottom: 8px;
+            grid-column: 1;
+
+            grid-row: 2;
 
         }
 
 
         .care-card-highlight {
-
-            display: inline-block;
 
             color: var(--orange);
 
@@ -1023,18 +1013,26 @@
 
             font-weight: 800;
 
-            letter-spacing: .5px;
+            letter-spacing: .7px;
 
-            margin-bottom: 11px;
+            white-space: nowrap;
+
+            grid-column: 2;
+
+            grid-row: 1 / span 2;
+
+            padding-left: 25px;
+
+            border-left:
+                1px solid
+                var(--border);
 
         }
 
 
         .care-card p {
 
-            font-size: 13px;
-
-            line-height: 1.55;
+            display: none;
 
         }
 
@@ -2370,6 +2368,15 @@
             }
 
 
+            .intro-image-wrap {
+
+                padding-bottom: 58px;
+
+                margin-bottom: 15px;
+
+            }
+
+
             .intro-image {
 
                 height: 370px;
@@ -2380,27 +2387,53 @@
             .care-card {
 
                 width:
-                    calc(100% - 40px);
+                    calc(100% - 25px);
 
-                bottom: -65px;
+                bottom: 0;
+
+                min-height: 100px;
 
                 padding:
-                    22px
-                    24px;
+                    18px
+                    20px;
+
+                grid-template-columns:
+                    1fr
+                    auto;
+
+                column-gap: 16px;
+
+            }
+
+
+            .care-card-label {
+
+                font-size: 9px;
+
+                letter-spacing: 1.4px;
 
             }
 
 
             .care-card-title {
 
-                font-size: 19px;
+                font-size: 16px;
+
+            }
+
+
+            .care-card-highlight {
+
+                font-size: 11px;
+
+                padding-left: 14px;
 
             }
 
 
             .intro-copy {
 
-                padding-top: 25px;
+                padding-top: 15px;
 
             }
 
@@ -2994,7 +3027,7 @@
                     >
 
 
-                    <!-- MOVING WITH CARE CARD -->
+                    <!-- WIDE CARE CARD -->
 
                     <div class="care-card">
 
@@ -3015,11 +3048,7 @@
 
 
                         <p>
-
                             Careful from start to finish.
-                            We take the time to protect the things
-                            that matter to you.
-
                         </p>
 
 
