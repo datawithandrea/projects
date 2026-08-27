@@ -1526,7 +1526,7 @@
         .reviews {
 
             padding:
-                105px
+                82px
                 0;
 
             background: white;
@@ -1538,21 +1538,62 @@
 
             text-align: center;
 
-            max-width: 680px;
+            max-width: 760px;
 
             margin:
                 0
                 auto
-                45px;
+                32px;
+
+        }
+
+
+        .google-rating {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            margin-top: 15px;
+
+            color: var(--charcoal);
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+        }
+
+
+        .google-stars {
+
+            color: var(--orange);
+
+            font-size: 14px;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        .reviews-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 20px;
+
+            max-width: 940px;
+
+            margin: 0 auto;
 
         }
 
 
         .review-card {
-
-            max-width: 760px;
-
-            margin: 0 auto;
 
             background:
                 var(--cream);
@@ -1560,14 +1601,14 @@
             border-radius: 25px;
 
             padding:
-                42px
-                50px;
+                29px
+                32px;
 
             border:
                 1px solid
                 var(--border);
 
-            text-align: center;
+            text-align: left;
 
         }
 
@@ -1578,13 +1619,13 @@
 
             font-family: "Manrope", sans-serif;
 
-            font-size: 36px;
+            font-size: 28px;
 
             font-weight: 800;
 
             line-height: 1;
 
-            margin-bottom: 15px;
+            margin-bottom: 9px;
 
         }
 
@@ -1595,16 +1636,16 @@
 
             font-size:
                 clamp(
-                    20px,
+                    17px,
                     3vw,
-                    27px
+                    21px
                 );
 
             line-height: 1.45;
 
             color: var(--charcoal);
 
-            margin-bottom: 20px;
+            margin-bottom: 15px;
 
         }
 
@@ -2412,6 +2453,13 @@
 
 
             /* REVIEWS */
+
+            .reviews-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
 
             .review-card {
 
@@ -3577,11 +3625,23 @@
                     </h2>
 
 
+                    <div class="google-rating" aria-label="5-star rated on Google">
+
+                        <span class="google-stars">★★★★★</span>
+
+                        <span>5-star rated on Google</span>
+
+                    </div>
+
+
                 </div>
 
 
 
-                <div class="review-card">
+                <div class="reviews-grid">
+
+
+                    <div class="review-card">
 
 
                     <div class="review-mark">
@@ -3604,6 +3664,38 @@
 
                     <div class="review-location">
                         Sydney
+                    </div>
+
+
+                    </div>
+
+
+                    <div class="review-card">
+
+
+                        <div class="review-mark">
+                            “
+                        </div>
+
+
+                        <blockquote>
+
+                            "Great communication, careful service
+                            and a genuinely helpful team from start to finish."
+
+                        </blockquote>
+
+
+                        <div class="review-name">
+                            Antigravity Removals Customer
+                        </div>
+
+
+                        <div class="review-location">
+                            Sydney
+                        </div>
+
+
                     </div>
 
 
