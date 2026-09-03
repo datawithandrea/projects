@@ -1,4147 +1,1860 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TVP0HPPM1N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TVP0HPPM1N');
+</script>
     <meta charset="UTF-8">
-
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0"
     >
-
-    <title>
-        Antigravity Removals | Sydney Removalists
-    </title>
-
     <meta
         name="description"
-        content="Professional Sydney removalists for home and business moves. Antigravity Removals offers moving, packing, furniture assembly, rubbish removal and strip-out services."
+        content="An interactive Power BI dashboard tracking the parkrun World Tourists club, for members who have completed parkrun in four or more countries."
     >
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
+    <title>parkrun World Tourists Dashboard | Data With Andrea</title>
+    <!-- TODO: confirm this is the actual published URL for this page -->
+    <link
+        rel="canonical"
+        href="https://datawithandrea.com.au/worldtourists/"
+    >
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Data with Andrea">
+    <meta property="og:title" content="parkrun World Tourists Dashboard | Data With Andrea">
+    <meta
+        property="og:description"
+        content="An interactive Power BI dashboard tracking the parkrun World Tourists club, for members who have completed parkrun in four or more countries."
+    >
+    <!-- TODO: confirm this matches the published URL above -->
+    <meta property="og:url" content="https://datawithandrea.com.au/worldtourists/">
+    <!-- TODO: this image does not exist yet — see notes -->
+    <meta property="og:image" content="https://datawithandrea.com.au/worldtourists/world-tourists-social-preview.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="parkrun World Tourists Dashboard | Data With Andrea">
+    <meta
+        name="twitter:description"
+        content="An interactive Power BI dashboard tracking the parkrun World Tourists club, for members who have completed parkrun in four or more countries."
+    >
+    <!-- TODO: this image does not exist yet — see notes -->
+    <meta name="twitter:image" content="https://datawithandrea.com.au/worldtourists/world-tourists-social-preview.jpg">
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
     <link
         rel="preconnect"
         href="https://fonts.gstatic.com"
         crossorigin
     >
-
     <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
         rel="stylesheet"
     >
-
-
     <style>
-
-        /* =====================================================
-           ROOT
-        ===================================================== */
-
         :root {
-
-            --orange: #ee6f25;
-            --orange-dark: #dc5d17;
-            --orange-light: #fff0e6;
-
-            --charcoal: #252525;
-            --charcoal-light: #555650;
-
-            --cream: #faf8f5;
+            --forest-deep: #131f2b;
+            --forest-dark: #1c2e40;
+            --forest: #24384e;
+            --forest-soft: #3d5470;
+            --copper: #c9a15a;
+            --copper-dark: #ab853f;
+            --copper-light: #e0c48a;
+            --tourist: #d9a066;
+            --tourist-dark: #b97e42;
+            --tourist-light: #ecc79a;
+            --ivory: #f7f5f0;
+            --linen: #fdfcf9;
+            --stone: #e6e1d6;
+            --stone-light: #f1ede3;
+            --charcoal: #202a33;
+            --text: #626b73;
             --white: #ffffff;
-
-            --text: #292a28;
-            --muted: #73746f;
-
-            --border: #e7e3dd;
-
+            --border: rgba(28, 46, 64, 0.13);
+            --border-light: rgba(255, 255, 255, 0.13);
             --shadow:
-                0 15px 45px rgba(38, 35, 30, 0.08);
-
-            --shadow-hover:
-                0 22px 55px rgba(38, 35, 30, 0.13);
-
-            --radius: 22px;
-
-            --max-width: 1180px;
-
+                0 24px 70px rgba(20, 32, 45, 0.14);
+            --shadow-small:
+                0 14px 38px rgba(20, 32, 45, 0.09);
+            --radius-large: 30px;
+            --radius-medium: 20px;
+            --radius-small: 14px;
+            --page-width: 1180px;
         }
-
-
-        /* =====================================================
-           RESET
-        ===================================================== */
-
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
-
-
         html {
             scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
         }
-
-
         body {
-
-            font-family: "DM Sans", sans-serif;
-
-            background: var(--cream);
-
-            color: var(--text);
-
-            line-height: 1.65;
-
-        }
-
-
-        img {
-
-            width: 100%;
-
-            display: block;
-
-        }
-
-
-        a {
-
-            color: inherit;
-
-            text-decoration: none;
-
-        }
-
-
-        button,
-        input,
-        textarea {
-
-            font-family: inherit;
-
-        }
-
-
-        .container {
-
-            width:
-                min(
-                    var(--max-width),
-                    calc(100% - 40px)
-                );
-
-            margin: 0 auto;
-
-        }
-
-
-        /* =====================================================
-           TYPOGRAPHY
-        ===================================================== */
-
-        h1,
-        h2,
-        h3 {
-
+            min-width: 320px;
+            overflow-x: hidden;
+            background: var(--ivory);
+            color: var(--charcoal);
             font-family: "Manrope", sans-serif;
-
-            color: var(--charcoal);
-
-            line-height: 1.12;
-
+            line-height: 1.6;
         }
-
-
-        h1 {
-
-            font-size:
-                clamp(
-                    42px,
-                    6vw,
-                    68px
-                );
-
-            letter-spacing: -2.5px;
-
-            font-weight: 800;
-
+        a {
+            color: inherit;
         }
-
-
-        h2 {
-
-            font-size:
-                clamp(
-                    34px,
-                    4.5vw,
-                    50px
-                );
-
-            letter-spacing: -1.6px;
-
-            font-weight: 800;
-
+        img {
+            max-width: 100%;
+            display: block;
         }
-
-
-        h3 {
-
-            font-size: 21px;
-
-            font-weight: 700;
-
+        .page-width {
+            width: min(calc(100% - 48px), var(--page-width));
+            margin-inline: auto;
         }
-
-
-        p {
-
-            color: var(--muted);
-
-        }
-
-
-        .eyebrow {
-
-            color: var(--orange);
-
-            text-transform: uppercase;
-
-            letter-spacing: 1.8px;
-
-            font-size: 12px;
-
-            font-weight: 800;
-
-            margin-bottom: 13px;
-
-        }
-
-
-        /* =====================================================
-           BUTTONS
-        ===================================================== */
-
-        .btn {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            gap: 9px;
-
-            padding:
-                14px
-                21px;
-
-            border-radius: 999px;
-
-            font-size: 14px;
-
-            font-weight: 700;
-
-            transition:
-                transform .2s ease,
-                box-shadow .2s ease,
-                background .2s ease;
-
-        }
-
-
-        .btn-primary {
-
-            background: var(--orange);
-
-            color: white;
-
-            box-shadow:
-                0 8px 20px
-                rgba(238,111,37,.22);
-
-        }
-
-
-        .btn-primary:hover {
-
-            transform: translateY(-2px);
-
-            background: var(--orange-dark);
-
-            box-shadow:
-                0 12px 25px
-                rgba(238,111,37,.28);
-
-        }
-
-
-        .btn-dark {
-
-            background: var(--charcoal);
-
-            color: white;
-
-        }
-
-
-        .btn-dark:hover {
-
-            transform: translateY(-2px);
-
-            background: #111;
-
-        }
-
-
-        .btn-light {
-
-            background: white;
-
-            color: var(--charcoal);
-
-            border:
-                1px solid
-                var(--border);
-
-        }
-
-
-        .btn-light:hover {
-
-            transform: translateY(-2px);
-
-            box-shadow: var(--shadow);
-
-        }
-
-
-        /* =====================================================
-           TOP BAR
-        ===================================================== */
-
-        .topbar {
-
-            background: var(--charcoal);
-
-            color: white;
-
-            font-size: 13px;
-
-        }
-
-
-        .topbar-inner {
-
-            min-height: 40px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-        }
-
-
-        .topbar-left {
-
-            color:
-                rgba(
-                    255,
-                    255,
-                    255,
-                    .78
-                );
-
-        }
-
-
-        .topbar-right {
-
-            display: flex;
-
-            gap: 24px;
-
-        }
-
-
-        .topbar a {
-
-            font-weight: 700;
-
-        }
-
-
-        .topbar a:hover {
-
-            color: #ffd5bd;
-
-        }
-
-
-        /* =====================================================
-           HEADER
-        ===================================================== */
-
-        header {
-
-            background:
-                rgba(
-                    250,
-                    248,
-                    245,
-                    .96
-                );
-
-            position: sticky;
-
+        /* Header */
+        .site-header {
+            position: absolute;
+            z-index: 20;
             top: 0;
-
-            z-index: 1000;
-
-            border-bottom:
-                1px solid
-                rgba(0,0,0,.05);
-
-            backdrop-filter: blur(12px);
-
+            left: 0;
+            width: 100%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.11);
+            background: rgba(19, 31, 43, 0.3);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
         }
-
-
-        .nav {
-
+        .navigation {
+            display: flex;
             min-height: 78px;
-
-            display: flex;
-
             align-items: center;
-
             justify-content: space-between;
-
+            gap: 24px;
         }
-
-
-        .logo {
-
-            width: 175px;
-
+        .brand {
+            color: var(--white);
+            font-size: 1rem;
+            font-weight: 800;
+            letter-spacing: -0.035em;
+            text-decoration: none;
+            white-space: nowrap;
         }
-
-
-        .logo img {
-
-            max-height: 58px;
-
-            object-fit: contain;
-
-            object-position: left center;
-
+        .brand span {
+            color: var(--tourist-light);
         }
-
-
-        .nav-links {
-
-            display: flex;
-
+        .navigation-link {
+            display: inline-flex;
             align-items: center;
-
-            gap: 27px;
-
-            font-size: 14px;
-
-            font-weight: 600;
-
+            color: rgba(255, 255, 255, 0.88);
+            font-size: 0.86rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: color 0.2s ease;
         }
-
-
-        .nav-links a {
-
-            color: #4a4a47;
-
-            transition:
-                color .2s ease;
-
+        .navigation-link:hover,
+        .navigation-link:focus-visible {
+            color: var(--tourist-light);
         }
-
-
-        .nav-links a:hover {
-
-            color: var(--orange);
-
-        }
-
-
-        .nav-quote {
-
-            background: var(--orange);
-
-            color: white !important;
-
-            padding:
-                11px
-                19px;
-
-            border-radius: 999px;
-
-        }
-
-
-        .nav-quote:hover {
-
-            background:
-                var(--orange-dark);
-
-        }
-
-
-        .mobile-toggle {
-
-            display: none;
-
-            border: 0;
-
-            background: none;
-
-            font-size: 27px;
-
-            cursor: pointer;
-
-            color: var(--charcoal);
-
-        }
-
-
-        /* =====================================================
-           HERO
-        ===================================================== */
-
+        /* Hero */
         .hero {
-
-            padding:
-                58px
-                0
-                105px;
-
+            position: relative;
+            display: flex;
+            min-height: 640px;
+            align-items: center;
+            overflow: hidden;
+            isolation: isolate;
             background:
-
                 radial-gradient(
-                    circle at 90% 15%,
-                    #ffe5d3 0,
+                    circle at 85% 20%,
+                    rgba(217, 160, 102, 0.16),
                     transparent 30%
                 ),
-
-                var(--cream);
-
-            overflow: hidden;
-
+                linear-gradient(
+                    145deg,
+                    #101a24 0%,
+                    #1c2e40 55%,
+                    #2c435c 100%
+                );
         }
-
-
-        .hero-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                .93fr
-                1.07fr;
-
-            gap: 55px;
-
-            align-items: center;
-
-        }
-
-
-        .hero-copy {
-
-            padding:
-                25px
-                0;
-
-        }
-
-
-        .hero h1 {
-
-            max-width: 620px;
-
-            margin-bottom: 23px;
-
-        }
-
-
-        .hero h1 span {
-
-            color: var(--orange);
-
-        }
-
-
-        .hero-description {
-
-            max-width: 550px;
-
-            font-size: 17px;
-
-            margin-bottom: 28px;
-
-        }
-
-
-        .hero-buttons {
-
-            display: flex;
-
-            flex-wrap: wrap;
-
-            gap: 11px;
-
-        }
-
-
-        .hero-buttons .btn {
-
-            width: 205px;
-
-            height: 50px;
-
-            padding: 0 21px;
-
-        }
-
-
-        .hero-trust {
-
-            display: flex;
-
-            flex-wrap: wrap;
-
-            gap: 20px;
-
-            margin-top: 28px;
-
-        }
-
-
-        .trust-pill {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 8px;
-
-            font-size: 12px;
-
-            color: #666761;
-
-            font-weight: 600;
-
-        }
-
-
-        .trust-dot {
-
-            width: 7px;
-
-            height: 7px;
-
-            border-radius: 50%;
-
-            background: var(--orange);
-
-        }
-
-
-        /* =====================================================
-           HERO IMAGE
-        ===================================================== */
-
-        .hero-visual {
-
-            position: relative;
-
-        }
-
-
-        .hero-image {
-
-            height: 570px;
-
-            object-fit: cover;
-
-            border-radius: 30px;
-
-            box-shadow: var(--shadow);
-
-        }
-
-
-        /* =====================================================
-           KPI / TRUST STRIP
-        ===================================================== */
-
-        .trust-strip {
-
-            background: white;
-
-            border-top:
-                1px solid
-                var(--border);
-
-            border-bottom:
-                1px solid
-                var(--border);
-
-        }
-
-
-        .trust-items {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(4, 1fr);
-
-        }
-
-
-        .trust-item {
-
-            min-height: 120px;
-
-            padding:
-                24px
-                25px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            text-align: center;
-
-            border-right:
-                1px solid
-                var(--border);
-
-        }
-
-
-        .trust-item:last-child {
-
-            border-right: 0;
-
-        }
-
-
-        .trust-item-content {
-
-            width: 100%;
-
-        }
-
-
-        .trust-item strong {
-
-            display: block;
-
-            color: var(--charcoal);
-
-            font-family: "Manrope", sans-serif;
-
-            font-size: 18px;
-
-            font-weight: 800;
-
-            line-height: 1.25;
-
-            margin-bottom: 6px;
-
-        }
-
-
-        .trust-item span {
-
-            display: block;
-
-            color: var(--muted);
-
-            font-size: 13px;
-
-        }
-
-
-        /* =====================================================
-           MOVING WITH CARE SECTION
-        ===================================================== */
-
-        .intro {
-
-            padding:
-                110px
-                0;
-
-            background: white;
-
-        }
-
-
-        .intro-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                1fr
-                1fr;
-
-            gap: 80px;
-
-            align-items: center;
-
-        }
-
-
-        .intro-image-wrap {
-
-            position: relative;
-
-            padding-bottom: 30px;
-
-        }
-
-
-        .intro-image {
-
-            height: 520px;
-
-            object-fit: cover;
-
-            border-radius: 28px;
-
-        }
-
-
-        /* =====================================================
-           WIDE HORIZONTAL CARE CARD
-        ===================================================== */
-
-        .care-card {
-
+        .hero::before {
             position: absolute;
-
-            left: 50%;
-
-            bottom: -5px;
-
-            transform:
-                translateX(-50%);
-
-            width: 78%;
-
-            min-height: 118px;
-
-            padding:
-                21px
-                28px;
-
-            background: white;
-
-            border-radius: 20px;
-
-            box-shadow:
-                0 18px 45px
-                rgba(38,35,30,.13);
-
-            z-index: 5;
-
-            display: grid;
-
-            grid-template-columns:
-                1fr
-                auto;
-
-            grid-template-rows:
-                auto
-                auto;
-
-            column-gap: 28px;
-
-            align-items: center;
-
-        }
-
-
-        .care-card-label {
-
-            color: var(--orange);
-
-            text-transform: uppercase;
-
-            letter-spacing: 1.7px;
-
-            font-size: 10px;
-
-            font-weight: 800;
-
-            margin-bottom: 3px;
-
-            grid-column: 1;
-
-            grid-row: 1;
-
-        }
-
-
-        .care-card-title {
-
-            font-family: "Manrope", sans-serif;
-
-            font-size: 19px;
-
-            line-height: 1.25;
-
-            font-weight: 800;
-
-            color: var(--charcoal);
-
-            grid-column: 1;
-
-            grid-row: 2;
-
-        }
-
-
-        .care-card-highlight {
-
-            color: var(--orange);
-
-            font-family: "Manrope", sans-serif;
-
-            font-size: 13px;
-
-            font-weight: 800;
-
-            letter-spacing: .7px;
-
-            white-space: nowrap;
-
-            grid-column: 2;
-
-            grid-row: 1 / span 2;
-
-            padding-left: 25px;
-
-            border-left:
-                1px solid
-                var(--border);
-
-        }
-
-
-        .care-card p {
-
-            display: none;
-
-        }
-
-
-        .intro-copy {
-
-            max-width: 560px;
-
-        }
-
-
-        .intro h2 {
-
-            margin-bottom: 21px;
-
-        }
-
-
-        .intro-description {
-
-            font-size: 17px;
-
-            line-height: 1.7;
-
-            margin-bottom: 34px;
-
-        }
-
-
-        /* =====================================================
-           CARE LIST
-        ===================================================== */
-
-        .care-list {
-
-            display: grid;
-
-            gap: 25px;
-
-            margin-bottom: 34px;
-
-            counter-reset: care-item;
-
-        }
-
-
-        .care-item {
-
-            display: flex;
-
-            gap: 17px;
-
-            align-items: flex-start;
-
-            counter-increment: care-item;
-
-        }
-
-
-        .care-line {
-
-            width: 30px;
-
-            height: 30px;
-
-            border: 1px solid var(--orange);
-
+            z-index: -1;
+            top: -170px;
+            right: -120px;
+            width: 560px;
+            height: 560px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 50%;
-
-            color: var(--orange);
-
+            content: "";
+        }
+        .hero::after {
+            position: absolute;
+            right: 0;
+            bottom: -1px;
+            left: 0;
+            height: 90px;
+            background: var(--ivory);
+            clip-path: polygon(0 78%, 100% 10%, 100% 100%, 0 100%);
+            content: "";
+        }
+        .hero-grid {
+            position: relative;
+            z-index: 2;
             display: grid;
-
-            place-items: center;
-
-            font-family: "Manrope", sans-serif;
-
-            font-size: 10px;
-
-            font-weight: 800;
-
-            letter-spacing: .4px;
-
-            margin-top: 1px;
-
-            flex-shrink: 0;
-
-        }
-
-
-        .care-line::after {
-
-            content: "0" counter(care-item);
-
-        }
-
-
-        .care-item strong {
-
-            display: block;
-
-            color: var(--charcoal);
-
-            font-family: "Manrope", sans-serif;
-
-            font-size: 17px;
-
-            font-weight: 800;
-
-            line-height: 1.35;
-
-            margin-bottom: 5px;
-
-        }
-
-
-        .care-item span {
-
-            display: block;
-
-            color: var(--muted);
-
-            font-size: 15px;
-
-            line-height: 1.6;
-
-        }
-
-
-        /* =====================================================
-           SERVICES
-        ===================================================== */
-
-        .services {
-
-            padding:
-                105px
-                0;
-
-            background:
-                var(--cream);
-
-        }
-
-
-        .section-heading {
-
-            max-width: 650px;
-
-            margin-bottom: 48px;
-
-        }
-
-
-        .section-heading h2 {
-
-            margin-bottom: 15px;
-
-        }
-
-
-        .section-heading p {
-
-            font-size: 16px;
-
-        }
-
-
-        .services-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 20px;
-
-        }
-
-
-        .service-card {
-
-            background: white;
-
-            border-radius: var(--radius);
-
-            overflow: hidden;
-
-            border:
-                1px solid
-                var(--border);
-
-            transition:
-                transform .25s ease,
-                box-shadow .25s ease;
-
-            display: flex;
-
-            flex-direction: column;
-
-            aspect-ratio: 1 / 1;
-
-            height: auto;
-
-        }
-
-
-        .service-card:hover {
-
-            transform:
-                translateY(-5px);
-
-            box-shadow:
-                var(--shadow-hover);
-
-        }
-
-
-        .service-image {
-
-            height: 215px;
-
-            overflow: hidden;
-
-        }
-
-
-        .service-image img {
-
-            height: 100%;
-
-            object-fit: cover;
-
-            transition:
-                transform .4s ease;
-
-        }
-
-
-        .service-card:hover
-        .service-image img {
-
-            transform:
-                scale(1.04);
-
-        }
-
-
-        .service-content {
-
-            padding: 25px;
-
-            flex: 1;
-
-        }
-
-
-        .service-number {
-
-            color: var(--orange);
-
-            font-size: 11px;
-
-            font-weight: 800;
-
-            letter-spacing: 1.5px;
-
-            margin-bottom: 10px;
-
-        }
-
-
-        .service-content h3 {
-
-            margin-bottom: 8px;
-
-        }
-
-
-        .service-content p {
-
-            font-size: 13px;
-
-            line-height: 1.6;
-
-        }
-
-
-        .service-card-special {
-
-            background:
-                var(--orange-light);
-
-            display: flex;
-
+            grid-template-columns: 1.05fr 0.95fr;
             align-items: center;
-
-            justify-content: center;
-
-            aspect-ratio: 1 / 1;
-
-            height: auto;
-
-            min-height: 0;
-
-            padding: 35px;
-
-            text-align: center;
-
+            gap: 50px;
+            padding-top: 116px;
+            padding-bottom: 108px;
         }
-
-
-        .service-card-special .service-number {
-
-            margin-bottom: 14px;
-
-        }
-
-
-        .service-card-special h3 {
-
-            margin-bottom: 10px;
-
-        }
-
-
-        .service-card-special p {
-
-            margin-bottom: 21px;
-
-        }
-
-
-        /* =====================================================
-           PRICING
-        ===================================================== */
-
-        .pricing {
-
-            padding:
-                105px
-                0;
-
-            background: white;
-
-        }
-
-
-        .pricing-box {
-
-            display: grid;
-
-            grid-template-columns:
-                .9fr
-                1.1fr;
-
-            background:
-                var(--charcoal);
-
-            border-radius: 30px;
-
-            overflow: hidden;
-
-            color: white;
-
-        }
-
-
-        .pricing-copy {
-
-            padding: 55px;
-
-        }
-
-
-        .pricing-copy h2 {
-
-            color: white;
-
-            margin-bottom: 18px;
-
-        }
-
-
-        .pricing-copy p {
-
-            color:
-                rgba(
-                    255,
-                    255,
-                    255,
-                    .68
-                );
-
-            font-size: 15px;
-
-            max-width: 420px;
-
-        }
-
-
-        .pricing-points {
-
-            margin-top: 27px;
-
-            display: grid;
-
-            gap: 13px;
-
-        }
-
-
-        .pricing-point {
-
-            padding-left: 17px;
-
-            border-left:
-                2px solid
-                var(--orange);
-
-            font-size: 13px;
-
-            color:
-                rgba(
-                    255,
-                    255,
-                    255,
-                    .82
-                );
-
-        }
-
-
-        .price-area {
-
-            background:
-                var(--orange-light);
-
-            color: var(--charcoal);
-
-            padding: 55px;
-
-            display: flex;
-
-            flex-direction: column;
-
-            justify-content: center;
-
-        }
-
-
-        .price-label {
-
-            text-transform: uppercase;
-
-            letter-spacing: 1.5px;
-
-            font-size: 11px;
-
-            font-weight: 800;
-
-            color: var(--orange);
-
-            margin-bottom: 8px;
-
-        }
-
-
-        .price {
-
-            font-family: "Manrope", sans-serif;
-
-            font-size: 72px;
-
-            font-weight: 800;
-
-            line-height: 1;
-
-            letter-spacing: -3px;
-
-        }
-
-
-        .price small {
-
-            font-size: 17px;
-
-            letter-spacing: 0;
-
-            color: var(--muted);
-
-            font-weight: 600;
-
-        }
-
-
-        .price-description {
-
-            margin-top: 12px;
-
-            font-size: 13px;
-
-            color: var(--muted);
-
-            max-width: 390px;
-
-            margin-bottom: 25px;
-
-        }
-
-
-        .price-area .btn {
-
-            align-self: flex-start;
-
-        }
-
-
-        /* =====================================================
-           PROCESS
-        ===================================================== */
-
-        .process {
-
-            padding:
-                105px
-                0;
-
-            background:
-                var(--cream);
-
-        }
-
-
-        .process-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 22px;
-
-            margin-top: 45px;
-
-        }
-
-
-        .process-card {
-
-            background: white;
-
-            border:
-                1px solid
-                var(--border);
-
-            border-radius: 22px;
-
-            padding: 30px;
-
-            min-height: 181px;
-
-        }
-
-
-        .process-number {
-
-            color: var(--orange);
-
-            font-family: "Manrope", sans-serif;
-
-            font-size: 38px;
-
-            font-weight: 800;
-
-            letter-spacing: -1.8px;
-
-            line-height: 1;
-
-            margin-bottom: 16px;
-
-        }
-
-
-        .process-card h3 {
-
-            margin-bottom: 9px;
-
-        }
-
-
-        .process-card p {
-
-            font-size: 13px;
-
-        }
-
-
-        /* =====================================================
-           REVIEWS
-        ===================================================== */
-
-        .reviews {
-
-            padding:
-                82px
-                0;
-
-            background: white;
-
-        }
-
-
-        .reviews-heading {
-
-            text-align: center;
-
-            max-width: 760px;
-
-            margin:
-                0
-                auto
-                32px;
-
-        }
-
-
-        .google-rating {
-
+        .eyebrow {
             display: inline-flex;
-
             align-items: center;
-
-            gap: 9px;
-
-            margin-top: 15px;
-
-            color: var(--charcoal);
-
-            font-size: 13px;
-
-            font-weight: 700;
-
-        }
-
-
-        .google-stars {
-
-            color: var(--orange);
-
-            font-size: 14px;
-
-            letter-spacing: 1px;
-
-        }
-
-
-        .reviews-grid {
-
-            display: grid;
-
-            grid-template-columns: repeat(2, 1fr);
-
-            gap: 20px;
-
-            max-width: 940px;
-
-            margin: 0 auto;
-
-        }
-
-
-        .review-card {
-
-            background:
-                var(--cream);
-
-            border-radius: 25px;
-
-            padding:
-                29px
-                32px;
-
-            border:
-                1px solid
-                var(--border);
-
-            text-align: left;
-
-        }
-
-
-        .review-mark {
-
-            color: var(--orange);
-
-            font-family: "Manrope", sans-serif;
-
-            font-size: 28px;
-
+            gap: 10px;
+            margin-bottom: 22px;
+            color: var(--tourist-light);
+            font-size: 0.77rem;
             font-weight: 800;
-
-            line-height: 1;
-
-            margin-bottom: 9px;
-
-        }
-
-
-        .review-card blockquote {
-
-            font-family: "Manrope", sans-serif;
-
-            font-size:
-                clamp(
-                    17px,
-                    3vw,
-                    21px
-                );
-
-            line-height: 1.45;
-
-            color: var(--charcoal);
-
-            margin-bottom: 15px;
-
-        }
-
-
-        .review-name {
-
-            font-weight: 700;
-
-            font-size: 13px;
-
-            color: var(--charcoal);
-
-        }
-
-
-        .review-location {
-
-            font-size: 11px;
-
-            color: var(--muted);
-
-            margin-top: 2px;
-
-        }
-
-
-        /* =====================================================
-           QUOTE SECTION
-        ===================================================== */
-
-        .quote-section {
-
-            padding:
-                105px
-                0;
-
-            background:
-                radial-gradient(
-                    circle at 85% 10%,
-                    rgba(255,180,132,.35),
-                    transparent 25%
-                ),
-                var(--orange-light);
-
-        }
-
-
-        .quote-wrapper {
-
-            display: grid;
-
-            grid-template-columns:
-                .85fr
-                1.15fr;
-
-            gap: 65px;
-
-            align-items: center;
-
-        }
-
-
-        .quote-copy h2 {
-
-            margin-bottom: 18px;
-
-        }
-
-
-        .quote-copy > p {
-
-            margin-bottom: 27px;
-
-            max-width: 450px;
-
-            font-size: 16px;
-
-        }
-
-
-        .quote-details {
-
-            display: grid;
-
-            gap: 14px;
-
-        }
-
-
-        .quote-detail {
-
-            display: flex;
-
-            align-items: flex-start;
-
-            gap: 13px;
-
-        }
-
-
-        .quote-detail-line {
-
-            width: 23px;
-
-            height: 2px;
-
-            margin-top: 12px;
-
-            background: var(--orange);
-
-            flex-shrink: 0;
-
-        }
-
-
-        .quote-detail strong {
-
-            display: block;
-
-            color: var(--charcoal);
-
-            font-size: 14px;
-
-        }
-
-
-        .quote-detail span {
-
-            display: block;
-
-            color: var(--muted);
-
-            font-size: 13px;
-
-        }
-
-
-        .quote-form {
-
-            background: white;
-
-            border-radius: 27px;
-
-            padding: 35px;
-
-            box-shadow:
-                var(--shadow);
-
-            display: grid;
-
-            gap: 12px;
-
-        }
-
-
-        .form-row {
-
-            display: grid;
-
-            grid-template-columns:
-                1fr
-                1fr;
-
-            gap: 12px;
-
-        }
-
-
-        .form-field {
-
-            display: grid;
-
-            gap: 7px;
-
-        }
-
-
-        .form-field label {
-
-            color: var(--charcoal);
-
-            font-size: 12px;
-
-            font-weight: 700;
-
-        }
-
-
-        .quote-form input,
-        .quote-form select,
-        .quote-form textarea {
-
-            width: 100%;
-
-            padding:
-                13px
-                15px;
-
-            border:
-                1px solid
-                var(--border);
-
-            border-radius: 11px;
-
-            background:
-                #fcfbf9;
-
-            color: var(--text);
-
-            outline: none;
-
-            font-size: 13px;
-
-        }
-
-
-        .quote-form textarea {
-
-            min-height: 100px;
-
-            resize: vertical;
-
-        }
-
-
-        .quote-form input:focus,
-        .quote-form select:focus,
-        .quote-form textarea:focus {
-
-            border-color:
-                var(--orange);
-
-            background: white;
-
-            box-shadow: 0 0 0 3px rgba(238,111,37,.12);
-
-        }
-
-
-        .quote-form .btn {
-
-            border: 0;
-
-            cursor: pointer;
-
-            margin-top: 7px;
-
-            width: 100%;
-
-        }
-
-
-        /* =====================================================
-           FOOTER
-        ===================================================== */
-
-        footer {
-
-            background:
-                var(--charcoal);
-
-            color: white;
-
-            padding:
-                60px
-                0
-                25px;
-
-        }
-
-
-        .footer-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                1.5fr
-                1fr
-                1fr;
-
-            gap: 60px;
-
-            padding-bottom: 45px;
-
-        }
-
-
-        .footer-logo {
-
-            width: 175px;
-
-            margin-bottom: 17px;
-
-        }
-
-
-        .footer-description {
-
-            max-width: 350px;
-
-            color:
-                rgba(
-                    255,
-                    255,
-                    255,
-                    .58
-                );
-
-            font-size: 13px;
-
-        }
-
-
-        .footer-heading {
-
-            color:
-                var(--orange);
-
-            font-size: 11px;
-
+            letter-spacing: 0.17em;
             text-transform: uppercase;
-
-            letter-spacing: 1.3px;
-
+        }
+        .eyebrow::before {
+            width: 30px;
+            height: 2px;
+            border-radius: 999px;
+            background: currentColor;
+            content: "";
+        }
+        .hero h1 {
+            max-width: 560px;
+            margin: 0 0 22px;
+            color: var(--white);
+            font-size: clamp(2.4rem, 5.4vw, 3.9rem);
             font-weight: 800;
-
-            margin-bottom: 15px;
-
+            letter-spacing: -0.055em;
+            line-height: 1.06;
         }
-
-
-        .footer-links {
-
-            display: grid;
-
-            gap: 9px;
-
+        .hero h1 span {
+            color: var(--tourist-light);
         }
-
-
-        .footer-links a {
-
-            color:
-                rgba(
-                    255,
-                    255,
-                    255,
-                    .68
-                );
-
-            font-size: 13px;
-
+        .hero-description {
+            max-width: 520px;
+            margin: 0 0 36px;
+            color: rgba(255, 255, 255, 0.78);
+            font-size: 1.03rem;
+            line-height: 1.75;
         }
-
-
-        .footer-links a:hover {
-
-            color: white;
-
-        }
-
-
-        .footer-bottom {
-
-            border-top:
-                1px solid
-                rgba(
-                    255,
-                    255,
-                    255,
-                    .1
-                );
-
-            padding-top: 20px;
-
+        .hero-actions {
             display: flex;
-
-            justify-content: space-between;
-
-            color:
-                rgba(
-                    255,
-                    255,
-                    255,
-                    .38
-                );
-
-            font-size: 11px;
-
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
         }
-
-
-        /* =====================================================
-           MOBILE CTA
-        ===================================================== */
-
-        .mobile-bar {
-
+        .primary-button,
+        .secondary-button {
+            display: inline-flex;
+            min-height: 54px;
+            align-items: center;
+            justify-content: center;
+            padding: 0 30px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-size: 0.87rem;
+            font-weight: 800;
+            transition:
+                background 0.22s ease,
+                transform 0.22s ease,
+                box-shadow 0.22s ease,
+                border-color 0.22s ease;
+        }
+        .primary-button {
+            border: 0;
+            background: var(--tourist);
+            color: var(--forest-deep);
+        }
+        .primary-button:hover {
+            background: var(--tourist-dark);
+            box-shadow: 0 10px 24px rgba(185, 126, 66, 0.28);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+        .secondary-button {
+            border: 1px solid rgba(255, 255, 255, 0.34);
+            color: var(--white);
+        }
+        .secondary-button:hover {
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: translateY(-2px);
+        }
+        .hero-visual {
+            position: relative;
+            max-width: 380px;
+            margin-left: auto;
+        }
+        .hero-visual::before {
+            position: absolute;
+            top: -16px;
+            left: -16px;
+            width: 100%;
+            height: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: var(--radius-large);
+            content: "";
+        }
+        .hero-visual::after {
+            position: absolute;
+            z-index: -1;
+            top: 25%;
+            right: -14%;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(217, 160, 102, 0.28);
+            filter: blur(50px);
+            content: "";
+        }
+        .hero-visual .mock-card {
+            transform: rotate(-2.5deg);
+        }
+        .hero-badge {
+            position: absolute;
+            z-index: 4;
+            bottom: -22px;
+            left: -30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 16px 10px 12px;
+            border-radius: 999px;
+            background: var(--white);
+            box-shadow: var(--shadow-small);
+            transform: rotate(3deg);
+        }
+        .hero-badge .hero-badge-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: var(--tourist);
+        }
+        .hero-badge span {
+            color: var(--forest-dark);
+            font-size: 0.74rem;
+            font-weight: 800;
+            letter-spacing: 0.02em;
+        }
+        .mock-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius-large);
+            background: linear-gradient(160deg, var(--linen), var(--stone-light));
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+        }
+        .mock-topbar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            height: 38px;
+            padding: 0 18px;
+            background: var(--tourist);
+        }
+        .mock-topbar .mock-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.55);
+        }
+        .mock-topbar .mock-title {
+            margin-left: 6px;
+            color: rgba(35, 25, 15, 0.7);
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.03em;
+        }
+        .mock-body {
+            position: relative;
+            padding: 26px 24px 28px;
+        }
+        .mock-chip {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            z-index: 3;
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: var(--forest-dark);
+            color: var(--tourist-light);
+            font-size: 0.66rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+        /* Section heading */
+        .section-heading {
+            max-width: 730px;
+            margin: 0 auto 54px;
+            text-align: center;
+        }
+        .section-heading .eyebrow {
+            justify-content: center;
+            color: var(--tourist-dark);
+        }
+        .section-heading .eyebrow::after {
+            width: 30px;
+            height: 2px;
+            border-radius: 999px;
+            background: currentColor;
+            content: "";
+        }
+        .section-heading h2 {
+            margin-bottom: 16px;
+            color: var(--forest-dark);
+            font-size: clamp(2.1rem, 5vw, 3.3rem);
+            font-weight: 800;
+            letter-spacing: -0.055em;
+            line-height: 1.1;
+        }
+        .section-heading p {
+            color: var(--text);
+            font-size: 1rem;
+            line-height: 1.75;
+        }
+        /* Definition / blurb section */
+        .definition-section {
+            padding: 100px 0 60px;
+            background: var(--ivory);
+        }
+        .definition-panel {
+            position: relative;
+            overflow: hidden;
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 44px 48px;
+            border: 1px solid var(--border);
+            border-left: 5px solid var(--tourist);
+            border-radius: var(--radius-medium);
+            background: var(--linen);
+            box-shadow: var(--shadow-small);
+        }
+        .definition-stamp {
+            position: absolute;
+            top: 26px;
+            right: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 68px;
+            height: 68px;
+            border: 2px solid rgba(185, 126, 66, 0.35);
+            border-radius: 50%;
+            transform: rotate(-14deg);
+            opacity: 0.5;
+        }
+        .definition-panel .eyebrow {
+            color: var(--tourist-dark);
+        }
+        .definition-panel .eyebrow::after {
             display: none;
-
         }
-
-
-        /* =====================================================
-           TABLET
-        ===================================================== */
-
-        @media (max-width: 950px) {
-
-
-            .nav-links {
-
-                display: none;
-
-                position: absolute;
-
-                top: 78px;
-
-                left: 0;
-
-                width: 100%;
-
-                padding: 25px;
-
-                background:
-                    var(--cream);
-
-                border-bottom:
-                    1px solid
-                    var(--border);
-
-                box-shadow:
-                    0 15px 30px
-                    rgba(0,0,0,.08);
-
-                flex-direction: column;
-
-                align-items: flex-start;
-
+        .definition-panel p {
+            color: var(--forest-dark);
+            font-size: 1.05rem;
+            font-weight: 600;
+            line-height: 1.8;
+        }
+        .definition-panel p + p {
+            margin-top: 16px;
+            color: var(--text);
+            font-size: 0.92rem;
+            font-weight: 500;
+        }
+        .group-reminder {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            max-width: 880px;
+            margin: 28px auto 0;
+            padding: 28px 32px;
+            border: 1px solid var(--border);
+            border-left: 5px solid var(--tourist);
+            border-radius: var(--radius-medium);
+            background: var(--stone-light);
+            box-shadow: var(--shadow-small);
+        }
+        .group-reminder-icon {
+            display: flex;
+            flex-shrink: 0;
+            align-items: center;
+            justify-content: center;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: var(--white);
+            box-shadow: var(--shadow-small);
+            color: var(--tourist-dark);
+        }
+        .group-reminder-icon svg {
+            width: 22px;
+            height: 22px;
+        }
+        .group-reminder-body strong {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--forest-dark);
+            font-size: 1rem;
+        }
+        .group-reminder-body p {
+            margin-bottom: 16px;
+            color: var(--text);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+        .group-reminder-body p strong {
+            display: inline;
+            margin-bottom: 0;
+            color: var(--tourist-dark);
+        }
+        .group-reminder-body p a {
+            color: var(--tourist-dark);
+            font-weight: 700;
+            text-decoration: underline;
+        }
+        .group-reminder-body p a:hover {
+            color: var(--forest-dark);
+        }
+        .group-reminder-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--tourist-dark);
+            font-size: 0.85rem;
+            font-weight: 800;
+            text-decoration: none;
+        }
+        .group-reminder-link:hover {
+            color: var(--forest-dark);
+        }
+        .group-reminder-link svg {
+            width: 16px;
+            height: 16px;
+        }
+        /* This week's insights section */
+        .insights-section {
+            padding: 10px 0 100px;
+            background: var(--ivory);
+        }
+        .insights-section .section-heading p {
+            min-height: 1.3em;
+        }
+        .stat-strip {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            max-width: 880px;
+            margin: 0 auto 34px;
+        }
+        .stat-card {
+            padding: 22px 12px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-medium);
+            background: var(--linen);
+            box-shadow: var(--shadow-small);
+            text-align: center;
+        }
+        .stat-card strong {
+            display: block;
+            color: var(--forest-dark);
+            font-size: clamp(1.6rem, 5vw, 2.1rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+        }
+        .stat-card span {
+            display: block;
+            margin-top: 4px;
+            color: var(--text);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .stories {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            max-width: 880px;
+            margin: 0 auto;
+        }
+        .insights-paragraph {
+            color: var(--forest-dark);
+            font-size: 0.96rem;
+            line-height: 1.75;
+        }
+        .story-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 20px 24px;
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--tourist);
+            border-radius: var(--radius-medium);
+            background: var(--linen);
+            box-shadow: var(--shadow-small);
+        }
+        .story-icon {
+            display: flex;
+            flex-shrink: 0;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: var(--stone-light);
+            color: var(--tourist-dark);
+        }
+        .story-icon svg {
+            width: 19px;
+            height: 19px;
+        }
+        .story-card p {
+            color: var(--forest-dark);
+            font-size: 0.96rem;
+            font-weight: 600;
+            line-height: 1.6;
+        }
+        .regional-summary {
+            flex: 1;
+        }
+        .regional-summary ul {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 8px 24px;
+            margin: 0;
+            padding-left: 1.1em;
+            color: var(--forest-dark);
+            font-size: 0.9rem;
+            font-weight: 600;
+            line-height: 1.55;
+        }
+        .regional-summary li::marker {
+            color: var(--tourist-dark);
+        }
+        .story-label {
+            display: block;
+            margin-bottom: 4px;
+            color: var(--tourist-dark);
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        .insights-status {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 24px;
+            border: 1px dashed var(--border);
+            border-radius: var(--radius-medium);
+            color: var(--text);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        .insights-note {
+            max-width: 880px;
+            margin: 26px auto 0;
+            color: var(--text);
+            font-size: 0.85rem;
+            text-align: center;
+        }
+        .insights-note a {
+            color: var(--tourist-dark);
+            font-weight: 700;
+            text-decoration: underline;
+        }
+        /* How it works / tabs section */
+        .tabs-section {
+            padding: 90px 0 120px;
+            background: var(--linen);
+        }
+        .tabs-list {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+            max-width: 940px;
+            margin: 0 auto;
+        }
+        .tab-row {
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            align-items: center;
+            justify-content: center;
+            gap: 56px;
+        }
+        .tab-visual {
+            position: relative;
+            width: 360px;
+        }
+        .tab-visual::before {
+            position: absolute;
+            z-index: 0;
+            top: -16px;
+            left: -16px;
+            width: 100%;
+            height: 100%;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-medium);
+            content: "";
+        }
+        .tab-visual .mock-card {
+            position: relative;
+            z-index: 1;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-medium);
+            box-shadow: var(--shadow);
+        }
+        .tab-visual .mock-topbar {
+            border-radius: var(--radius-medium) var(--radius-medium) 0 0;
+        }
+        .tab-copy .tab-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            margin-bottom: 18px;
+            border-radius: 50%;
+            background: var(--forest-dark);
+            color: var(--tourist-light);
+            font-size: 0.8rem;
+            font-weight: 800;
+        }
+        .tab-copy h3 {
+            margin-bottom: 12px;
+            color: var(--forest-dark);
+            font-size: 1.55rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+        }
+        .tab-copy p {
+            max-width: 480px;
+            margin-bottom: 14px;
+            color: var(--text);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+        .tab-copy .interactivity-note {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            max-width: 480px;
+            padding: 16px 20px;
+            border-radius: var(--radius-small);
+            background: var(--stone-light);
+            color: var(--forest-dark);
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+        .interactivity-note .note-icon {
+            display: flex;
+            flex-shrink: 0;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: var(--white);
+            box-shadow: var(--shadow-small);
+        }
+        .interactivity-note strong {
+            color: var(--tourist-dark);
+        }
+        /* Dashboard embed section */
+        .embed-section {
+            position: relative;
+            overflow: hidden;
+            padding: 100px 0 120px;
+            background: var(--linen);
+            color: var(--charcoal);
+        }
+        .embed-section::before {
+            position: absolute;
+            z-index: 0;
+            top: -220px;
+            right: -180px;
+            width: 480px;
+            height: 480px;
+            border-radius: 50%;
+            background: var(--stone-light);
+            content: "";
+        }
+        .embed-heading {
+            position: relative;
+            z-index: 1;
+            max-width: 640px;
+            margin: 0 auto 46px;
+            text-align: center;
+        }
+        .embed-heading .eyebrow {
+            justify-content: center;
+            color: var(--tourist-dark);
+        }
+        .embed-heading .eyebrow::after {
+            width: 30px;
+            height: 2px;
+            border-radius: 999px;
+            background: currentColor;
+            content: "";
+        }
+        .embed-heading h2 {
+            margin-bottom: 14px;
+            color: var(--forest-dark);
+            font-size: clamp(2rem, 4.6vw, 2.9rem);
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            line-height: 1.12;
+        }
+        .embed-heading p {
+            color: var(--text);
+            font-size: 0.98rem;
+            line-height: 1.75;
+        }
+        .dashboard-shell {
+            position: relative;
+            z-index: 1;
+            width: min(100%, 1180px);
+            margin: 0 auto;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-large);
+            background: var(--white);
+            box-shadow: var(--shadow);
+        }
+        .dashboard-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 16px 22px;
+            background: var(--stone-light);
+            border-bottom: 1px solid var(--border);
+        }
+        .dashboard-label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .dashboard-status {
+            position: relative;
+            flex-shrink: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #2f9e59;
+        }
+        .dashboard-status::after {
+            position: absolute;
+            inset: -4px;
+            border: 2px solid rgba(47, 158, 89, 0.35);
+            border-radius: 50%;
+            content: "";
+            animation: dashboard-pulse 2.2s ease-out infinite;
+        }
+        @keyframes dashboard-pulse {
+            0% {
+                transform: scale(0.6);
+                opacity: 1;
             }
-
-
-            .nav-links.active {
-
-                display: flex;
-
+            100% {
+                transform: scale(1.7);
+                opacity: 0;
             }
-
-
-            .mobile-toggle {
-
-                display: block;
-
-            }
-
-
-            .hero-grid,
-            .intro-grid,
-            .pricing-box,
-            .quote-wrapper {
-
+        }
+        .dashboard-label strong {
+            display: block;
+            color: var(--forest-dark);
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+        }
+        .dashboard-label span {
+            display: block;
+            margin-top: 2px;
+            color: var(--text);
+            font-size: 0.72rem;
+            font-weight: 600;
+        }
+        .dashboard-decoration {
+            display: flex;
+            gap: 6px;
+        }
+        .dashboard-decoration span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--stone);
+        }
+        .dashboard-body {
+            padding: 16px;
+        }
+        .embed-frame-inner {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 600 / 373.5;
+            min-height: 300px;
+            overflow: hidden;
+            border-radius: var(--radius-medium);
+            background: var(--stone-light);
+        }
+        .embed-frame-inner iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .dashboard-tip {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            width: min(100%, 1180px);
+            margin: 28px auto 0;
+            padding: 18px 24px;
+            border-radius: var(--radius-medium);
+            background: var(--stone-light);
+            border: 1px solid var(--border);
+            color: var(--forest-dark);
+        }
+        .dashboard-tip svg {
+            flex-shrink: 0;
+            width: 26px;
+            height: 26px;
+            color: var(--tourist-dark);
+        }
+        .dashboard-tip p {
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+        .dashboard-tip strong {
+            color: var(--forest-dark);
+        }
+        .site-footer {
+            padding: 31px 0;
+            background: #0d1620;
+            color: rgba(255, 255, 255, 0.6);
+            text-align: center;
+        }
+        .site-footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        .site-footer p {
+            font-size: 0.81rem;
+        }
+        .site-footer a {
+            color: var(--white);
+            font-weight: 700;
+            text-decoration: none;
+        }
+        .site-footer a:hover {
+            color: var(--tourist-light);
+        }
+        /* Reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition:
+                opacity 0.7s ease,
+                transform 0.7s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero-grid {
                 grid-template-columns: 1fr;
-
+                padding-top: 130px;
             }
-
-
-            .hero-copy {
-
-                padding-bottom: 0;
-
-            }
-
-
-            .hero-visual {
-
-                max-width: 750px;
-
-            }
-
-
-            .intro-image-wrap {
-
-                order: -1;
-
-                margin-bottom: 45px;
-
-            }
-
-
-            .intro-copy {
-
-                max-width: 100%;
-
-            }
-
-
-            .services-grid {
-
-                grid-template-columns:
-                    repeat(2,1fr);
-
-            }
-
-
-            .footer-grid {
-
-                grid-template-columns:
-                    1fr 1fr;
-
-            }
-
-        }
-
-
-        /* =====================================================
-           MOBILE
-        ===================================================== */
-
-        @media (max-width: 650px) {
-
-
-            .container {
-
-                width:
-                    calc(100% - 28px);
-
-            }
-
-
-            .topbar {
-
-                display: none;
-
-            }
-
-
-            .nav {
-
-                min-height: 70px;
-
-            }
-
-
-            .nav-links {
-
-                top: 70px;
-
-            }
-
-
-            .logo {
-
-                width: 155px;
-
-            }
-
-
-            .hero {
-
-                padding:
-                    35px
-                    0
-                    70px;
-
-            }
-
-
-            .hero-copy {
-
-                padding-top: 20px;
-
-            }
-
-
-            .hero h1 {
-
-                font-size:
-                    clamp(
-                        40px,
-                        12vw,
-                        55px
-                    );
-
-                letter-spacing:
-                    -1.7px;
-
-            }
-
-
+            .hero h1,
             .hero-description {
-
-                font-size: 15px;
-
+                max-width: 100%;
             }
-
-
-            .hero-buttons {
-
-                flex-direction: column;
-
+            .hero-visual {
+                max-width: 320px;
+                margin: 0 auto;
             }
-
-
-            .hero-buttons .btn {
-
-                width: 100%;
-
+            .hero-visual .mock-card {
+                transform: none;
             }
-
-
-            .hero-image {
-
-                height: 390px;
-
-                border-radius: 22px;
-
-            }
-
-
-            /* KPI */
-
-            .trust-items {
-
-                grid-template-columns:
-                    1fr 1fr;
-
-            }
-
-
-            .trust-item {
-
-                min-height: 105px;
-
-                padding:
-                    18px
-                    12px;
-
-            }
-
-
-            .trust-item:nth-child(2) {
-
-                border-right: 0;
-
-            }
-
-
-            .trust-item:nth-child(3),
-            .trust-item:nth-child(4) {
-
-                border-bottom: 0;
-
-            }
-
-
-            .trust-item strong {
-
-                font-size: 15px;
-
-            }
-
-
-            .trust-item span {
-
-                font-size: 11px;
-
-            }
-
-
-            /* INTRO */
-
-            .intro,
-            .services,
-            .pricing,
-            .process,
-            .reviews,
-            .quote-section {
-
-                padding:
-                    75px
-                    0;
-
-            }
-
-
-            .intro-image-wrap {
-
-                padding-bottom: 58px;
-
-                margin-bottom: 15px;
-
-            }
-
-
-            .intro-image {
-
-                height: 370px;
-
-            }
-
-
-            .care-card {
-
-                width:
-                    calc(100% - 25px);
-
-                bottom: 0;
-
-                min-height: 100px;
-
-                padding:
-                    18px
-                    20px;
-
-                grid-template-columns:
-                    1fr
-                    auto;
-
-                column-gap: 16px;
-
-            }
-
-
-            .care-card-label {
-
-                font-size: 9px;
-
-                letter-spacing: 1.4px;
-
-            }
-
-
-            .care-card-title {
-
-                font-size: 16px;
-
-            }
-
-
-            .care-card-highlight {
-
-                font-size: 11px;
-
-                padding-left: 14px;
-
-            }
-
-
-            .intro-copy {
-
-                padding-top: 15px;
-
-            }
-
-
-            .intro-description {
-
-                font-size: 15px;
-
-            }
-
-
-            .care-list {
-
-                gap: 22px;
-
-            }
-
-
-            .care-item strong {
-
-                font-size: 16px;
-
-            }
-
-
-            .care-item span {
-
-                font-size: 14px;
-
-            }
-
-
-            /* SERVICES */
-
-            .services-grid,
-            .process-grid {
-
-                grid-template-columns: 1fr;
-
-            }
-
-
-            .service-image {
-
-                height: 220px;
-
-            }
-
-
-            .service-card-special {
-
-                min-height: 300px;
-
-            }
-
-
-            .service-card,
-            .service-card-special {
-
-                aspect-ratio: auto;
-
-                height: auto;
-
-            }
-
-
-            /* PRICING */
-
-            .pricing-copy,
-            .price-area {
-
-                padding:
-                    35px
-                    25px;
-
-            }
-
-
-            .price {
-
-                font-size: 58px;
-
-            }
-
-
-            .price small {
-
-                font-size: 14px;
-
-            }
-
-
-            /* REVIEWS */
-
-            .reviews-grid {
-
-                grid-template-columns: 1fr;
-
-            }
-
-
-            .review-card {
-
-                padding:
-                    32px
-                    22px;
-
-            }
-
-
-            /* QUOTE */
-
-            .form-row {
-
-                grid-template-columns:
-                    1fr;
-
-            }
-
-
-            .quote-form {
-
-                padding: 22px;
-
-            }
-
-
-            /* FOOTER */
-
-            .footer-grid {
-
-                grid-template-columns: 1fr;
-
-                gap: 35px;
-
-            }
-
-
-            .footer-bottom {
-
-                display: block;
-
-            }
-
-
-            .footer-bottom div + div {
-
-                margin-top: 7px;
-
-            }
-
-
-            /* MOBILE BOTTOM CTA */
-
-            .mobile-bar {
-
-                display: grid;
-
-                grid-template-columns:
-                    1fr
-                    1fr;
-
-                position: fixed;
-
+            .hero-badge {
                 left: 0;
-
-                right: 0;
-
-                bottom: 0;
-
-                z-index: 2000;
-
-                box-shadow:
-                    0 -5px 20px
-                    rgba(0,0,0,.12);
-
+                transform: none;
             }
-
-
-            .mobile-bar a {
-
-                padding: 15px;
-
-                text-align: center;
-
-                font-size: 12px;
-
-                font-weight: 800;
-
+            .tab-row {
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
-
-
-            .mobile-call {
-
-                background: white;
-
-                color: var(--charcoal);
-
+            .tab-visual {
+                width: 100%;
+                max-width: 280px;
+                margin: 0 auto;
             }
-
-
-            .mobile-quote {
-
-                background:
-                    var(--orange);
-
-                color: white;
-
+            .tab-copy p,
+            .tab-copy .interactivity-note {
+                max-width: 100%;
             }
-
-
-            body {
-
-                padding-bottom: 50px;
-
-            }
-
         }
-
-    </style>
-
-</head>
-
-
-<body>
-
-
-    <!-- =====================================================
-         TOP BAR
-    ===================================================== -->
-
-    <div class="topbar">
-
-        <div class="container topbar-inner">
-
-
-            <div class="topbar-left">
-
-                Professional Sydney Removalists
-
-            </div>
-
-
-            <div class="topbar-right">
-
-                <a href="tel:0422553675">
-                    0422 553 675
-                </a>
-
-
-                <a href="#quote">
-                    Get a free quote
-                </a>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-
-
-    <!-- =====================================================
-         HEADER
-    ===================================================== -->
-
-    <header>
-
-        <div class="container nav">
-
-
-            <a
-                href="#"
-                class="logo"
-            >
-
-                <img
-                    src="images/logo.png"
-                    alt="Antigravity Removals"
-                >
-
-            </a>
-
-
-            <nav
-                class="nav-links"
-                id="navLinks"
-            >
-
-                <a href="#about">
-                    About us
-                </a>
-
-
-                <a href="#services">
-                    Services
-                </a>
-
-
-                <a href="#pricing">
-                    Pricing
-                </a>
-
-
-                <a href="#reviews">
-                    Reviews
-                </a>
-
-
-                <a
-                    href="#quote"
-                    class="nav-quote"
-                >
-                    Get a Quote
-                </a>
-
-            </nav>
-
-
-            <button
-                class="mobile-toggle"
-                id="mobileToggle"
-                aria-label="Open navigation"
-            >
-
-                ☰
-
-            </button>
-
-
-        </div>
-
-    </header>
-
-
-
-    <!-- =====================================================
-         MAIN
-    ===================================================== -->
-
-    <main>
-
-
-        <!-- =================================================
-             HERO
-        ================================================== -->
-
-        <section class="hero">
-
-
-            <div class="container hero-grid">
-
-
-                <div class="hero-copy">
-
-
-                    <div class="eyebrow">
-                        Sydney Removalists
-                    </div>
-
-
-                    <h1>
-
-                        Moving doesn't
-                        have to be
-                        <span>
-                            stressful.
-                        </span>
-
-                    </h1>
-
-
-                    <p class="hero-description">
-
-                        From carefully wrapping your furniture
-                        to getting everything safely into your
-                        new home, Antigravity Removals takes care
-                        of the heavy lifting.
-
-                    </p>
-
-
-                    <div class="hero-buttons">
-
-
-                        <a
-                            href="#quote"
-                            class="btn btn-primary"
-                        >
-
-                            Get a Free Quote
-
-                            →
-
-                        </a>
-
-
-                        <a
-                            href="tel:0422553675"
-                            class="btn btn-light"
-                        >
-
-                            Call 0422 553 675
-
-                        </a>
-
-
-                    </div>
-
-
-                    <div class="hero-trust">
-
-
-                        <div class="trust-pill">
-
-                            <div class="trust-dot"></div>
-
-                            Careful handling
-
-                        </div>
-
-
-                        <div class="trust-pill">
-
-                            <div class="trust-dot"></div>
-
-                            Wrap & tape included
-
-                        </div>
-
-
-                        <div class="trust-pill">
-
-                            <div class="trust-dot"></div>
-
-                            Professional team
-
-                        </div>
-
-
-                    </div>
-
-
-                </div>
-
-
-
-                <div class="hero-visual">
-
-
-                    <img
-                        src="images/hero.jpg"
-                        alt="Professional removalists carefully moving furniture"
-                        class="hero-image"
-                    >
-
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             KPI / TRUST STRIP
-        ================================================== -->
-
-        <section class="trust-strip">
-
-
-            <div class="container trust-items">
-
-
-                <div class="trust-item">
-
-                    <div class="trust-item-content">
-
-                        <strong>
-                            Experienced team
-                        </strong>
-
-                        <span>
-                            Professional service
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="trust-item">
-
-                    <div class="trust-item-content">
-
-                        <strong>
-                            Careful handling
-                        </strong>
-
-                        <span>
-                            Your things matter
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="trust-item">
-
-                    <div class="trust-item-content">
-
-                        <strong>
-                            $75 / half hour
-                        </strong>
-
-                        <span>
-                            Starting price
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="trust-item">
-
-                    <div class="trust-item-content">
-
-                        <strong>
-                            Sydney based
-                        </strong>
-
-                        <span>
-                            Local removalists
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             MOVING WITH CARE
-        ================================================== -->
-
-        <section class="intro" id="about">
-
-
-            <div class="container intro-grid">
-
-
-                <div class="intro-image-wrap">
-
-
-                    <img
-                        src="images/wrapping.jpg"
-                        alt="Removalist carefully wrapping furniture"
-                        class="intro-image"
-                    >
-
-
-                    <!-- WIDE CARE CARD -->
-
-                    <div class="care-card">
-
-
-                        <div class="care-card-label">
-                            Moving with care
-                        </div>
-
-
-                        <div class="care-card-title">
-                            Your belongings are in good hands.
-                        </div>
-
-
-                        <div class="care-card-highlight">
-                            CARE FIRST
-                        </div>
-
-
-                        <p>
-                            Careful from start to finish.
-                        </p>
-
-
-                    </div>
-
-
-                </div>
-
-
-
-                <div class="intro-copy">
-
-
-                    <div class="eyebrow">
-                        Moving with care
-                    </div>
-
-
-                    <h2>
-
-                        The heavy lifting
-                        is the easy part.
-
-                    </h2>
-
-
-                    <p class="intro-description">
-
-                        The real challenge is trusting someone
-                        with the things that matter to you.
-
-                        That's why we focus on doing the little
-                        things properly — protecting furniture,
-                        wrapping items carefully and taking the
-                        time to move things safely.
-
-                    </p>
-
-
-                    <div class="care-list">
-
-
-                        <div class="care-item">
-
-                            <div class="care-line"></div>
-
-                            <div>
-
-                                <strong>
-                                    Furniture protection
-                                </strong>
-
-                                <span>
-                                    Wrap and tape included to help protect your belongings.
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="care-item">
-
-                            <div class="care-line"></div>
-
-                            <div>
-
-                                <strong>
-                                    Experienced handling
-                                </strong>
-
-                                <span>
-                                    From stairs to awkward spaces, we'll work out the safest way through.
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="care-item">
-
-                            <div class="care-line"></div>
-
-                            <div>
-
-                                <strong>
-                                    One less thing to worry about
-                                </strong>
-
-                                <span>
-                                    We take care of the physical work so you can focus on your move.
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                    </div>
-
-
-                    <a
-                        href="#quote"
-                        class="btn btn-dark"
-                    >
-
-                        Tell us about your move
-                        →
-
-                    </a>
-
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             SERVICES
-        ================================================== -->
-
-        <section
-            class="services"
-            id="services"
-        >
-
-
-            <div class="container">
-
-
-                <div class="section-heading">
-
-
-                    <div class="eyebrow">
-                        How we can help
-                    </div>
-
-
-                    <h2>
-                        More than just moving.
-                    </h2>
-
-
-                    <p>
-
-                        Whether you're moving house, relocating
-                        a business or simply need help with
-                        something too big to handle yourself,
-                        we've got you covered.
-
-                    </p>
-
-
-                </div>
-
-
-
-                <div class="services-grid">
-
-
-                    <article class="service-card">
-
-
-                        <div class="service-image">
-
-                            <img
-                                src="images/moving-sofa.jpg"
-                                alt="Residential removal service"
-                            >
-
-                        </div>
-
-
-                        <div class="service-content">
-
-                            <div class="service-number">
-                                01
-                            </div>
-
-                            <h3>
-                                Home & Business Moves
-                            </h3>
-
-                            <p>
-
-                                Professional relocation services
-                                for homes, offices and businesses.
-
-                            </p>
-
-                        </div>
-
-
-                    </article>
-
-
-
-                    <article class="service-card">
-
-
-                        <div class="service-image">
-
-                            <img
-                                src="images/packing.jpg"
-                                alt="Packing service"
-                            >
-
-                        </div>
-
-
-                        <div class="service-content">
-
-                            <div class="service-number">
-                                02
-                            </div>
-
-                            <h3>
-                                Packing & Unpacking
-                            </h3>
-
-                            <p>
-
-                                Let us take care of the packing,
-                                wrapping and unpacking.
-
-                            </p>
-
-                        </div>
-
-
-                    </article>
-
-
-
-                    <article class="service-card">
-
-
-                        <div class="service-image">
-
-                            <img
-                                src="images/wrapping.jpg"
-                                alt="Furniture dismantling and assembly"
-                            >
-
-                        </div>
-
-
-                        <div class="service-content">
-
-                            <div class="service-number">
-                                03
-                            </div>
-
-                            <h3>
-                                Dismantling & Assembly
-                            </h3>
-
-                            <p>
-
-                                Furniture can be dismantled before
-                                the move and assembled again at the
-                                other end.
-
-                            </p>
-
-                        </div>
-
-
-                    </article>
-
-
-
-                    <article class="service-card">
-
-
-                        <div class="service-image">
-
-                            <img
-                                src="images/truck.jpg"
-                                alt="Rubbish removal service"
-                            >
-
-                        </div>
-
-
-                        <div class="service-content">
-
-                            <div class="service-number">
-                                04
-                            </div>
-
-                            <h3>
-                                Rubbish Removal
-                            </h3>
-
-                            <p>
-
-                                Clear unwanted furniture,
-                                household items and rubbish.
-
-                            </p>
-
-                        </div>
-
-
-                    </article>
-
-
-
-                    <article class="service-card">
-
-
-                        <div class="service-image">
-
-                            <img
-                                src="images/team.jpg"
-                                alt="Strip out service"
-                            >
-
-                        </div>
-
-
-                        <div class="service-content">
-
-                            <div class="service-number">
-                                05
-                            </div>
-
-                            <h3>
-                                Strip Outs
-                            </h3>
-
-                            <p>
-
-                                Help clear spaces ready for
-                                renovation, handover or a fresh start.
-
-                            </p>
-
-                        </div>
-
-
-                    </article>
-
-
-
-                    <article class="service-card service-card-special">
-
-
-                        <div>
-
-
-                            <div class="service-number">
-                                NEED A HAND?
-                            </div>
-
-
-                            <h3>
-                                Not sure what you need?
-                            </h3>
-
-
-                            <p>
-
-                                Tell us what you're trying to move
-                                and we'll help work out the best option.
-
-                            </p>
-
-
-                            <a
-                                href="#quote"
-                                class="btn btn-primary"
-                            >
-
-                                Ask Us →
-
-                            </a>
-
-
-                        </div>
-
-
-                    </article>
-
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             PRICING
-        ================================================== -->
-
-        <section
-            class="pricing"
-            id="pricing"
-        >
-
-
-            <div class="container">
-
-
-                <div class="pricing-box">
-
-
-                    <div class="pricing-copy">
-
-
-                        <div class="eyebrow">
-                            Simple pricing
-                        </div>
-
-
-                        <h2>
-                            Know where you stand.
-                        </h2>
-
-
-                        <p>
-
-                            Our removalist services start from
-                            $75 per half hour, with a 3.5-hour
-                            minimum charge.
-
-                        </p>
-
-
-                        <div class="pricing-points">
-
-
-                            <div class="pricing-point">
-                                Wrap and tape included
-                            </div>
-
-
-                            <div class="pricing-point">
-                                Professional removalists
-                            </div>
-
-
-                            <div class="pricing-point">
-                                Furniture dismantling & assembly
-                            </div>
-
-
-                            <div class="pricing-point">
-                                Loading & unloading
-                            </div>
-
-
-                        </div>
-
-
-                    </div>
-
-
-
-                    <div class="price-area">
-
-
-                        <div class="price-label">
-                            Starting from
-                        </div>
-
-
-                        <div class="price">
-
-                            $75
-
-                            <small>
-                                / half hour
-                            </small>
-
-                        </div>
-
-
-                        <p class="price-description">
-
-                            Final pricing depends on the size,
-                            access and requirements of your move.
-                            Get in touch for a quote tailored to you.
-
-                        </p>
-
-
-                        <a
-                            href="#quote"
-                            class="btn btn-primary"
-                        >
-
-                            Get My Quote →
-
-                        </a>
-
-
-                    </div>
-
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             HOW IT WORKS
-        ================================================== -->
-
-        <section
-            class="process"
-            id="how-it-works"
-        >
-
-
-            <div class="container">
-
-
-                <div class="section-heading">
-
-
-                    <div class="eyebrow">
-                        A simple process
-                    </div>
-
-
-                    <h2>
-                        Easy from the first call.
-                    </h2>
-
-
-                    <p>
-
-                        Tell us what you need, and we will make
-                        a plan that gets your move done properly.
-
-                    </p>
-
-
-                </div>
-
-
-
-                <div class="process-grid">
-
-
-                    <div class="process-card">
-
-
-                        <div class="process-number">
-                            01
-                        </div>
-
-
-                        <h3>
-                            Tell us about your move
-                        </h3>
-
-
-                        <p>
-
-                            Send through the basics: locations,
-                            dates, access and the help you need.
-
-                        </p>
-
-
-                    </div>
-
-
-
-                    <div class="process-card">
-
-
-                        <div class="process-number">
-                            02
-                        </div>
-
-
-                        <h3>
-                            Receive your quote
-                        </h3>
-
-
-                        <p>
-
-                            We will come back to you with clear
-                            information and a practical plan.
-
-                        </p>
-
-
-                    </div>
-
-
-
-                    <div class="process-card">
-
-
-                        <div class="process-number">
-                            03
-                        </div>
-
-
-                        <h3>
-                            Move with confidence
-                        </h3>
-
-
-                        <p>
-
-                            Our team arrives ready to make the day
-                            smoother, safer and less stressful.
-
-                        </p>
-
-
-                    </div>
-
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             REVIEWS
-        ================================================== -->
-
-        <section
-            class="reviews"
-            id="reviews"
-        >
-
-
-            <div class="container">
-
-
-                <div class="reviews-heading">
-
-
-                    <div class="eyebrow">
-                        Customer feedback
-                    </div>
-
-
-                    <h2>
-                        Moving is easier when you know you're in good hands.
-                    </h2>
-
-
-                    <div class="google-rating" aria-label="5-star rated on Google">
-
-                        <span class="google-stars">★★★★★</span>
-
-                        <span>5-star rated on Google</span>
-
-                    </div>
-
-
-                </div>
-
-
-
-                <div class="reviews-grid">
-
-
-                    <div class="review-card">
-
-
-                    <div class="review-mark">
-                        “
-                    </div>
-
-
-                    <blockquote>
-
-                        "Efficient, professional and friendly
-                        team. Highly recommend!"
-
-                    </blockquote>
-
-
-                    <div class="review-name">
-                        Antigravity Removals Customer
-                    </div>
-
-
-                    <div class="review-location">
-                        Sydney
-                    </div>
-
-
-                    </div>
-
-
-                    <div class="review-card">
-
-
-                        <div class="review-mark">
-                            “
-                        </div>
-
-
-                        <blockquote>
-
-                            "Great communication, careful service
-                            and a genuinely helpful team from start to finish."
-
-                        </blockquote>
-
-
-                        <div class="review-name">
-                            Antigravity Removals Customer
-                        </div>
-
-
-                        <div class="review-location">
-                            Sydney
-                        </div>
-
-
-                    </div>
-
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             QUOTE
-        ================================================== -->
-
-        <section
-            class="quote-section"
-            id="quote"
-        >
-
-
-            <div class="container quote-wrapper">
-
-
-                <div class="quote-copy">
-
-
-                    <div class="eyebrow">
-                        Get a free quote
-                    </div>
-
-
-                    <h2>
-                        Let’s make your move lighter.
-                    </h2>
-
-
-                    <p>
-                        Tell us a little about your move and we will get back to you with the next steps.
-                    </p>
-
-
-                    <div class="quote-details">
-
-
-                        <div class="quote-detail">
-                            <span class="quote-detail-line"></span>
-                            <div>
-                                <strong>Call us directly</strong>
-                                <span><a href="tel:0422553675">0422 553 675</a></span>
-                            </div>
-                        </div>
-
-
-                        <div class="quote-detail">
-                            <span class="quote-detail-line"></span>
-                            <div>
-                                <strong>Sydney based</strong>
-                                <span>Helping homes and businesses move across Sydney.</span>
-                            </div>
-                        </div>
-
-
-                    </div>
-
-
-                </div>
-
-
-
-                <div class="quote-form-area">
-
-
-                    <form
-                        class="quote-form"
-                        action="#"
-                        method="POST"
-                    >
-
-
-                        <div class="form-row">
-
-
-                            <div class="form-field">
-                                <label for="quote-name">Your name</label>
-                                <input id="quote-name" type="text" name="name" placeholder="Your name" required>
-                            </div>
-
-
-                            <div class="form-field">
-                                <label for="quote-phone">Phone number</label>
-                                <input id="quote-phone" type="tel" name="phone" placeholder="Your phone number" required>
-                            </div>
-
-
-                        </div>
-
-
-                        <div class="form-row">
-
-
-                            <div class="form-field">
-                                <label for="quote-email">Email address</label>
-                                <input id="quote-email" type="email" name="email" placeholder="Your email address" required>
-                            </div>
-
-
-                            <div class="form-field">
-                                <label for="quote-service">What do you need help with?</label>
-                                <select id="quote-service" name="service">
-                                    <option value="">Select a service</option>
-                                    <option>Home move</option>
-                                    <option>Apartment move</option>
-                                    <option>Office or business move</option>
-                                    <option>Packing or unpacking</option>
-                                    <option>Rubbish removal</option>
-                                    <option>Strip-out or clear-out</option>
-                                </select>
-                            </div>
-
-
-                        </div>
-
-
-                        <div class="form-row">
-
-
-                            <div class="form-field">
-                                <label for="quote-pickup">Pickup suburb</label>
-                                <input id="quote-pickup" type="text" name="pickup" placeholder="Where are you moving from?">
-                            </div>
-
-
-                            <div class="form-field">
-                                <label for="quote-destination">Destination suburb</label>
-                                <input id="quote-destination" type="text" name="destination" placeholder="Where are you moving to?">
-                            </div>
-
-
-                        </div>
-
-
-                        <div class="form-field">
-                            <label for="quote-message">Anything else we should know?</label>
-                            <textarea id="quote-message" name="message" placeholder="Moving date, access details, larger items or anything else helpful."></textarea>
-                        </div>
-
-
-                        <button
-                            type="submit"
-                            class="btn btn-primary"
-                        >
-
-                            Request a Free Quote
-                            →
-
-                        </button>
-
-
-                    </form>
-
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-
-
-    </main>
-
-
-
-    <!-- =====================================================
-         FOOTER
-    ===================================================== -->
-
-    <footer>
-
-
-        <div class="container">
-
-
-            <div class="footer-grid">
-
-
-                <div>
-
-
-                    <img
-                        src="images/logo.png"
-                        alt="Antigravity Removals"
-                        class="footer-logo"
-                    >
-
-
-                    <p class="footer-description">
-
-                        Professional Sydney removalists helping
-                        make moving easier, safer and less stressful.
-
-                    </p>
-
-
-                </div>
-
-
-
-                <div>
-
-
-                    <div class="footer-heading">
-                        Services
-                    </div>
-
-
-                    <div class="footer-links">
-
-                        <a href="#services">
-                            Home & Business Moves
-                        </a>
-
-                        <a href="#services">
-                            Packing & Unpacking
-                        </a>
-
-                        <a href="#services">
-                            Dismantling & Assembly
-                        </a>
-
-                        <a href="#services">
-                            Rubbish Removal
-                        </a>
-
-                        <a href="#services">
-                            Strip Outs
-                        </a>
-
-                    </div>
-
-
-                </div>
-
-
-
-                <div>
-
-
-                    <div class="footer-heading">
-                        Contact
-                    </div>
-
-
-                    <div class="footer-links">
-
-                        <a href="tel:0422553675">
-                            0422 553 675
-                        </a>
-
-
-                        <a href="mailto:antigravityremovals@gmail.com">
-                            antigravityremovals@gmail.com
-                        </a>
-
-
-                        <a href="#quote">
-                            Request a Quote
-                        </a>
-
-                    </div>
-
-
-                </div>
-
-
-            </div>
-
-
-
-            <div class="footer-bottom">
-
-
-                <div>
-                    © 2026 Antigravity Removals
-                </div>
-
-
-                <div>
-                    Sydney, NSW
-                </div>
-
-
-            </div>
-
-
-        </div>
-
-    </footer>
-
-
-
-    <!-- =====================================================
-         MOBILE BOTTOM CTA
-    ===================================================== -->
-
-    <div class="mobile-bar">
-
-
-        <a
-            href="tel:0422553675"
-            class="mobile-call"
-        >
-
-            Call Us
-
-        </a>
-
-
-        <a
-            href="#quote"
-            class="mobile-quote"
-        >
-
-            Get a Quote
-
-        </a>
-
-
-    </div>
-
-
-
-    <!-- =====================================================
-         JAVASCRIPT
-    ===================================================== -->
-
-    <script>
-
-
-        const mobileToggle =
-            document.getElementById(
-                "mobileToggle"
-            );
-
-
-        const navLinks =
-            document.getElementById(
-                "navLinks"
-            );
-
-
-        mobileToggle.addEventListener(
-            "click",
-            function () {
-
-                navLinks.classList.toggle(
-                    "active"
-                );
-
+        @media (max-width: 850px) {
+            .dashboard-tip {
+                display: flex;
             }
-        );
-
-
-        document
-            .querySelectorAll(
-                ".nav-links a"
-            )
-            .forEach(
-                function(link) {
-
-                    link.addEventListener(
-                        "click",
-                        function() {
-
-                            navLinks.classList.remove(
-                                "active"
+        }
+        @media (max-width: 680px) {
+            .page-width {
+                width: min(calc(100% - 28px), var(--page-width));
+            }
+            .navigation {
+                min-height: 70px;
+            }
+            .hero {
+                min-height: 600px;
+            }
+            .stat-strip {
+                gap: 8px;
+            }
+            .stat-card {
+                padding: 15px 8px;
+            }
+            .story-card {
+                padding: 16px 18px;
+            }
+            /* Keep the dashboard previews compact on phones. */
+            .tabs-list {
+                gap: 42px;
+            }
+            .tab-row {
+                gap: 20px;
+                display: block;
+            }
+            .tab-row::after {
+                display: block;
+                clear: both;
+                content: "";
+            }
+            .tab-visual {
+                float: right;
+                width: 50%;
+                max-width: 140px;
+                width: 104px;
+                max-width: none;
+                margin: 0 0 12px 18px;
+            }
+            .tab-visual::before {
+                top: -8px;
+                left: -8px;
+            }
+            .tab-visual .mock-topbar {
+                height: 28px;
+                padding: 0 12px;
+            }
+            .tab-visual .mock-body {
+                padding: 14px 12px 16px;
+            }
+            .tab-visual .mock-topbar .mock-title {
+                font-size: 0.56rem;
+            }
+            .regional-summary ul {
+                grid-template-columns: 1fr;
+                gap: 5px;
+                font-size: 0.86rem;
+            }
+            .definition-panel {
+                padding: 32px 26px;
+            }
+            .definition-section,
+            .tabs-section {
+                padding: 75px 0;
+            }
+            .embed-section {
+                padding: 80px 0;
+            }
+            .dashboard-body {
+                padding: 8px;
+            }
+            .dashboard-toolbar {
+                padding: 13px 16px;
+            }
+            .dashboard-label span {
+                display: none;
+            }
+            .dashboard-tip {
+                flex-direction: column;
+                text-align: center;
+            }
+            .group-reminder {
+                flex-direction: column;
+                align-items: center;
+                padding: 26px 22px;
+                text-align: center;
+            }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+            }
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <nav
+            class="navigation page-width"
+            aria-label="Main navigation"
+        >
+            <span class="brand">
+                parkrun <span>World Tourists</span>
+            </span>
+            <a
+                class="navigation-link"
+                href="../../"
+            >
+                Event Insights
+            </a>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="page-width">
+                <div class="hero-grid">
+                    <div class="hero-copy">
+                        <div class="eyebrow">
+                            Interactive Club Insights
+                        </div>
+                        <h1>
+                            Tracking the parkrun
+                            <span>World Tourists.</span>
+                        </h1>
+                        <p class="hero-description">
+                            An interactive Power BI dashboard following the
+                            members of the parkrun World Tourists club,
+                            tracking where they've run, which countries
+                            they've visited, and how the community is
+                            growing week on week.
+                        </p>
+                        <div class="hero-actions">
+                            <a
+                                class="primary-button"
+                                href="#dashboard"
+                            >
+                                Explore the dashboard
+                            </a>
+                            <a
+                                class="secondary-button"
+                                href="#tourist"
+                            >
+                                What's a World Tourist?
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hero-visual reveal">
+                        <div class="mock-card">
+                            <div class="mock-topbar">
+                                <span class="mock-dot"></span>
+                                <span class="mock-dot"></span>
+                                <span class="mock-dot"></span>
+                                <span class="mock-title">parkrun World Tourists</span>
+                            </div>
+                            <div class="mock-chip">Updates weekly</div>
+                            <div class="mock-body">
+                                <svg
+                                    viewBox="0 0 420 300"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    style="width: 100%; height: auto; display: block;"
+                                >
+                                    <circle cx="150" cy="140" r="96" style="fill: rgba(28,46,64,0.06);" />
+                                    <circle cx="150" cy="140" r="96" style="fill: none; stroke: rgba(28,46,64,0.16); stroke-width: 1.5;" />
+                                    <ellipse cx="150" cy="140" rx="96" ry="34" style="fill: none; stroke: rgba(28,46,64,0.14); stroke-width: 1.2;" />
+                                    <ellipse cx="150" cy="140" rx="96" ry="70" style="fill: none; stroke: rgba(28,46,64,0.1); stroke-width: 1.2;" />
+                                    <path d="M150 44 V236" style="stroke: rgba(28,46,64,0.14); stroke-width: 1.2;" />
+                                    <circle cx="112" cy="98" r="7" style="fill: var(--tourist);" />
+                                    <circle cx="188" cy="122" r="10" style="fill: var(--forest-dark);" />
+                                    <circle cx="96" cy="168" r="5" style="fill: var(--tourist-dark);" />
+                                    <circle cx="176" cy="180" r="6" style="fill: var(--forest);" />
+                                    <circle cx="140" cy="86" r="4" style="fill: var(--tourist-light);" />
+                                    <circle cx="204" cy="160" r="4" style="fill: var(--tourist);" />
+                                    <g style="opacity: 0.9;">
+                                        <rect x="270" y="188" width="22" height="48" rx="5" style="fill: var(--stone);" />
+                                        <rect x="300" y="160" width="22" height="76" rx="5" style="fill: var(--tourist-light);" />
+                                        <rect x="330" y="128" width="22" height="108" rx="5" style="fill: var(--tourist);" />
+                                        <rect x="360" y="96" width="22" height="140" rx="5" style="fill: var(--forest-dark);" />
+                                    </g>
+                                    <path
+                                        d="M270 176 L300 148 L330 118 L360 84"
+                                        style="fill: none; stroke: var(--tourist-dark); stroke-width: 3; stroke-linecap: round;"
+                                    />
+                                    <circle cx="360" cy="84" r="5" style="fill: var(--tourist-dark);" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="hero-badge">
+                            <span class="hero-badge-icon">
+                                <svg
+                                    width="18"
+                                    height="18"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <circle cx="14.5" cy="4.5" r="2.2" fill="#1c2e40" />
+                                    <path
+                                        d="M10 8L14 9.5L13 13L16.5 14.5L15.5 19M14 9.5L10.5 12L7 11M13 13L9.5 15L5.5 19"
+                                        stroke="#1c2e40"
+                                        stroke-width="1.6"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    />
+                                </svg>
+                            </span>
+                            <span>5km · every Saturday</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section
+            class="definition-section"
+            id="tourist"
+        >
+            <div class="page-width">
+                <div class="section-heading reveal">
+                    <div class="eyebrow">
+                        What is a World Tourist?
+                    </div>
+                    <h2>
+                        Tourists across the globe.
+                    </h2>
+                    <p>
+                        parkrun runs free, weekly 5km events in more than
+                        20 countries across five continents. This club is
+                        for the ones who've chased that stamp collection
+                        furthest.
+                    </p>
+                </div>
+                <div class="definition-panel reveal">
+                    <div class="definition-stamp">
+                        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="4" width="18" height="16" rx="2" stroke="#b97e42" stroke-width="1.3" />
+                            <circle cx="9" cy="10.5" r="2.4" stroke="#b97e42" stroke-width="1.1" />
+                            <path d="M6 16.5C7 14.5 11 14.5 12 16.5" stroke="#b97e42" stroke-width="1.1" stroke-linecap="round" />
+                            <path d="M14.5 9H18.5M14.5 12H18.5M14.5 15H16.5" stroke="#b97e42" stroke-width="1" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <div class="eyebrow">
+                        The definition
+                    </div>
+                    <p>
+                        This group is for like-minded parkrun tourists who
+                        have completed at least one parkrun in each of
+                        FOUR (4) parkrun countries, as listed on
+                        parkrun.com/countries.
+                    </p>
+                    <p>
+                        England, Wales, Scotland and Northern Ireland all
+                        count as part of the UK for this definition, so
+                        they aren't treated as four separate countries on
+                        their own.
+                    </p>
+                </div>
+                <div class="group-reminder reveal">
+                    <div class="group-reminder-icon">
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                        </svg>
+                    </div>
+                    <div class="group-reminder-body">
+                        <strong>Want to be counted in this dashboard?</strong>
+                        <p>
+                            If you want to be included in this dashboard,
+                            <a
+                                href="https://www.parkrun.com/signin/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >sign into your profile here</a> and add the
+                            following to one of your groups (you can have
+                            up to 5 clubs): <strong>parkrun World
+                            Tourist</strong>.
+                        </p>
+                        <a
+                            class="group-reminder-link"
+                            href="https://www.parkrun.com/signin/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Sign in and add your group
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <path d="M5 12h14"></path>
+                                <path d="m13 6 6 6-6 6"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section
+            class="insights-section"
+            id="insights"
+        >
+            <div class="page-width">
+                <div class="section-heading reveal">
+                    <div class="eyebrow">
+                        This week's stories
+                    </div>
+                    <h2>
+                        The tourists, in a few sentences.
+                    </h2>
+                    <p id="insightsSubheading">
+                        This week, the parkrun World Tourists made the name feel very literal.
+                    </p>
+                </div>
+                <div
+                    class="stat-strip reveal"
+                    id="statStrip"
+                    aria-live="polite"
+                >
+                    <div class="stat-card">
+                        <strong>926</strong>
+                        <span>Tourists</span>
+                    </div>
+                    <div class="stat-card">
+                        <strong>22</strong>
+                        <span>Countries</span>
+                    </div>
+                    <div class="stat-card">
+                        <strong>564</strong>
+                        <span>Events</span>
+                    </div>
+                </div>
+                <div
+                    class="stories"
+                    id="storyList"
+                    aria-live="polite"
+                >
+                    <p class="insights-paragraph">
+                        Across 22 countries and five continents, 926 club
+                        members took part in their local parkrun
+                        communities this week. 852 of them crossed a
+                        finish line at 564 different events, while another
+                        254 volunteered.
+                    </p>
+                    <article class="story-card">
+                        <span class="story-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"/><path d="M3.6 9h16.8"/><path d="M3.6 15h16.8"/><path d="M11.5 3a17 17 0 0 0 0 18"/><path d="M12.5 3a17 17 0 0 1 0 18"/>
+                            </svg>
+                        </span>
+                        <div class="regional-summary">
+                            <span class="story-label">Around the world</span>
+                            <ul>
+                                <li><strong>Europe:</strong> 595 results</li>
+                                <li><strong>Oceania:</strong> 164 results</li>
+                                <li><strong>Africa:</strong> 58 results</li>
+                                <li><strong>North America:</strong> 27 results</li>
+                                <li><strong>Asia:</strong> 8 results</li>
+                            </ul>
+                        </div>
+                    </article>
+                    <p class="insights-paragraph">
+                        But the loveliest number might be 393: that's how
+                        many parkruns had just one World Tourist result on
+                        the finish list. A single tourist at a new event
+                        still counts as a tiny expedition. One person,
+                        one barcode, one very determined dot on the map.
+                        At the other end of the spectrum, Queensway
+                        parkrun turned into the week's unofficial
+                        clubhouse with 17 tourists, trailed by Jeskyns
+                        Community Woodland (12) and the gloriously named
+                        Y Promenâd, Llandrillo-yn-Rhos (11).
+                    </p>
+                    <p class="insights-paragraph">
+                        So where did everyone go? Which countries were
+                        most widely explored, and which events attracted
+                        a little World Tourist crowd? Dive into the
+                        dashboard below to follow the flags, explore the
+                        map and find the stories behind every bubble.
+                    </p>
+                </div>
+                <p class="insights-note reveal">
+                    Prefer charts? The full interactive dashboard is
+                    further down the page, or
+                    <a href="#dashboard">jump straight there</a>.
+                </p>
+            </div>
+        </section>
+        <section class="tabs-section">
+            <div class="page-width">
+                <div class="section-heading reveal">
+                    <div class="eyebrow">
+                        How it works
+                    </div>
+                    <h2>
+                        A quick tour of the dashboard
+                    </h2>
+                    <p>
+                        The dashboard is split across three tabs, each
+                        built to be explored rather than just read. Click
+                        around and the data responds.
+                    </p>
+                </div>
+                <div class="tabs-list">
+                    <article class="tab-row reveal">
+                        <div class="tab-visual">
+                            <div class="mock-card">
+                                <div class="mock-topbar">
+                                    <span class="mock-dot"></span>
+                                    <span class="mock-dot"></span>
+                                    <span class="mock-dot"></span>
+                                    <span class="mock-title">Global Overview</span>
+                                </div>
+                                <div class="mock-body">
+                                    <svg
+                                        viewBox="0 0 420 260"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        style="width: 100%; height: auto; display: block;"
+                                    >
+                                        <rect x="0" y="0" width="420" height="260" rx="14" style="fill: var(--stone-light);" />
+                                        <path d="M20 90 Q100 40 180 85 T340 70" style="fill: none; stroke: rgba(28,46,64,0.14); stroke-width: 1.4;" />
+                                        <path d="M10 160 Q120 130 220 165 T400 150" style="fill: none; stroke: rgba(28,46,64,0.1); stroke-width: 1.2;" />
+                                        <path d="M30 210 Q140 190 240 215 T410 205" style="fill: none; stroke: rgba(28,46,64,0.08); stroke-width: 1.2;" />
+                                        <circle cx="88" cy="82" r="10" style="fill: var(--tourist);" />
+                                        <circle cx="150" cy="118" r="6" style="fill: var(--forest-dark);" />
+                                        <circle cx="210" cy="70" r="8" style="fill: var(--tourist-dark);" />
+                                        <circle cx="270" cy="140" r="14" style="fill: var(--forest);" />
+                                        <circle cx="320" cy="95" r="6" style="fill: var(--tourist-light);" />
+                                        <circle cx="120" cy="175" r="5" style="fill: var(--tourist);" />
+                                        <circle cx="350" cy="170" r="9" style="fill: var(--tourist-dark);" />
+                                        <circle cx="270" cy="140" r="24" style="fill: none; stroke: var(--tourist); stroke-width: 1.5; opacity: 0.6;" />
+                                        <circle cx="270" cy="140" r="34" style="fill: none; stroke: var(--tourist); stroke-width: 1; opacity: 0.35;" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-copy">
+                            <div class="tab-number">01</div>
+                            <h3>Global Overview</h3>
+                            <p>
+                                A live world map plotting every event
+                                visited this week, alongside total members,
+                                weekly participants and the volunteer-to-
+                                parkrunner split.
+                            </p>
+                            <div class="interactivity-note">
+                                <span class="note-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6 3L18 12L12 13.5L14.5 19.5L11.5 21L9 15L5 18.5L6 3Z" fill="#c9a15a" stroke="#1c2e40" stroke-width="1.1" stroke-linejoin="round" />
+                                    </svg>
+                                </span>
+                                <span>
+                                    <strong>Try it:</strong> hover over any
+                                    bubble on the map to see which event it
+                                    represents and how many World Tourists
+                                    turned up.
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="tab-row reveal">
+                        <div class="tab-visual">
+                            <div class="mock-card">
+                                <div class="mock-topbar">
+                                    <span class="mock-dot"></span>
+                                    <span class="mock-dot"></span>
+                                    <span class="mock-dot"></span>
+                                    <span class="mock-title">Member</span>
+                                    <span class="mock-title">Members</span>
+                                </div>
+                                <div class="mock-body">
+                                    <svg
+                                        viewBox="0 0 420 260"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        style="width: 100%; height: auto; display: block;"
+                                    >
+                                        <rect x="0" y="0" width="420" height="260" rx="14" style="fill: var(--stone-light);" />
+                                        <rect x="18" y="20" width="26" height="18" rx="3" style="fill: var(--tourist);" />
+                                        <rect x="52" y="20" width="26" height="18" rx="3" style="fill: var(--forest-dark);" />
+                                        <rect x="86" y="20" width="26" height="18" rx="3" style="fill: var(--tourist-dark);" />
+                                        <rect x="120" y="20" width="26" height="18" rx="3" style="fill: var(--forest);" />
+                                        <rect x="154" y="20" width="26" height="18" rx="3" style="fill: var(--tourist-light);" />
+                                        <rect x="188" y="20" width="26" height="18" rx="3" style="fill: var(--stone);" />
+                                        <rect x="222" y="20" width="26" height="18" rx="3" style="fill: var(--tourist);" />
+                                        <rect x="256" y="20" width="26" height="18" rx="3" style="fill: var(--forest-dark);" />
+                                        <g style="opacity: 0.9;">
+                                            <rect x="18" y="66" width="384" height="26" rx="6" style="fill: var(--white);" />
+                                            <rect x="30" y="75" width="14" height="8" rx="2" style="fill: var(--tourist);" />
+                                            <rect x="54" y="75" width="120" height="8" rx="4" style="fill: var(--border);" />
+                                            <rect x="320" y="75" width="50" height="8" rx="4" style="fill: var(--border);" />
+                                            <rect x="18" y="100" width="384" height="26" rx="6" style="fill: var(--white);" />
+                                            <rect x="30" y="109" width="14" height="8" rx="2" style="fill: var(--forest-dark);" />
+                                            <rect x="54" y="109" width="150" height="8" rx="4" style="fill: var(--border);" />
+                                            <rect x="320" y="109" width="50" height="8" rx="4" style="fill: var(--border);" />
+                                            <rect x="18" y="134" width="384" height="26" rx="6" style="fill: var(--white);" />
+                                            <rect x="30" y="143" width="14" height="8" rx="2" style="fill: var(--tourist-dark);" />
+                                            <rect x="54" y="143" width="100" height="8" rx="4" style="fill: var(--border);" />
+                                            <rect x="320" y="143" width="50" height="8" rx="4" style="fill: var(--border);" />
+                                            <rect x="18" y="168" width="384" height="26" rx="6" style="fill: var(--white);" />
+                                            <rect x="30" y="177" width="14" height="8" rx="2" style="fill: var(--forest);" />
+                                            <rect x="54" y="177" width="135" height="8" rx="4" style="fill: var(--border);" />
+                                            <rect x="320" y="177" width="50" height="8" rx="4" style="fill: var(--border);" />
+                                            <rect x="18" y="202" width="384" height="26" rx="6" style="fill: var(--white); opacity: 0.6;" />
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-copy">
+                            <div class="tab-number">02</div>
+                            <h3>Member</h3>
+                            <h3>Members</h3>
+                            <p>
+                                A full breakdown of every parkrunner's
+                                result for the week: country, event, time
+                                and finishing position, plus a ranked
+                                list of the most visited events.
+                            </p>
+                            <div class="interactivity-note">
+                                <span class="note-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6 3V21" stroke="#1c2e40" stroke-width="1.6" stroke-linecap="round" />
+                                        <path d="M6 4C9 2.5 11 5.5 14 4C16 3 17.5 4 19 4.5V13C17.5 12.5 16 11.5 14 12.5C11 14 9 11 6 12.5V4Z" fill="#c9a15a" stroke="#1c2e40" stroke-width="1" stroke-linejoin="round" />
+                                    </svg>
+                                </span>
+                                <span>
+                                    <strong>Try it:</strong> click a
+                                    country flag to filter the whole table
+                                    down to just that country's results.
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="tab-row reveal">
+                        <div class="tab-visual">
+                            <div class="mock-card">
+                                <div class="mock-topbar">
+                                    <span class="mock-dot"></span>
+                                    <span class="mock-dot"></span>
+                                    <span class="mock-dot"></span>
+                                    <span class="mock-title">Weekly Trends</span>
+                                </div>
+                                <div class="mock-body">
+                                    <svg
+                                        viewBox="0 0 420 260"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        style="width: 100%; height: auto; display: block;"
+                                    >
+                                        <rect x="0" y="0" width="420" height="260" rx="14" style="fill: var(--stone-light);" />
+                                        <g>
+                                            <rect x="26" y="150" width="20" height="70" rx="4" style="fill: var(--stone);" />
+                                            <rect x="58" y="130" width="20" height="90" rx="4" style="fill: var(--tourist-light);" />
+                                            <rect x="90" y="150" width="20" height="70" rx="4" style="fill: var(--stone);" />
+                                            <rect x="122" y="118" width="20" height="102" rx="4" style="fill: var(--tourist-light);" />
+                                            <rect x="154" y="108" width="20" height="112" rx="4" style="fill: var(--tourist);" />
+                                            <rect x="186" y="94" width="20" height="126" rx="4" style="fill: var(--tourist);" />
+                                            <rect x="218" y="150" width="20" height="70" rx="4" style="fill: var(--stone);" />
+                                            <rect x="250" y="86" width="20" height="134" rx="4" style="fill: var(--tourist-dark);" />
+                                            <rect x="282" y="74" width="20" height="146" rx="4" style="fill: var(--tourist-dark);" />
+                                            <rect x="314" y="150" width="20" height="70" rx="4" style="fill: var(--stone);" />
+                                            <rect x="346" y="60" width="20" height="160" rx="4" style="fill: var(--forest-dark);" />
+                                            <rect x="378" y="50" width="20" height="170" rx="4" style="fill: var(--forest-dark);" />
+                                        </g>
+                                        <path
+                                            d="M36 190 L68 172 L100 190 L132 158 L164 148 L196 130 L228 190 L260 122 L292 108 L324 190 L356 92 L388 78"
+                                            style="fill: none; stroke: var(--forest); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; opacity: 0.75;"
+                                        />
+                                        <circle cx="388" cy="78" r="5" style="fill: var(--forest);" />
+                                        <path
+                                            d="M40 40 L50 30 L60 40 M50 30 V52"
+                                            style="fill: none; stroke: var(--tourist-dark); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round;"
+                                        />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-copy">
+                            <div class="tab-number">03</div>
+                            <h3>Weekly Trends</h3>
+                            <p>
+                                Tracks the club's growth over time:
+                                registered members, weekly participation,
+                                countries visited and engagement rate, all
+                                on a rolling date range.
+                            </p>
+                            <div class="interactivity-note">
+                                <span class="note-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="4" y="5.5" width="16" height="15" rx="2.5" fill="#c9a15a" stroke="#1c2e40" stroke-width="1.1" />
+                                        <path d="M4 10H20" stroke="#1c2e40" stroke-width="1.1" />
+                                        <path d="M8 3.5V7M16 3.5V7" stroke="#1c2e40" stroke-width="1.3" stroke-linecap="round" />
+                                    </svg>
+                                </span>
+                                <span>
+                                    <strong>Try it:</strong> adjust the
+                                    date range selectors to zoom in on a
+                                    specific stretch of weeks and watch
+                                    every chart update together.
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section
+            class="embed-section"
+            id="dashboard"
+        >
+            <div class="page-width">
+                <div class="embed-heading reveal">
+                    <div class="eyebrow">
+                        Live dashboard
+                    </div>
+                    <h2>
+                        Explore it for yourself
+                    </h2>
+                    <p>
+                        This is the live, interactive dashboard. Hover the
+                        map, click a flag, drag the date range. It updates
+                        weekly with the latest World Tourist activity.
+                    </p>
+                </div>
+                <div class="dashboard-shell reveal">
+                    <div class="dashboard-toolbar">
+                        <div class="dashboard-label">
+                            <span
+                                class="dashboard-status"
+                                aria-hidden="true"
+                            ></span>
+                            <div>
+                                <strong>Interactive Power BI dashboard</strong>
+                                <span>parkrun World Tourists</span>
+                            </div>
+                        </div>
+                        <div
+                            class="dashboard-decoration"
+                            aria-hidden="true"
+                        >
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="dashboard-body">
+                        <div class="embed-frame-inner">
+                            <iframe
+                                title="parkrun World Tourists"
+                                src="https://app.powerbi.com/view?r=eyJrIjoiYWI0NGQwN2MtMDUxMi00MmMxLTkxYTEtZjcxOTE4MTRjZDUzIiwidCI6ImFkNWEwYmM3LWM4YjMtNDMzNC04NzNlLWJkODQ1NzMxMGIzZSJ9"
+                                allowfullscreen
+                            ></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-tip reveal">
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path d="M8 3h8a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"></path>
+                        <path d="M9 18h6"></path>
+                    </svg>
+                    <p>
+                        <strong>Tip:</strong>
+                        For the best experience on mobile, rotate your phone
+                        to landscape before exploring the dashboard.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="page-width site-footer-content">
+            <p>
+                Data with Andrea is made with ❤️ in Brisbane, Australia
+            </p>
+            <p>
+                <a href="https://datawithandrea.com.au">
+                    Data with Andrea
+                </a>
+                &nbsp;·&nbsp;
+                <a
+                    href="https://parkrun.datawithandrea.com.au"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Event Insights
+                </a>
+            </p>
+            <p style="opacity: 0.6; font-size: 0.72rem;">
+                This dashboard is an independent project and is not
+                affiliated with, sponsored by or endorsed by parkrun.
+            </p>
+        </div>
+    </footer>
+    <script>
+        const revealElements =
+            document.querySelectorAll(".reveal");
+        const revealObserver =
+            new IntersectionObserver(
+                (entries, observer) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add(
+                                "visible"
                             );
-
+                            observer.unobserve(
+                                entry.target
+                            );
                         }
-                    );
-
+                    });
+                },
+                {
+                    threshold: 0.12
                 }
             );
-
-
+        revealElements.forEach((element) => {
+            revealObserver.observe(element);
+        });
+        // ---- This week's stories (insights.json) ----
+        //
+        // The section above already contains this week's insights as
+        // static, hand-written HTML. If insights.json is published and
+        // reachable, it will be used to refresh the numbers and short
+        // story list automatically (for future weeks once the
+        // generate_insights.py pipeline is live). If the fetch fails —
+        // which is the current state, since insights.json isn't being
+        // served yet — the static content already in the page is left
+        // exactly as it is.
+        const STORY_ICONS = {
+            milestone: '<path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10v4a5 5 0 0 1-10 0V4Z"/><path d="M7 6H5a2 2 0 0 1 0-4h2"/><path d="M17 6h2a2 2 0 0 0 0-4h-2"/>',
+            new_country: '<circle cx="12" cy="12" r="9"/><path d="M3.6 9h16.8"/><path d="M3.6 15h16.8"/><path d="M11.5 3a17 17 0 0 0 0 18"/><path d="M12.5 3a17 17 0 0 1 0 18"/>',
+            pb: '<path d="M6 3L18 12L12 13.5L14.5 19.5L11.5 21L9 15L5 18.5L6 3Z"/>',
+            distance: '<path d="M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12Z"/><circle cx="12" cy="9" r="2.4"/>'
+        };
+        const STORY_LABELS = {
+            milestone: "Milestone",
+            new_country: "New country",
+            pb: "Personal best",
+            distance: "Furthest travelled"
+        };
+        function iconFor(type) {
+            return STORY_ICONS[type] || STORY_ICONS.milestone;
+        }
+        function labelFor(type) {
+            return STORY_LABELS[type] || "Story";
+        }
+        function formatWeekEnding(isoDate) {
+            try {
+                const d = new Date(isoDate + "T00:00:00");
+                return d.toLocaleDateString(undefined, {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric"
+                });
+            } catch (e) {
+                return isoDate;
+            }
+        }
+        async function loadInsights() {
+            const statStrip = document.getElementById("statStrip");
+            const storyList = document.getElementById("storyList");
+            const subheading = document.getElementById("insightsSubheading");
+            try {
+                const response = await fetch("insights.json", { cache: "no-store" });
+                if (!response.ok) {
+                    throw new Error("insights.json not found");
+                }
+                const data = await response.json();
+                subheading.textContent =
+                    "Results from " + formatWeekEnding(data.week_ending) + ".";
+                const stats = [
+                    { value: data.headline.tourist_count, label: "Tourists" },
+                    { value: data.headline.country_count, label: "Countries" },
+                    { value: data.headline.event_count, label: "Events" }
+                ];
+                statStrip.innerHTML = stats
+                    .map(
+                        (s) => `
+                        <div class="stat-card">
+                            <strong>${s.value}</strong>
+                            <span>${s.label}</span>
+                        </div>
+                    `
+                    )
+                    .join("");
+                if (!data.stories || data.stories.length === 0) {
+                    storyList.innerHTML =
+                        '<div class="insights-status">No standout stories flagged this week — check back next Saturday.</div>';
+                    return;
+                }
+                storyList.innerHTML = data.stories
+                    .map(
+                        (story) => `
+                        <article class="story-card">
+                            <span class="story-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    ${iconFor(story.type)}
+                                </svg>
+                            </span>
+                            <p>
+                                <span class="story-label">${labelFor(story.type)}</span>
+                                ${story.text}
+                            </p>
+                        </article>
+                    `
+                    )
+                    .join("");
+            } catch (error) {
+                // insights.json isn't live yet — keep the static
+                // fallback content already rendered in the page rather
+                // than overwriting it with a "check back soon" message.
+            }
+        }
+        loadInsights();
     </script>
-
-
 </body>
-
 </html>
